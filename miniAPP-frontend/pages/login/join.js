@@ -1,6 +1,6 @@
 // pages/login/login.js
 Page({
-  
+
   /**
    * 页面的初始数据
    */
@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
@@ -64,10 +64,10 @@ Page({
 
   },
 
-  bindGetUserInfo: function(res) {
+  bindGetUserInfo: function (res) {
     let info = res;
     console.log(info);
-    if(info.detail.userInfo) {
+    if (info.detail.userInfo) {
       console.log("点击了同意授权");
       wx.login({
         success: function (res) {
@@ -102,6 +102,5 @@ Page({
       console.log("点击了拒绝授权");
     }
   },
-  
-})
 
+})
