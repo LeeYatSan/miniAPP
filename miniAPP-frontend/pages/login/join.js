@@ -76,6 +76,10 @@ Page({
               url: 'http://localhost:8081',
               data: {
                 code: res.code,
+                nickName: info.detail.userInfo.nickName,
+                city: info.detail.userInfo.city,
+                province: info.detail.userInfo.province,
+                avatarUrl: info.detail.userInfo.avatarUrl
               },
               header: {
                 'content-type': 'application/json' // 默认值
