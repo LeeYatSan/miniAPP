@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 <view>
-<button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo"> 授权登录</button>
+<button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="doLogin"> 授权登录</button>
 </view>
+=======
+=======
+>>>>>>> 105b22e7179ed6441ab6b9cf2a808efdb82101f7
+<view wx:if="{{canIUse}}">
+  <view class='welcom'>欢迎来到知识清单</view>
+  <!-- <view class='welcom1'>WELCOME</view> -->
+  <!-- <view class='header'>
+    <image src='/timg.jpeg'></image>
+  </view> -->
+  <button class='bottom' open-type="getUserInfo" lang="zh_CN"       bindgetuserinfo="bindGetUserInfo"> 授权登录</button>
+  </view>
+<view wx:else>请升级微信版本</view>
+<<<<<<< HEAD
+>>>>>>> 105b22e7179ed6441ab6b9cf2a808efdb82101f7
+=======
+>>>>>>> 105b22e7179ed6441ab6b9cf2a808efdb82101f7
