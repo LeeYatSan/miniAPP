@@ -73,16 +73,17 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
-              url: 'http://localhost:8081',
+              url: 'http://localhost:8081/onLogin',
+              method:'POST',
               data: {
-                code: res.code,
-                nickName: info.detail.userInfo.nickName,
-                city: info.detail.userInfo.city,
-                province: info.detail.userInfo.province,
-                avatarUrl: info.detail.userInfo.avatarUrl
+                code: res.code
+                // nickName: info.detail.userInfo.nickName,
+                // city: info.detail.userInfo.city,
+                // province: info.detail.userInfo.province,
+                // avatarUrl: info.detail.userInfo.avatarUrl
               },
               header: {
-                'content-type': 'application/json' // 默认值
+                "Content-Type": "application/x-www-form-urlencoded" // 默认值
               },
               success: function (res) {
                 var userinfo = {};

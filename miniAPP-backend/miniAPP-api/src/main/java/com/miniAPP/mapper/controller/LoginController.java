@@ -19,6 +19,7 @@ public class LoginController extends BasicController{
     @ApiImplicitParam(name = "code", value = "wx-code", required = true, dataType = "String", paramType = "query")
     @PostMapping("/onLogin")
     public JSONResult doLogin(String code) throws Exception{
+
         //1. 判断用户名和用户ID必须不为空
         if(code == null)
             return JSONResult.errorMsg("FAIL TO GET USER INFO");
