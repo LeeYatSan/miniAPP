@@ -3,6 +3,15 @@
   margin-left: 80rpx;
   margin-top: 100rpx; 
   font-size: 55rpx;
+  color: #4D4D4D
+}
+
+.cat{
+  margin-left: 80rpx; 
+  font-size: 55rpx; 
+  background: linear-gradient(to right,#fda085,#F6d365);        
+  -webkit-background-clip: text;        
+  color: transparent;
 }
 
 /* .welcom1{
@@ -23,6 +32,12 @@
   margin-left: 80rpx;
   margin-right: 80rpx;
   font-size: 35rpx;
-  background-color: #F8CC46;
+  /* background-color: #F8CC46; */
+  /* background: -webkit-linear-gradient(left,#F8CC46,#FFEC8B); */
+  background: -webkit-linear-gradient(left,#fda085,#F6d365);
   color: white;
+}
+
+.bottom::after{
+  border: none;
 }
