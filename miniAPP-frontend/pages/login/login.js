@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    urlpath: "http://localhost:8081"
   },
 
   /**
@@ -73,7 +74,7 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
-              url: 'http://localhost:8081/onLogin',
+              url: this.data.urlpath + 'onLogin',
               method:'POST',
               data: {
                 code: res.code
