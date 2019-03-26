@@ -2,132 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/Code.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/DayCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/Id.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/IdWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/InvalidSystemClock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/RandomCodeStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/Sid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/WorkerIdStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/strategy/DayPrefixRandomCodeStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/strategy/DefaultRandomCodeStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/strategy/DefaultWorkerIdStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/strategy/FileLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/HttpReq.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/IPv4Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/Ip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/Props.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/Serializes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/miniAPP-common/src/main/java/org/n3r/idworker/utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.factorypath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_alibaba_druid_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_alibaba_druid_spring_boot_starter_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__javax_persistence_persistence_api_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_21.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_log4j_1_3_8_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_aop_4_3_8_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_beans_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_context_4_3_8_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_core_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_expression_4_3_8_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_springframework_spring_tx_4_3_10_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__tk_mybatis_mapper_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__tk_mybatis_mapper_spring_boot_autoconfigure_1_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/libraries/Maven__tk_mybatis_mapper_spring_boot_starter_1_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.settings/org.eclipse.jdt.apt.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/.springBeans" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/utils/MyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/META-INF/mybatis-generatorConfig.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/com/miniAPP/mybatis/utils/GeneratorDisplay.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/com/miniAPP/utils/MyMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/mybatis-generatorConfig-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/mybatis-generatorConfig-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/mapper/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/mapper/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/mapper/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/mapper/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/miniAPP-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/miniAPP-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/classes/com/miniAPP/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/classes/com/miniAPP/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/miniAPP-pojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/miniAPP-pojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -149,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
-              <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+            <state relative-caret-position="527">
+              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,26 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+            <state relative-caret-position="150">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -205,6 +62,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -250,7 +112,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1680" />
+    <option name="width" value="834" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -259,6 +121,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,8 +139,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,7 +150,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553568633463" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553568880010" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -338,6 +200,8 @@
       <list>
         <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Spring Boot.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -354,16 +218,23 @@
       <workItem from="1552470933328" duration="259000" />
       <workItem from="1553100555948" duration="5316000" />
     </task>
+    <task id="LOCAL-00001" summary="login 有bug">
+      <created>1553568655820</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553568655820</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22000000" />
+    <option name="totallyTimeSpent" value="22244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -400,6 +271,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="login 有bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="login 有bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/JSONResult.java">
@@ -505,6 +380,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -519,13 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -535,8 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+        <state relative-caret-position="527">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
