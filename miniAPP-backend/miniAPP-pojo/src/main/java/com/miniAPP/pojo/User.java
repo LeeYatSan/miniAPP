@@ -3,9 +3,7 @@ package com.miniAPP.pojo;
 public class User {
     private String id;
 
-    private String username;
-
-    private String profile;
+    private String openid;
 
     /**
      * @return id
@@ -22,30 +20,16 @@ public class User {
     }
 
     /**
-     * @return username
+     * @return openid
      */
-    public String getUsername() {
-        return username;
+    public String getOpenid() {
+        return openid;
     }
 
     /**
-     * @param username
+     * @param openid
      */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * @return profile
-     */
-    public String getProfile() {
-        return profile;
-    }
-
-    /**
-     * @param profile
-     */
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setOpenid(String openid) {
+        this.openid = openid;
     }
 }

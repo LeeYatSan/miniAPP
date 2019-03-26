@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$USER_HOME$/Desktop/mybatis-generatorConfig/pom.xml" />
+        <option value="$PROJECT_DIR$/../mybatis-generatorConfig/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" />
       </list>
     </option>
   </component>

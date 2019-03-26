@@ -1,0 +1,10 @@
+<view wx:if="{{canIUse}}">
+  <view class='welcom'>欢迎来到</view>
+  <text class='cat'>橘喵记忆</text>
+  <!-- <view class='welcom1'>WELCOME</view> -->
+  <!-- <view class='header'>
+    <image src='/logo.jpeg'></image>
+  </view> -->
+  <button class='bottom' open-type="getUserInfo" lang="zh_CN"       bindgetuserinfo="bindGetUserInfo"> 授权登录</button>
+  </view>
+<view wx:else>请升级微信版本</view>
