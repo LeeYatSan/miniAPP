@@ -6,7 +6,6 @@
       WARNING - @mbg.generated
     -->
     <result column="id" jdbcType="VARCHAR" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="profile" jdbcType="VARCHAR" property="profile" />
+    <result column="openid" jdbcType="VARCHAR" property="openid" />
   </resultMap>
 </mapper>

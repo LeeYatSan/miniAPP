@@ -7,7 +7,17 @@ public interface UserService {
     /**
      * @Description: 判断用户名是否存在
      */
-    boolean queryUsernameIsExist(String username);
+    boolean queryOpenidIsExist(String openid);
+
+//    /**
+//     * @Description: 查找用户信息
+//     */
+//    boolean queryUserInfo(String userID);
+//
+//    /**
+//     * @Description: 更新用户信息
+//     */
+//    boolean updateUserInfo(String userID);
 
     /**
      * @Description: 保存用户信息

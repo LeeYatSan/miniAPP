@@ -11,6 +11,7 @@
         <module name="miniAPP-mapper" />
         <module name="miniAPP-pojo" />
         <module name="miniAPP-service" />
+        <module name="mybatis-generatorConfig" />
       </profile>
     </annotationProcessing>
   </component>
