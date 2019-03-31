@@ -66,6 +66,7 @@ Page({
   },
 
   bindGetUserInfo: function(res) {
+    var that = this;
     let info = res;
     console.log(info);
     if(info.detail.userInfo) {
@@ -74,8 +75,12 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
+<<<<<<< HEAD
               url: this.data.urlpath + '/onLogin',
               // url:'http://localhost:8081/onLogin',
+=======
+              url: that.data.urlpath + 'onLogin',
+>>>>>>> b36b3619fdb8a20bd836dfd463b749dacaf376aa
               method:'POST',
               data: {
                 code: res.code
