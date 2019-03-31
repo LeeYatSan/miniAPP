@@ -14,8 +14,5 @@
         <module name="mybatis-generatorConfig" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="mybatis-generatorConfig" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

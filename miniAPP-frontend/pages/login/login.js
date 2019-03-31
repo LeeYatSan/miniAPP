@@ -74,7 +74,8 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
-              url: this.data.urlpath + 'onLogin',
+              url: this.data.urlpath + '/onLogin',
+              // url:'http://localhost:8081/onLogin',
               method:'POST',
               data: {
                 code: res.code
