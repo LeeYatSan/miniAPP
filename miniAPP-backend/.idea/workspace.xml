@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="386">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,20 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="98">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -73,18 +67,20 @@
       <list>
         <option value="$PROJECT_DIR$/../mybatis-generatorConfig/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/../mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/miniAPP-service/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java" />
-        <option value="$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java" />
         <option value="$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java" />
-        <option value="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java" />
+        <option value="$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java" />
         <option value="$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miniAPP/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java" />
+        <option value="$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties" />
       </list>
     </option>
   </component>
@@ -121,14 +117,83 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
@@ -150,7 +215,8 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553568880010" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554192090488" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/miniAPP/mapper" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -159,14 +225,18 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.miniAPP.mapper" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.miniAPP.pojo" />
       <recent name="com.miniAPP.mapper" />
+      <recent name="com.miniAPP.pojo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -182,7 +252,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="GeneratorDisplay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.miniAPP.mybatis.utils.GeneratorDisplay" />
+      <module name="mybatis-generatorConfig" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.miniAPP.mybatis.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="miniAPP-api" />
       <extension name="coverage">
@@ -199,6 +282,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.GeneratorDisplay" />
         <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Spring Boot.Application" />
@@ -217,6 +301,8 @@
       <updated>1552470932135</updated>
       <workItem from="1552470933328" duration="259000" />
       <workItem from="1553100555948" duration="5316000" />
+      <workItem from="1553961401655" duration="117000" />
+      <workItem from="1554003081705" duration="272000" />
     </task>
     <task id="LOCAL-00001" summary="login 有bug">
       <created>1553568655820</created>
@@ -225,16 +311,23 @@
       <option name="project" value="LOCAL" />
       <updated>1553568655820</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="/onLogin ✅">
+      <created>1553960568668</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553960568668</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22244000" />
+    <option name="totallyTimeSpent" value="27485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16605617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -242,10 +335,11 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Image Layers" order="7" />
+      <window_info anchor="bottom" id="JProfiler" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -254,13 +348,13 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32959184" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.17460318" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.08424909" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" />
@@ -274,7 +368,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login 有bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="login 有bug" />
+    <MESSAGE value="/onLogin ✅" />
+    <option name="LAST_COMMIT_MESSAGE" value="/onLogin ✅" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/JSONResult.java">
@@ -284,7 +379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
     <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/JsonUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -294,15 +388,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/n3r/idworker/DayCode.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/n3r/idworker/Code.java" />
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-pojo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/n3r/idworker/Sid.java" />
     <entry file="file://$PROJECT_DIR$/miniAPP-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -321,23 +406,6 @@
     <entry file="file://$PROJECT_DIR$/miniAPP-mapper/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="106" column="20" lean-forward="true" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -352,41 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -394,27 +427,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml">
+    <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/miniAPP/mybatis/utils/GeneratorDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/generator/mybatis-generator-core/1.3.2/mybatis-generator-core-1.3.2.jar!/org/mybatis/generator/config/xml/ConfigurationParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="52" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="405">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="675">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/MyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-pojo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/HttpClientUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-609">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/mybatis-generatorConfig.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/RedisOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1649">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
         </state>
       </provider>
     </entry>

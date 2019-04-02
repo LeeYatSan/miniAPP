@@ -27,8 +27,6 @@ public class LoginController extends BasicController{
     @PostMapping("/onLogin")
     public JSONResult doLogin(String code) throws Exception{
 
-        System.out.println("test+++++++++");
-
         //1. 判断是否成功接收code
         if(code == null)
             return JSONResult.errorMsg("FAIL TO GET USER INFO");
