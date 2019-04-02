@@ -1,5 +1,7 @@
 package com.miniAPP.pojo;
 
+import javax.persistence.*;
+
 public class User {
     private String id;
 
