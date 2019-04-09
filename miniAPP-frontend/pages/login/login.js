@@ -9,7 +9,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    urlPath: app.globalData.urlpath,
+    urlPath: app.globalData.urlPath,
   },
 
   /**
