@@ -6,8 +6,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    //urlpath: "http://localhost:8081"
-    urlpath: "http://134.175.11.69:8080/client"
+    urlpath: "http://localhost:8081"
   },
 
   /**
