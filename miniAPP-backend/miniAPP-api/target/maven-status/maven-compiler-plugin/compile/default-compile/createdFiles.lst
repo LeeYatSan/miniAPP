@@ -1,4 +1,5 @@
-com/miniAPP/mapper/controller/BasicController.class
-com/miniAPP/mapper/controller/LoginController.class
-com/miniAPP/mapper/Application.class
-com/miniAPP/mapper/Swagger2.class
+com/miniAPP/Application.class
+com/miniAPP/WarStartApplication.class
+com/miniAPP/controller/BasicController.class
+com/miniAPP/controller/LoginController.class
+com/miniAPP/Swagger2.class

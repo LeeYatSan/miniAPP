@@ -6,7 +6,9 @@
 
     <groupId>com.miniAPP</groupId>
     <artifactId>miniAPP-dev</artifactId>
+    <!--默认-->
     <packaging>pom</packaging>
+    <!--<packaging>war</packaging>-->
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>miniAPP-common</module>
@@ -43,6 +45,13 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!--添加打包成war包的依赖-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- 引入log4j日志依赖 -->

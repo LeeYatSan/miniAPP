@@ -1,4 +1,5 @@
-/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/mapper/Swagger2.java
-/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/mapper/Application.java
-/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/LoginController.java
-/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/mapper/controller/BasicController.java
+/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/Application.java
+/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/controller/BasicController.java
+/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/WarStartApplication.java
+/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/Swagger2.java
+/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/miniAPP-api/src/main/java/com/miniAPP/controller/LoginController.java
