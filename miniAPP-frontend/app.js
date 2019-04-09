@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    urlPath: "http://134.175.11.69:8080/client"
   }
 })

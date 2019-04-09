@@ -1,4 +1,7 @@
 // pages/login/login.js
+
+const app=getApp()
+
 Page({
 
   /**
@@ -6,7 +9,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    urlpath: "http://localhost:8081"
+    urlPath: app.globalData.urlpath,
   },
 
   /**
@@ -75,7 +78,7 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
-              url: that.data.urlpath + '/onLogin',
+              url: that.data.urlPath + '/onLogin',
               method: 'POST',
               data: {
                 code: res.code
