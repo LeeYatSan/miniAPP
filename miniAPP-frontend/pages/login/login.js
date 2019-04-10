@@ -78,7 +78,7 @@ Page({
         success: function (res) {
           if (res.code) {
             wx.request({
-              url: that.data.urlPath + '/onLogin',
+              url: that.data.urlPath,
               method: 'POST',
               data: {
                 code: res.code
