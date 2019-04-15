@@ -13,23 +13,29 @@
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://134.175.11.69:3306/OrangeCat?useSSL=false"
-                        userId="root"
-                        password="OrangeCat@2019">
+                        connectionURL="jdbc:mysql://localhost:3306/felis_recall_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
+                        userId="developer"
+                        password="developer">
         </jdbcConnection>
 
         <!-- 对应生成的pojo所在包 -->
         <javaModelGenerator targetPackage="com.miniAPP.pojo" targetProject="src/main/java"/>
 
 		<!-- 对应生成的mapper所在目录 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-api/src/main/resources"/>
 
 		<!-- 配置mapper对应的java映射 -->
         <javaClientGenerator targetPackage="com.miniAPP.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
 
-		<table tableName="user"></table>
-		 
+		<table tableName="fr_user_login"></table>
+		<!--<table tableName="fr_user_register_info"></table>-->
+		<!--<table tableName="fr_user_login_logs"></table>-->
+		<!--<table tableName="fr_user_info"></table>-->
+		<!--<table tableName="fr_card"></table>-->
+		<!--<table tableName="fr_label"></table>-->
+		<!--<table tableName="fr_label_map"></table>-->
+
     </context>
 </generatorConfiguration>

@@ -1,6 +1,6 @@
 package com.miniAPP.controller;
 
-import com.miniAPP.pojo.User;
+import com.miniAPP.pojo.FrUserLogin;
 import com.miniAPP.service.UserService;
 import com.miniAPP.utils.*;
 import io.swagger.annotations.Api;
@@ -43,14 +43,20 @@ public class LoginController extends BasicController{
         WXSessionModel model = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
 
         //3. 检查用户是否存在
-        boolean userOpenIDISExist = userService.queryOpenidIsExist(model.getOpenid());
+        boolean userIsExist = userService.queryOpenidIsExist(model.getOpenid());
 
-        //4. 保存用户信息
-        if(!userOpenIDISExist){
-            User user = new User();
-            user.setOpenid(model.getOpenid());
-            userService.saveUser(user);
+        //4. 如果用户不存在，则自动注册并保存用户信息以及登录信息
+        FrUserLogin userLogin = new FrUserLogin();
+        userLogin.setUserOpenid(model.getOpenid());
+        userLogin.setUserState(1);
+        String userID;
+        if(!userIsExist){
+            userID = userService.saveUser(userLogin);
         }
+        else{
+            userID = userService.queryUserID(model.getOpenid());
+        }
+        userService.userLoginRec(userID);
 
         //5. 将session存入redis
         if(redis.get(USER_REDIS_SESSION+":"+model.getOpenid()) == null)
@@ -64,6 +70,7 @@ public class LoginController extends BasicController{
     @ApiImplicitParam(name = "openid", value = "openid", required = true, dataType = "String", paramType = "query")
     @PostMapping("/onLogout")
     public JSONResult doLogout(String openid) throws Exception{
+        userService.userLogout(userService.queryUserID(openid));
         redis.del(USER_REDIS_SESSION + ":" + openid);
         return JSONResult.ok();
     }

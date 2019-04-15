@@ -18,7 +18,7 @@ public class GeneratorDisplay {
 		boolean overwrite = true;
 		//指定 逆向工程配置文件
 		//File configFile = new File("generatorConfig.xml");
-		File configFile = new File("/Users/leeyat-san/Documents/WeChat Mini APP/miniAPP/miniAPP-backend/mybatis-generatorConfig/generatorConfig.xml");
+		File configFile = new File("/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/mybatis-generatorConfig/generatorConfig.xml");
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
