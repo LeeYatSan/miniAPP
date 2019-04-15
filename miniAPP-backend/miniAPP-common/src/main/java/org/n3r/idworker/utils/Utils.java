@@ -89,7 +89,7 @@ public class Utils {
     }
 
     // all un-clearly-recognized letters are skiped.
-    static String defaultRange = "0123456789ABCDFGHKMNPRSTWXYZ";
+    static String defaultRange = "0123456789";
 
     public static String padLeft(String str, int size, char padChar) {
         if (str.length() >= size) return str;

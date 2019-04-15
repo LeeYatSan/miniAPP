@@ -1,5 +1,5 @@
 com/miniAPP/Application.class
+com/miniAPP/Swagger2.class
 com/miniAPP/WarStartApplication.class
 com/miniAPP/controller/BasicController.class
 com/miniAPP/controller/LoginController.class
-com/miniAPP/Swagger2.class
