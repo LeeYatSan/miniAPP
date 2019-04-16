@@ -11,4 +11,13 @@ public class BasicController {
     protected RedisOperator redis;
 
     public static final String USER_REDIS_SESSION = "user-redis-session";
+
+    public static final String INVALID_SESSION_TOKEN = "Invalid session token";
+
+    /**
+     * 检查用户session合法性
+     */
+    protected boolean sessionTokenIsValid(String userID, String sessionToken){
+        return sessionToken.equals(redis.get(USER_REDIS_SESSION+":"+userID));
+    }
 }

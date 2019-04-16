@@ -1,12 +1,9 @@
 package com.miniAPP.controller;
 
 import com.miniAPP.pojo.FrUserLogin;
-import com.miniAPP.pojo.VO.UserVO;
 import com.miniAPP.service.UserService;
 import com.miniAPP.utils.*;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,17 +13,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@Api(value = "Login/Logout - 登录/注销API")
+@Api(value = "登录态管理API", tags = {"Login/Logout/Register Controller"})
 public class LoginController extends BasicController{
 
 
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "登录", notes = "登录API")
+    @ApiOperation(value = "重新登录/注册", notes = "重新登录/注册API")
     @ApiImplicitParam(name = "code", value = "wx-code", required = true, dataType = "String", paramType = "query")
-    @PostMapping("/onLogin")
-    public JSONResult doLogin(String code) throws Exception{
+    @ApiResponses({ @ApiResponse(code = 500, message = "Invalid wx.request"), @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/onRegister")
+    public JSONResult doRegister(String code) throws Exception{
 
         //1. 判断是否成功接收code
         if(code == null)
@@ -57,24 +55,56 @@ public class LoginController extends BasicController{
         else{
             userID = userService.queryUserID(model.getOpenid());
         }
+        //用户登录信息记录
         userService.userLoginRec(userID);
 
-        //5. 将session存入redis
-        redis.set(USER_REDIS_SESSION+":"+model.getOpenid(), model.getSession_key(), 1000*60*60*24);
-
+        //5. 建立session token
+        String sessionToken = MD5Utils.getMD5Str(model.getSession_key());
+        redis.set(USER_REDIS_SESSION+":"+userID, sessionToken);
 
         //6.返回用户信息JSON
-        return JSONResult.ok(userService.queryUserInfo(userID));
+        return JSONResult.ok(userService.queryUserInfo(userID, sessionToken));
     }
 
 
+    @ApiOperation(value = "登录", notes = "登录API")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/onLogin")
+    public JSONResult doLogin(String userID, String sessionToken) throws Exception{
+
+        //session token 有效
+        if(sessionTokenIsValid(userID, sessionToken)){
+            //用户登录信息记录
+            userService.userLoginRec(userID);
+
+            //返回用户信息JSON
+            return JSONResult.ok(userService.queryUserInfo(userID, sessionToken));
+        }
+        // session token 无效
+        else{
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+    }
+
 
     @ApiOperation(value = "注销", notes = "注销API")
-    @ApiImplicitParam(name = "openid", value = "openid", required = true, dataType = "String", paramType = "query")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/onLogout")
-    public JSONResult doLogout(String openid) throws Exception{
-        userService.userLogout(userService.queryUserID(openid));
-        redis.del(USER_REDIS_SESSION + ":" + openid);
-        return JSONResult.ok();
+    public JSONResult doLogout(String userID, String sessionToken) throws Exception{
+
+        //session token 有效
+        if(sessionTokenIsValid(userID, sessionToken)){
+            userService.userLogout(userID);
+            redis.del(USER_REDIS_SESSION + ":" + userID);
+            return JSONResult.ok();
+        }
+        // session token 无效
+        else{
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
     }
 }

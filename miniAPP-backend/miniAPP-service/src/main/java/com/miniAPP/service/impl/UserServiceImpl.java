@@ -59,11 +59,12 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public UserVO queryUserInfo(String userID){
+    public UserVO queryUserInfo(String userID, String sessionToken){
         FrUserLogin userLogin = new FrUserLogin();
         FrUserInfo userInfo = new FrUserInfo();
         UserVO userVO = new UserVO();
         userVO.setID(userID);
+        userVO.setSessionToken(sessionToken);
         userLogin.setUserId(userID);
         userInfo.setUserId(userID);
         userLogin = userLoginMapper.selectOne(userLogin);

@@ -21,6 +21,7 @@ org/n3r/idworker/utils/HttpReq.class
 org/n3r/idworker/utils/Props.class
 org/n3r/idworker/utils/Utils.class
 org/n3r/idworker/utils/Props$Silent.class
+com/miniAPP/utils/MD5Utils.class
 org/n3r/idworker/strategy/FileLock.class
 org/n3r/idworker/strategy/DayPrefixRandomCodeStrategy.class
 org/n3r/idworker/Id.class

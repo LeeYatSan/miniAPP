@@ -1,12 +1,20 @@
 package com.miniAPP.pojo.VO;
 
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value = "用户对象", description = "后台返回的用户信息")
 public class UserVO {
 
     /**
      * User Felis-Recall ID
      */
     private String ID;
+
+    /**
+     * User Session Token
+     */
+    private String SessionToken;
 
     /**
      * User state
@@ -37,6 +45,10 @@ public class UserVO {
     public void setID(String ID) {
         this.ID = ID;
     }
+
+    public String getSessionToken() { return SessionToken; }
+
+    public void setSessionToken(String sessionToken) { SessionToken = sessionToken; }
 
     public Integer getState() {
         return state;

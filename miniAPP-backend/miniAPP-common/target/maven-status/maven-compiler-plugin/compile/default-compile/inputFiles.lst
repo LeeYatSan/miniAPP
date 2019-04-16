@@ -19,6 +19,7 @@
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/org/n3r/idworker/strategy/DefaultRandomCodeStrategy.java
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/org/n3r/idworker/strategy/FileLock.java
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/com/miniAPP/utils/HttpClientUtil.java
+/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/com/miniAPP/utils/MD5Utils.java
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/org/n3r/idworker/Id.java
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/org/n3r/idworker/Test.java
 /Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-common/src/main/java/org/n3r/idworker/RandomCodeStrategy.java

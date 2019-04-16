@@ -23,7 +23,7 @@ public interface UserService {
      * @Description: 查找用户信息
      * @param userID
      */
-    UserVO queryUserInfo(String userID);
+    UserVO queryUserInfo(String userID, String sessionToken);
 
 
 //    /**
