@@ -19,22 +19,22 @@
         </jdbcConnection>
 
         <!-- 对应生成的pojo所在包 -->
-        <javaModelGenerator targetPackage="com.miniAPP.pojo" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.miniAPP.pojo" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-pojo/src/main/java/com/miniAPP/pojo"/>
 
 		<!-- 对应生成的mapper所在目录 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-api/src/main/resources"/>
 
 		<!-- 配置mapper对应的java映射 -->
-        <javaClientGenerator targetPackage="com.miniAPP.mapper" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.miniAPP.mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-mapper/src/main/java/com/miniAPP/mapper"
                              type="XMLMAPPER"/>
 
 
-		<table tableName="fr_user_login"></table>
+		<!--<table tableName="fr_user_login"></table>-->
 		<!--<table tableName="fr_user_register_info"></table>-->
 		<!--<table tableName="fr_user_login_logs"></table>-->
 		<!--<table tableName="fr_user_info"></table>-->
 		<!--<table tableName="fr_card"></table>-->
-		<!--<table tableName="fr_label"></table>-->
+		<table tableName="fr_label"></table>
 		<!--<table tableName="fr_label_map"></table>-->
 
     </context>

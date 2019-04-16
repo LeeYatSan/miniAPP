@@ -1,6 +1,7 @@
 package com.miniAPP.controller;
 
 import com.miniAPP.pojo.FrUserLogin;
+import com.miniAPP.pojo.VO.UserVO;
 import com.miniAPP.service.UserService;
 import com.miniAPP.utils.*;
 import io.swagger.annotations.Api;
@@ -59,9 +60,11 @@ public class LoginController extends BasicController{
         userService.userLoginRec(userID);
 
         //5. 将session存入redis
-        if(redis.get(USER_REDIS_SESSION+":"+model.getOpenid()) == null)
-            redis.set(USER_REDIS_SESSION+":"+model.getOpenid(), model.getSession_key(), 1000*60*60*24);
-        return JSONResult.ok(code);
+        redis.set(USER_REDIS_SESSION+":"+model.getOpenid(), model.getSession_key(), 1000*60*60*24);
+
+
+        //6.返回用户信息JSON
+        return JSONResult.ok(userService.queryUserInfo(userID));
     }
 
 

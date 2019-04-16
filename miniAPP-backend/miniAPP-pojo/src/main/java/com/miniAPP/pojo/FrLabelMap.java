@@ -1,12 +1,17 @@
 package com.miniAPP.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
+@ApiModel(value = "LabelMap", description = "用户标签映射表")
 @Table(name = "fr_label_map")
 public class FrLabelMap {
     /**
      * label map ID
      */
+    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "label_map_id")
     private Integer labelMapId;
@@ -14,12 +19,14 @@ public class FrLabelMap {
     /**
      * card ID
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "card_id")
     private String cardId;
 
     /**
      * label ID
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "label_id")
     private Integer labelId;
 

@@ -1,13 +1,18 @@
 package com.miniAPP.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 import javax.persistence.*;
 
+@ApiModel(value = "Card", description = "用户卡片表")
 @Table(name = "fr_card")
 public class FrCard {
     /**
      * card ID
      */
+    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "card_id")
     private String cardId;
@@ -15,46 +20,56 @@ public class FrCard {
     /**
      * user ID
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "user_id")
     private String userId;
 
     /**
      * creare time
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "create_time")
     private Date createTime;
 
     /**
      * least modified time
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "modified_time")
     private Date modifiedTime;
 
     /**
      * remember time counter and when it is not a positive number, it means user forget it
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "remember_times")
     private Integer rememberTimes;
 
     /**
      * title
      */
+    @ApiModelProperty(value="标题", name="title", example="Felis Recall Example")
+    @Column(name = "title")
     private String title;
 
     /**
      * the number of label: no more than 3
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "label_num")
     private Integer labelNum;
 
     /**
      * content
      */
+    @ApiModelProperty(value="内容", name="content", example="(Please Input the text)")
+    @Column(name = "content")
     private String content;
 
     /**
      * picture url
      */
+    @ApiModelProperty(value="图片URL", name="picture URL", example="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png")
     @Column(name = "pic_url")
     private String picUrl;
 

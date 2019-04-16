@@ -1,13 +1,18 @@
 package com.miniAPP.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 import javax.persistence.*;
 
+@ApiModel(value = "UserLogin", description = "用户登录信息表")
 @Table(name = "fr_user_login")
 public class FrUserLogin {
     /**
      * user ID
      */
+    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "user_id")
     private String userId;
@@ -15,18 +20,21 @@ public class FrUserLogin {
     /**
      * user WeChar openid
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "user_openid")
     private String userOpenid;
 
     /**
      * user state: 0 -> offline  1 -> online
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "user_state")
     private Integer userState;
 
     /**
      * last login time
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "last_login_time")
     private Date lastLoginTime;
 

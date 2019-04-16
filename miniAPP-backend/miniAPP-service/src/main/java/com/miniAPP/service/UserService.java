@@ -1,6 +1,7 @@
 package com.miniAPP.service;
 
 import com.miniAPP.pojo.FrUserLogin;
+import com.miniAPP.pojo.VO.UserVO;
 
 public interface UserService {
 
@@ -16,6 +17,13 @@ public interface UserService {
      * @param openid
      */
     String queryUserID(String openid);
+
+
+    /**
+     * @Description: 查找用户信息
+     * @param userID
+     */
+    UserVO queryUserInfo(String userID);
 
 
 //    /**

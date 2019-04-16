@@ -8,6 +8,7 @@ import com.miniAPP.pojo.FrUserInfo;
 import com.miniAPP.pojo.FrUserLogin;
 import com.miniAPP.pojo.FrUserLoginLogs;
 import com.miniAPP.pojo.FrUserRegisterInfo;
+import com.miniAPP.pojo.VO.UserVO;
 import com.miniAPP.service.UserService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,26 @@ public class UserServiceImpl implements UserService {
         return userLoginMapper.selectOne(user).getUserId();
     }
 
+
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public UserVO queryUserInfo(String userID){
+        FrUserLogin userLogin = new FrUserLogin();
+        FrUserInfo userInfo = new FrUserInfo();
+        UserVO userVO = new UserVO();
+        userVO.setID(userID);
+        userLogin.setUserId(userID);
+        userInfo.setUserId(userID);
+        userLogin = userLoginMapper.selectOne(userLogin);
+        userInfo = userInfoMapper.selectOne(userInfo);
+        userVO.setState(userLogin.getUserState());
+        userVO.setLoginDays(userInfo.getLoginDays());
+        userVO.setTotalCards(userInfo.getTotalCards());
+        userVO.setForgetCards(userInfo.getForgetCards());
+        return userVO;
+    }
+
 //    @Transactional(propagation = Propagation.SUPPORTS)
 //    @Override
 //    public boolean queryUserInfo(String userID){
@@ -97,9 +118,6 @@ public class UserServiceImpl implements UserService {
         userLogin = userLoginMapper.selectOne(userLogin);
         userInfo.setUserId(userID);
         userInfo = userInfoMapper.selectOne(userInfo);
-
-        //System.out.println("========= userId: " + userInfo.getUserId() + "  login days: " + userInfo.getLoginDays() +  " ===========");
-
 
         Calendar lastLoginDate = Calendar.getInstance();
         Calendar currentDate = Calendar.getInstance();

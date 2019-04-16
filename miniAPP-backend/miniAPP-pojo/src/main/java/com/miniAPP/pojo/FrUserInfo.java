@@ -1,12 +1,17 @@
 package com.miniAPP.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
+@ApiModel(value = "UserInfo", description = "用户信息表")
 @Table(name = "fr_user_info")
 public class FrUserInfo {
     /**
      * user ID
      */
+    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "user_id")
     private String userId;
@@ -14,18 +19,21 @@ public class FrUserInfo {
     /**
      * login days
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "login_days")
     private Integer loginDays;
 
     /**
      * total cards number
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "total_cards")
     private Integer totalCards;
 
     /**
      * forgeting cards number
      */
+    @ApiModelProperty(hidden=true)
     @Column(name = "forget_cards")
     private Integer forgetCards;
 
