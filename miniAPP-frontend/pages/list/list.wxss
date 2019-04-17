@@ -1,0 +1,12 @@
+/* pages/list/list.wxss */
+.list{
+  background: #fff;
+  width: 80%;
+  margin: 30rpx auto;
+  position: relative;
+}
+.picker{
+  border: 1px solid #e2e2e2;
+  background: white;
+  font-size: 16px;
+}
