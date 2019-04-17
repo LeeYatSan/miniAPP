@@ -6,28 +6,62 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
     // 获取用户信息
     wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+      success: function (data) {
+        if (data.authSetting["scope.userInfo"]) {
           wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+            success: function (data) {
+              console.log("用户已经授权")
+              wx.checkSession({
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+                success: function (res) {
+                  console.log('session')
+                  //未过期
+                  var app = getApp();
+                  console.log(app.globalData.userID);
+                  console.log(app.globalData.sessionToken);
+                  wx.request({
+                    url: app.globalData.urlPath + '/onLogin',
+                    data: {
+                      userID: app.globalData.userID,
+                      sessionToken: app.globalData.sessionToken
+                    },
+                    header: {
+                      "Content-Type": "application/x-www-form-urlencoded"  // 默认值
+                    },
+                    success: function (res) {
+                      console.log(res)
+                      wx.switchTab({
+                        url: '/pages/list/list',
+                      })
+                    },
+                    fail:function(res){
+                      wx.redirectTo({
+                        url: '/page/login/login'
+                      })
+                    }
+                  })
+                },
+                fail: function (res) {
+                  wx.redirectTo({
+                    url: '/page/login/login'
+                  })
+                  // 登录
+                  wx.login({
+                    success: res => {
+                      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                    }
+                  })
+                }
+              })
             }
+          })
+        }
+        else{
+          console.log('未授权')
+          wx.redirectTo({
+            url: '/pages/login/login',
           })
         }
       }
@@ -35,6 +69,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    urlPath: "http://134.175.11.69:8080/client"
-  }
+    urlPath: "http://134.175.11.69:8080/client",
+    userID: null,
+    sessionToken: null
+  },
 })
