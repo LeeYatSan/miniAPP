@@ -1,13 +1,20 @@
 /* pages/login/login.wxss */
+
 .welcom{
-  margin-left: 80rpx;
-  margin-top: 100rpx; 
+  margin-left: 100rpx;
+  margin-top: 150rpx; 
   font-size: 55rpx;
   color: #4D4D4D
 }
-
+.logo{
+  width:  280rpx; 
+  height:  280rpx; 
+  border-radius:  50rpx; 
+  margin-left: 400rpx; 
+  margin-top:  -180rpx; 
+}
 .cat{
-  margin-left: 80rpx; 
+  margin-left: 100rpx; 
   font-size: 55rpx; 
   background: linear-gradient(to right,#fda085,#F6d365);        
   -webkit-background-clip: text;        
