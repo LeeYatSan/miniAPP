@@ -17,7 +17,7 @@ public class BasicController {
     /**
      * 检查用户session合法性
      */
-    protected boolean sessionTokenIsValid(String userID, String sessionToken){
+    protected boolean sessionTokenIsValid(Long userID, String sessionToken){
         return sessionToken.equals(redis.get(USER_REDIS_SESSION+":"+userID));
     }
 }

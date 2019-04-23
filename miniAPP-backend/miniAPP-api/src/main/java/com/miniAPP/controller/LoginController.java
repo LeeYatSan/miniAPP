@@ -47,8 +47,8 @@ public class LoginController extends BasicController{
         //4. 如果用户不存在，则自动注册并保存用户信息以及登录信息
         FrUserLogin userLogin = new FrUserLogin();
         userLogin.setUserOpenid(model.getOpenid());
-        userLogin.setUserState(1);
-        String userID;
+        userLogin.setUserState(true);
+        Long userID;
         if(!userIsExist){
             userID = userService.saveUser(userLogin);
         }
@@ -72,7 +72,7 @@ public class LoginController extends BasicController{
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/onLogin")
-    public JSONResult doLogin(String userID, String sessionToken) throws Exception{
+    public JSONResult doLogin(Long userID, String sessionToken) throws Exception{
 
         //session token 有效
         if(sessionTokenIsValid(userID, sessionToken)){
@@ -94,7 +94,7 @@ public class LoginController extends BasicController{
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/onLogout")
-    public JSONResult doLogout(String userID, String sessionToken) throws Exception{
+    public JSONResult doLogout(Long userID, String sessionToken) throws Exception{
 
         //session token 有效
         if(sessionTokenIsValid(userID, sessionToken)){

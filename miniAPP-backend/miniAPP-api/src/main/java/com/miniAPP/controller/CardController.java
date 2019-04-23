@@ -39,7 +39,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByUserID")
-    public JSONResult getAllCardsByUserID(String userID, String sessionToken){
+    public JSONResult getAllCardsByUserID(Long userID, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
         }
@@ -54,7 +54,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllLablesByUserID")
-    public JSONResult getAllLabelsByUserID(String userID, String sessionToken){
+    public JSONResult getAllLabelsByUserID(Long userID, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
         }
@@ -70,7 +70,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByLabel")
-    public JSONResult getAllCardsByLabel(String userID, String labelContent, String sessionToken){
+    public JSONResult getAllCardsByLabel(Long userID, String labelContent, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
         }
@@ -86,7 +86,7 @@ public class CardController extends BasicController {
 
         //得到符合要求的卡片ID。通过标签ID。fr_label_Map(label_map_id, card_id, label_id)
         FrLabelMap labelMap=new FrLabelMap();
-        List<String> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
+        List<Long> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
         for(FrLabel l: labels) {
             labelMap.setLabelId(l.getLabelId());
             List<FrLabelMap> labelMaps=labelMapMapper.select(labelMap);
@@ -96,7 +96,7 @@ public class CardController extends BasicController {
         //得到符合要求的卡片。通过卡片ID。fr_card(...)
         FrCard card=new FrCard();
         List<FrCard> cards=new ArrayList<>(); //存放符合要求的用户的所有卡片
-        for(String s: cardIDs){
+        for(Long s: cardIDs){
             card.setCardId(s);
             cards.addAll(cardMapper.select(card));
         }
@@ -111,14 +111,14 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/saveCard")
-    public JSONResult saveCard(String userID, FrCard card, String labelContent, String sessionToken){
+    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
         }
 
         String[] labelContents=labelContent.split(" ");
         card.setLabelNum(labelContents.length);
-        String cardID=cardService.saveCard(card);
+        Long cardID=cardService.saveCard(card);
         cardService.saveLabel(userID ,cardID, labelContents);
 
         return JSONResult.ok();
