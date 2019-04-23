@@ -1,17 +1,12 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
 
-@ApiModel(value = "Label", description = "标签表")
 @Table(name = "fr_label")
 public class FrLabel {
     /**
      * label ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "label_id")
     private Integer labelId;
@@ -19,14 +14,12 @@ public class FrLabel {
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * label content
      */
-    @ApiModelProperty(value = "标签内容", name = "label content", example = "General", required = true)
     @Column(name = "label_content")
     private String labelContent;
 
@@ -53,7 +46,7 @@ public class FrLabel {
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -62,7 +55,7 @@ public class FrLabel {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

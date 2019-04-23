@@ -1,75 +1,66 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 import javax.persistence.*;
 
-@ApiModel(value = "Card", description = "用户卡片表")
 @Table(name = "fr_card")
 public class FrCard {
     /**
      * card ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "card_id")
-    private String cardId;
+    private Long cardId;
 
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * creare time
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "create_time")
     private Date createTime;
 
     /**
-     * least modified time
+     * last remember time
      */
-    @ApiModelProperty(hidden=true)
-    @Column(name = "modified_time")
-    private Date modifiedTime;
+    @Column(name = "last_remember_time")
+    private Date lastRememberTime;
+
+    /**
+     * next pushing time
+     */
+    @Column(name = "next_time")
+    private Date nextTime;
 
     /**
      * remember time counter and when it is not a positive number, it means user forget it
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "remember_times")
     private Integer rememberTimes;
 
     /**
      * title
      */
-    @ApiModelProperty(value="标题", name="title", example="Felis Recall Example")
-    @Column(name = "title")
     private String title;
 
     /**
      * the number of label: no more than 3
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "label_num")
     private Integer labelNum;
 
     /**
      * content
      */
-    @ApiModelProperty(value="内容", name="content", example="(Please Input the text)")
-    @Column(name = "content")
     private String content;
 
     /**
      * picture url
      */
-    @ApiModelProperty(value="图片URL", name="picture URL", example="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png")
     @Column(name = "pic_url")
     private String picUrl;
 
@@ -78,7 +69,7 @@ public class FrCard {
      *
      * @return card_id - card ID
      */
-    public String getCardId() {
+    public Long getCardId() {
         return cardId;
     }
 
@@ -87,7 +78,7 @@ public class FrCard {
      *
      * @param cardId card ID
      */
-    public void setCardId(String cardId) {
+    public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
 
@@ -96,7 +87,7 @@ public class FrCard {
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -105,7 +96,7 @@ public class FrCard {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -128,21 +119,39 @@ public class FrCard {
     }
 
     /**
-     * 获取least modified time
+     * 获取last remember time
      *
-     * @return modified_time - least modified time
+     * @return last_remember_time - last remember time
      */
-    public Date getModifiedTime() {
-        return modifiedTime;
+    public Date getLastRememberTime() {
+        return lastRememberTime;
     }
 
     /**
-     * 设置least modified time
+     * 设置last remember time
      *
-     * @param modifiedTime least modified time
+     * @param lastRememberTime last remember time
      */
-    public void setModifiedTime(Date modifiedTime) {
-        this.modifiedTime = modifiedTime;
+    public void setLastRememberTime(Date lastRememberTime) {
+        this.lastRememberTime = lastRememberTime;
+    }
+
+    /**
+     * 获取next pushing time
+     *
+     * @return next_time - next pushing time
+     */
+    public Date getNextTime() {
+        return nextTime;
+    }
+
+    /**
+     * 设置next pushing time
+     *
+     * @param nextTime next pushing time
+     */
+    public void setNextTime(Date nextTime) {
+        this.nextTime = nextTime;
     }
 
     /**

@@ -1,48 +1,46 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
 
-@ApiModel(value = "UserInfo", description = "用户信息表")
 @Table(name = "fr_user_info")
 public class FrUserInfo {
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * login days
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "login_days")
     private Integer loginDays;
 
     /**
      * total cards number
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "total_cards")
     private Integer totalCards;
 
     /**
      * forgeting cards number
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "forget_cards")
     private Integer forgetCards;
+
+    /**
+     * push frequency
+     */
+    @Column(name = "push_frequency")
+    private Byte pushFrequency;
 
     /**
      * 获取user ID
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -51,7 +49,7 @@ public class FrUserInfo {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -107,5 +105,23 @@ public class FrUserInfo {
      */
     public void setForgetCards(Integer forgetCards) {
         this.forgetCards = forgetCards;
+    }
+
+    /**
+     * 获取push frequency
+     *
+     * @return push_frequency - push frequency
+     */
+    public Byte getPushFrequency() {
+        return pushFrequency;
+    }
+
+    /**
+     * 设置push frequency
+     *
+     * @param pushFrequency push frequency
+     */
+    public void setPushFrequency(Byte pushFrequency) {
+        this.pushFrequency = pushFrequency;
     }
 }

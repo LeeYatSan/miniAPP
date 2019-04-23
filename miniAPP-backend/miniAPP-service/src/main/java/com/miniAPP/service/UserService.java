@@ -16,14 +16,14 @@ public interface UserService {
      * @Description: 查找用户ID
      * @param openid
      */
-    String queryUserID(String openid);
+    Long queryUserID(String openid);
 
 
     /**
      * @Description: 查找用户信息
      * @param userID
      */
-    UserVO queryUserInfo(String userID, String sessionToken);
+    UserVO queryUserInfo(Long userID, String sessionToken);
 
 
 //    /**
@@ -41,19 +41,24 @@ public interface UserService {
      * @Description: 保存用户信息
      * @param userLogin
      */
-    String saveUser(FrUserLogin userLogin);
+    Long saveUser(FrUserLogin userLogin);
 
 
     /**
      * @Description: 用户登录记录
      * @param userID
      */
-    void userLoginRec(String userID);
+    void userLoginRec(Long userID);
 
 
     /**
      * @Description: 用户注销
      * @param userID
      */
-    void userLogout(String userID);
+    void userLogout(Long userID);
+
+    /**
+     * @Description: 生成用户ID
+     */
+    Long generateUserID();
 }

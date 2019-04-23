@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-
 @Service
 public class CardServiceImpl implements CardService {
 
@@ -33,10 +30,17 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public String saveCard(FrCard c){
+    public Long saveCard(FrCard c){
         FrCard card=new FrCard();
-        String cardId = sid.nextShort();
+
+        //[更改]cardID = userID + （5位total_cards+1）     cardID type: Long
+        // e.g.: cardID: 0000032401300001 = userID:00000324013 + 5位total_cards+1 : 0+1 -> 00001
+        Long cardId = sid.nextShort();
+
+
         card.setCardId(cardId);
+
+
         card.setUserId(c.getUserId());
         card.setContent(c.getContent());
         card.setLabelNum(c.getLabelNum());
@@ -48,32 +52,34 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void saveLabel(String userID, String cardID, String[] labelContents){
+    public void saveLabel(Long userID, Long cardID, String[] labelContents){
         FrLabel label=new FrLabel();
         FrLabelMap labelMap=new FrLabelMap();
 
         label.setUserId(userID);
         labelMap.setCardId(cardID);
 
-        int labelID;
         if(labelContents.length==0){
             label.setLabelContent("Genaral");
-            labelMapper.insert(label);
-            label=labelMapper.selectOne(label);
-            labelID=label.getLabelId();
-            labelMap.setLabelId(labelID);
-            labelMapMapper.insert(labelMap);
+            initLabel(label, labelMap);
         }
         else {
             for (String s : labelContents) {
                 label.setLabelContent(s);
-                labelMapper.insert(label);
-                label = labelMapper.selectOne(label);
-                labelID = label.getLabelId();
-
-                labelMap.setLabelId(labelID);
-                labelMapMapper.insert(labelMap);
+                initLabel(label, labelMap);
             }
         }
     }
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void initLabel(FrLabel label, FrLabelMap labelMap){
+
+        labelMapper.insert(label);
+        label = labelMapper.selectOne(label);
+        labelMap.setLabelId(label.getLabelId());
+        labelMapMapper.insert(labelMap);
+    }
+
 }

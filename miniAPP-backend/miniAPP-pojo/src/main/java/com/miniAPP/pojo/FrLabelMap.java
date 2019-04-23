@@ -1,32 +1,25 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
 
-@ApiModel(value = "LabelMap", description = "用户标签映射表")
 @Table(name = "fr_label_map")
 public class FrLabelMap {
     /**
      * label map ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "label_map_id")
-    private Integer labelMapId;
+    private Long labelMapId;
 
     /**
      * card ID
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "card_id")
-    private String cardId;
+    private Long cardId;
 
     /**
      * label ID
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "label_id")
     private Integer labelId;
 
@@ -35,7 +28,7 @@ public class FrLabelMap {
      *
      * @return label_map_id - label map ID
      */
-    public Integer getLabelMapId() {
+    public Long getLabelMapId() {
         return labelMapId;
     }
 
@@ -44,7 +37,7 @@ public class FrLabelMap {
      *
      * @param labelMapId label map ID
      */
-    public void setLabelMapId(Integer labelMapId) {
+    public void setLabelMapId(Long labelMapId) {
         this.labelMapId = labelMapId;
     }
 
@@ -53,7 +46,7 @@ public class FrLabelMap {
      *
      * @return card_id - card ID
      */
-    public String getCardId() {
+    public Long getCardId() {
         return cardId;
     }
 
@@ -62,7 +55,7 @@ public class FrLabelMap {
      *
      * @param cardId card ID
      */
-    public void setCardId(String cardId) {
+    public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
 

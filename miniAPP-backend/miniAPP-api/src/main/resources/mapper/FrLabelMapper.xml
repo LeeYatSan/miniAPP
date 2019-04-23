@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.miniAPP.mapper.FrLabelMapper">
-  <resultMap id="BaseResultMap" type="com.miniAPP.pojo.FrLabel">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.miniAPP.mapper.FrLabelMapper" >
+  <resultMap id="BaseResultMap" type="com.miniAPP.pojo.FrLabel" >
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="label_id" jdbcType="INTEGER" property="labelId" />
-    <result column="user_id" jdbcType="CHAR" property="userId" />
-    <result column="label_content" jdbcType="VARCHAR" property="labelContent" />
+    <id column="label_id" property="labelId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="label_content" property="labelContent" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

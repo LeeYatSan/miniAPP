@@ -9,7 +9,7 @@ public class UserVO {
     /**
      * User Felis-Recall ID
      */
-    private String ID;
+    private Long ID;
 
     /**
      * User Session Token
@@ -19,7 +19,7 @@ public class UserVO {
     /**
      * User state
      */
-    private Integer state;
+    private boolean state;
 
     /**
      * User Total Login Days
@@ -36,13 +36,17 @@ public class UserVO {
      */
     private Integer forgetCards;
 
+    /**
+     * User Forgetting Cards Number
+     */
+    private Integer pushingFrequency;
 
 
-    public String getID() {
+    public Long getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 
@@ -50,13 +54,11 @@ public class UserVO {
 
     public void setSessionToken(String sessionToken) { SessionToken = sessionToken; }
 
-    public Integer getState() {
+    public boolean getState() {
         return state;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+    public void setState(boolean state) { this.state = state; }
 
     public Integer getLoginDays() {
         return loginDays;
@@ -81,4 +83,8 @@ public class UserVO {
     public void setForgetCards(Integer forgetCards) {
         this.forgetCards = forgetCards;
     }
+
+    public Integer getPushingFrequency() { return pushingFrequency; }
+
+    public void setPushingFrequency(Integer pushingFrequency) { this.pushingFrequency = pushingFrequency; }
 }

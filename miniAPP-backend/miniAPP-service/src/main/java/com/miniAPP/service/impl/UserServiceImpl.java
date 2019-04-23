@@ -1,13 +1,7 @@
 package com.miniAPP.service.impl;
 
-import com.miniAPP.mapper.FrUserInfoMapper;
-import com.miniAPP.mapper.FrUserLoginLogsMapper;
-import com.miniAPP.mapper.FrUserLoginMapper;
-import com.miniAPP.mapper.FrUserRegisterInfoMapper;
-import com.miniAPP.pojo.FrUserInfo;
-import com.miniAPP.pojo.FrUserLogin;
-import com.miniAPP.pojo.FrUserLoginLogs;
-import com.miniAPP.pojo.FrUserRegisterInfo;
+import com.miniAPP.mapper.*;
+import com.miniAPP.pojo.*;
 import com.miniAPP.pojo.VO.UserVO;
 import com.miniAPP.service.UserService;
 import org.n3r.idworker.Sid;
@@ -35,6 +29,9 @@ public class UserServiceImpl implements UserService {
     private FrUserRegisterInfoMapper userRegisterInfoMapper;
 
     @Autowired
+    private FrIdStubMapper frIdStubMapper;
+
+    @Autowired
     private Sid sid;
 
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -49,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public String queryUserID(String openid){
+    public Long queryUserID(String openid){
         FrUserLogin user = new FrUserLogin();
         user.setUserOpenid(openid);
         return userLoginMapper.selectOne(user).getUserId();
@@ -59,7 +56,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public UserVO queryUserInfo(String userID, String sessionToken){
+    public UserVO queryUserInfo(Long userID, String sessionToken){
         FrUserLogin userLogin = new FrUserLogin();
         FrUserInfo userInfo = new FrUserInfo();
         UserVO userVO = new UserVO();
@@ -87,8 +84,8 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public String saveUser(FrUserLogin userLogin){
-        String userID = sid.nextShort();
+    public Long saveUser(FrUserLogin userLogin){
+        Long userID = generateUserID();
         FrUserRegisterInfo userRegisterInfo = new FrUserRegisterInfo();
         FrUserInfo userInfo = new FrUserInfo();
 
@@ -110,7 +107,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void userLoginRec(String userID){
+    public void userLoginRec(Long userID){
         FrUserLoginLogs userLoginLogs = new FrUserLoginLogs();
         FrUserInfo userInfo = new FrUserInfo();
         FrUserLogin userLogin = new FrUserLogin();
@@ -139,14 +136,22 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void userLogout(String userID){
+    public void userLogout(Long userID){
 
         FrUserLogin userLogin = new FrUserLogin();
 
         userLogin.setUserId(userID);
         userLogin = userLoginMapper.selectOne(userLogin);
-        userLogin.setUserState(0);
+        userLogin.setUserState(false);
 
         userLoginMapper.updateByPrimaryKeySelective(userLogin);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public Long generateUserID(){
+
+        frIdStubMapper.generateID(1);
+        return frIdStubMapper.getUserID();
     }
 }

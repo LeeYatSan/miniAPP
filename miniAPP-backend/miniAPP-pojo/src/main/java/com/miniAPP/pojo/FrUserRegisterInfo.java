@@ -1,26 +1,20 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 import javax.persistence.*;
 
-@ApiModel(value = "UserRegister", description = "用户注册信息表")
 @Table(name = "fr_user_register_info")
 public class FrUserRegisterInfo {
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * register time
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "register_time")
     private Date registerTime;
 
@@ -29,7 +23,7 @@ public class FrUserRegisterInfo {
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -38,7 +32,7 @@ public class FrUserRegisterInfo {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

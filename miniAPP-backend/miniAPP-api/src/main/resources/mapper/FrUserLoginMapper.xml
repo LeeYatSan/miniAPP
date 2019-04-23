@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="FrUserLoginMapper">
-  <resultMap id="BaseResultMap" type="com.miniAPP.pojo.FrUserLogin">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.miniAPP.mapper.FrUserLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.miniAPP.pojo.FrUserLogin" >
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="user_id" jdbcType="CHAR" property="userId" />
-    <result column="user_openid" jdbcType="CHAR" property="userOpenid" />
-    <result column="user_state" jdbcType="INTEGER" property="userState" />
-    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="user_openid" property="userOpenid" jdbcType="CHAR" />
+    <result column="user_state" property="userState" jdbcType="BIT" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
   </resultMap>
 </mapper>

@@ -1,40 +1,32 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 import javax.persistence.*;
 
-@ApiModel(value = "UserLogin", description = "用户登录信息表")
 @Table(name = "fr_user_login")
 public class FrUserLogin {
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * user WeChar openid
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "user_openid")
     private String userOpenid;
 
     /**
      * user state: 0 -> offline  1 -> online
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "user_state")
-    private Integer userState;
+    private Boolean userState;
 
     /**
      * last login time
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "last_login_time")
     private Date lastLoginTime;
 
@@ -43,7 +35,7 @@ public class FrUserLogin {
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -52,7 +44,7 @@ public class FrUserLogin {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -79,7 +71,7 @@ public class FrUserLogin {
      *
      * @return user_state - user state: 0 -> offline  1 -> online
      */
-    public Integer getUserState() {
+    public Boolean getUserState() {
         return userState;
     }
 
@@ -88,7 +80,7 @@ public class FrUserLogin {
      *
      * @param userState user state: 0 -> offline  1 -> online
      */
-    public void setUserState(Integer userState) {
+    public void setUserState(Boolean userState) {
         this.userState = userState;
     }
 

@@ -1,18 +1,13 @@
 package com.miniAPP.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Date;
 import javax.persistence.*;
 
-@ApiModel(value = "UserLoginLogs", description = "用户登录日志表")
 @Table(name = "fr_user_login_logs")
 public class FrUserLoginLogs {
     /**
      * login log ID
      */
-    @ApiModelProperty(hidden=true)
     @Id
     @Column(name = "login_log_id")
     private Integer loginLogId;
@@ -20,14 +15,12 @@ public class FrUserLoginLogs {
     /**
      * user ID
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     /**
      * login time
      */
-    @ApiModelProperty(hidden=true)
     @Column(name = "login_time")
     private Date loginTime;
 
@@ -54,7 +47,7 @@ public class FrUserLoginLogs {
      *
      * @return user_id - user ID
      */
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -63,7 +56,7 @@ public class FrUserLoginLogs {
      *
      * @param userId user ID
      */
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
