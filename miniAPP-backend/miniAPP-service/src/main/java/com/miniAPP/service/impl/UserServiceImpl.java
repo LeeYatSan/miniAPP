@@ -97,6 +97,7 @@ public class UserServiceImpl implements UserService {
         userInfo.setLoginDays(0);
         userInfo.setTotalCards(0);
         userInfo.setForgetCards(0);
+        userInfo.setPushFrequency((byte)0);
 
         userLoginMapper.insert(userLogin);
         userRegisterInfoMapper.insert(userRegisterInfo);

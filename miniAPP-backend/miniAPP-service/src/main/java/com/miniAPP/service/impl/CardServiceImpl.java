@@ -3,15 +3,19 @@ package com.miniAPP.service.impl;
 import com.miniAPP.mapper.FrCardMapper;
 import com.miniAPP.mapper.FrLabelMapMapper;
 import com.miniAPP.mapper.FrLabelMapper;
+import com.miniAPP.mapper.FrUserInfoMapper;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
+import com.miniAPP.pojo.FrUserInfo;
 import com.miniAPP.service.CardService;
-import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 
 @Service
 public class CardServiceImpl implements CardService {
@@ -26,27 +30,36 @@ public class CardServiceImpl implements CardService {
     private FrLabelMapMapper labelMapMapper;
 
     @Autowired
-    private Sid sid;
+    private FrUserInfoMapper userInfoMapper;
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Long saveCard(FrCard c){
         FrCard card=new FrCard();
 
-        //[更改]cardID = userID + （5位total_cards+1）     cardID type: Long
-        // e.g.: cardID: 0000032401300001 = userID:00000324013 + 5位total_cards+1 : 0+1 -> 00001
-        Long cardId = sid.nextShort();
+        Long userID = c.getUserId();
+        FrUserInfo userInfo = userInfoMapper.selectByPrimaryKey(userID);
+        StringBuilder cardIDstr = new StringBuilder(userID.toString());
+        cardIDstr.append(String.format("%05d", userInfo.getTotalCards()));
+        Long cardId = Long.parseLong(cardIDstr.toString());
 
+//        card.setCardId(cardId);
+//        card.setUserId(c.getUserId());
+//        card.setContent(c.getContent());
+//        card.setLabelNum(c.getLabelNum());
+//        card.setRememberTimes(0);
+//        card.setPicUrl(c.getPicUrl());
+//        cardMapper.insert(card);
 
-        card.setCardId(cardId);
+        Calendar cal = new GregorianCalendar();
 
+        c.setCardId(cardId);
+        c.setRememberTimes(0);
+        c.setCreateTime(cal.getTime());
+        c.setLastRememberTime(cal.getTime());
+        cal.add(Calendar.DATE, userInfo.getPushFrequency()&0xff);//根据user_info中的pushing_frequency计算下一次推送日期
+        c.setNextTime(cal.getTime());
 
-        card.setUserId(c.getUserId());
-        card.setContent(c.getContent());
-        card.setLabelNum(c.getLabelNum());
-        card.setRememberTimes(0);
-        card.setPicUrl(c.getPicUrl());
-        cardMapper.insert(card);
         return card.getCardId();
     }
 

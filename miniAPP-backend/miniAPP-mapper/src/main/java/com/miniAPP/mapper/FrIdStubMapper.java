@@ -12,7 +12,7 @@ public interface FrIdStubMapper extends MyMapper<FrIdStub> {
      *
      * @param stub
      */
-    int generateID(int stub);
+    int generateID(Integer stub);
 
     /**
      * Get user id
