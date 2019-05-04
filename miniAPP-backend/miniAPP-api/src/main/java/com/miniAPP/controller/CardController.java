@@ -13,7 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,14 +111,36 @@ public class CardController extends BasicController {
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
             @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/saveCard")
-    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken){
+    public JSONResult saveCard(Long userID, FrCard card, String labelContent, MultipartFile photoFile, String sessionToken) throws IOException {
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
         }
 
+        if(photoFile!=null){
+            String type=null; //文件类型
+            String fileName=photoFile.getOriginalFilename(); //文件原名称
+            String realFileName=null; //文件现名称
+            String realDirPath = "/root/Documents/FelisRecall/image/"; //文件存放路径
+
+            //判断文件类型
+            type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
+            if(type!=null) {
+                //支持GIF、PNG、JPG图片格式，可后续添加
+                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
+                    photoFile.transferTo(new File(realDirPath+realFileName));
+                }else{
+                    return JSONResult.errorMsg("不支持的文件类型");
+                }
+            }
+            card.setPicUrl(realFileName);
+        }
+
+        card.setUserId(userID);
         String[] labelContents=labelContent.split(" ");
         card.setLabelNum(labelContents.length);
         Long cardID=cardService.saveCard(card);
