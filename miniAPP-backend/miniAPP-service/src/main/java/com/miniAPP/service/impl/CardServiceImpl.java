@@ -35,7 +35,7 @@ public class CardServiceImpl implements CardService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Long saveCard(FrCard c){
-        FrCard card=new FrCard();
+//        FrCard card=new FrCard(); //此处无用？
 
         Long userID = c.getUserId();
         FrUserInfo userInfo = userInfoMapper.selectByPrimaryKey(userID);
@@ -60,7 +60,9 @@ public class CardServiceImpl implements CardService {
         cal.add(Calendar.DATE, userInfo.getPushFrequency()&0xff);//根据user_info中的pushing_frequency计算下一次推送日期
         c.setNextTime(cal.getTime());
 
-        return card.getCardId();
+        cardMapper.insert(c);
+//        return card.getCardId(); //此处无用
+        return c.getCardId();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
