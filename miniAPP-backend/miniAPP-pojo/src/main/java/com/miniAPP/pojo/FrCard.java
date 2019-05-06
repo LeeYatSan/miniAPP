@@ -37,10 +37,16 @@ public class FrCard {
     private Date nextTime;
 
     /**
-     * remember time counter and when it is not a positive number, it means user forget it
+     * remember time counter
      */
     @Column(name = "remember_times")
     private Integer rememberTimes;
+
+    /**
+     * card remembering level
+     */
+    @Column(name = "memo_level")
+    private Integer memoLevel;
 
     /**
      * title
@@ -155,21 +161,39 @@ public class FrCard {
     }
 
     /**
-     * 获取remember time counter and when it is not a positive number, it means user forget it
+     * 获取remember time counter and when it is not a positive number
      *
-     * @return remember_times - remember time counter and when it is not a positive number, it means user forget it
+     * @return remember_times - remember time counter
      */
     public Integer getRememberTimes() {
         return rememberTimes;
     }
 
     /**
-     * 设置remember time counter and when it is not a positive number, it means user forget it
+     * 设置remember time counter
      *
      * @param rememberTimes remember time counter and when it is not a positive number, it means user forget it
      */
     public void setRememberTimes(Integer rememberTimes) {
         this.rememberTimes = rememberTimes;
+    }
+
+    /**
+     * 获取memo_level
+     *
+     * @return memo_level - card remembering level
+     */
+    public Integer getMemoLevel() {
+        return memoLevel;
+    }
+
+    /**
+     * 设置memo_level
+     *
+     * @param memoLevel card remembering level
+     */
+    public void setMemoLevel(Integer memoLevel) {
+        this.memoLevel = memoLevel;
     }
 
     /**

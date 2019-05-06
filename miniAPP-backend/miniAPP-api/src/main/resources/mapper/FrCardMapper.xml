@@ -11,6 +11,7 @@
     <result column="last_remember_time" property="lastRememberTime" jdbcType="TIMESTAMP" />
     <result column="next_time" property="nextTime" jdbcType="TIMESTAMP" />
     <result column="remember_times" property="rememberTimes" jdbcType="INTEGER" />
+    <result column="memo_level" property="memoLevel" jdbcType="TINYINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="label_num" property="labelNum" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
