@@ -46,7 +46,7 @@ public class FrCard {
      * card remembering level
      */
     @Column(name = "memo_level")
-    private Integer memoLevel;
+    private Byte memoLevel;
 
     /**
      * title
@@ -183,7 +183,7 @@ public class FrCard {
      *
      * @return memo_level - card remembering level
      */
-    public Integer getMemoLevel() {
+    public Byte getMemoLevel() {
         return memoLevel;
     }
 
@@ -192,7 +192,7 @@ public class FrCard {
      *
      * @param memoLevel card remembering level
      */
-    public void setMemoLevel(Integer memoLevel) {
+    public void setMemoLevel(Byte memoLevel) {
         this.memoLevel = memoLevel;
     }
 

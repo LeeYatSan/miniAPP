@@ -14,6 +14,8 @@ public class BasicController {
 
     public static final String INVALID_SESSION_TOKEN = "Invalid session token";
 
+    public static final String PARAM_MISSING = "Param missing";
+
     /**
      * 检查用户session合法性
      */

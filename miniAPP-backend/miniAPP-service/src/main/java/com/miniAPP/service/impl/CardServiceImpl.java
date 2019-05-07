@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 
@@ -31,6 +32,17 @@ public class CardServiceImpl implements CardService {
 
     @Autowired
     private FrUserInfoMapper userInfoMapper;
+
+    private static final long forgettingCurve[] = {
+            0,                  // 0->创建日
+            1*24*60*60*1000L,	// 1->1天
+            2*24*60*60*1000L,	// 2->2天
+            4*24*60*60*1000L,	// 3->4天
+            7*24*60*60*1000L,	// 4->7天
+            15*24*60*60*1000L,	// 5->15天
+            31*24*60*60*1000L	// 6->31天
+                                // 7->熟记
+    };
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -97,4 +109,44 @@ public class CardServiceImpl implements CardService {
         labelMapMapper.insert(labelMap);
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public FrCard queryCardByCardID(Long cardID){
+
+        FrCard card = new FrCard();
+        card.setCardId(cardID);
+        return cardMapper.selectOne(card);
+    }
+
+    /**
+     *
+     * @param frCard 当前卡片
+     * @param forget 是否忘记：false：没忘记 true：忘记
+     * @return
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public FrCard nextTime(FrCard frCard, boolean forget){
+
+        byte currMemoLevel = frCard.getMemoLevel();
+        if(!forget){
+            if(currMemoLevel < 6){
+                currMemoLevel = (byte)(currMemoLevel+1);
+                frCard.setMemoLevel(currMemoLevel);
+                frCard.setNextTime(new Date((new Date()).getTime() + forgettingCurve[currMemoLevel]));
+                cardMapper.updateByPrimaryKeySelective(frCard);
+            }
+            else if(currMemoLevel == 6){
+                frCard.setMemoLevel((byte)(currMemoLevel+1));
+                cardMapper.updateByPrimaryKeySelective(frCard);
+            }
+        }
+        else {
+            currMemoLevel = (byte)1;
+            frCard.setMemoLevel(currMemoLevel);
+            frCard.setNextTime(new Date((new Date()).getTime() + forgettingCurve[currMemoLevel]));
+            cardMapper.updateByPrimaryKeySelective(frCard);
+        }
+        return frCard;
+    }
 }

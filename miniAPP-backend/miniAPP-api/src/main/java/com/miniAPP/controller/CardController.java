@@ -44,7 +44,7 @@ public class CardController extends BasicController {
     @PostMapping("/getAllCardsByUserID")
     public JSONResult getAllCardsByUserID(Long userID, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
-            return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         FrCard card=new FrCard();
         card.setUserId(userID);
@@ -59,7 +59,7 @@ public class CardController extends BasicController {
     @PostMapping("/getAllLablesByUserID")
     public JSONResult getAllLabelsByUserID(Long userID, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
-            return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         FrLabel label=new FrLabel();
         label.setUserId(userID);
@@ -75,7 +75,7 @@ public class CardController extends BasicController {
     @PostMapping("/getAllCardsByLabel")
     public JSONResult getAllCardsByLabel(Long userID, String labelContent, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
-            return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         if(StringUtils.isBlank(labelContent)){
             labelContent="Genaral";
@@ -117,7 +117,7 @@ public class CardController extends BasicController {
     @PostMapping("/saveCard")
     public JSONResult saveCard(Long userID, FrCard card, String labelContent, MultipartFile photoFile, String sessionToken) throws IOException {
         if(!sessionTokenIsValid(userID, sessionToken)){
-            return JSONResult.errorMsg(INVALID_SESSION_TOKEN);
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
         if(photoFile!=null){
@@ -147,5 +147,26 @@ public class CardController extends BasicController {
         cardService.saveLabel(userID ,cardID, labelContents);
 
         return JSONResult.ok();
+    }
+
+    @ApiOperation(value = "记住/忘记卡片", notes = "记住/忘记卡片")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "remember", value = "remember", required = true, dataType = "boolean", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"),
+                    @ApiResponse(code = 502, message = "Parameter missing"),
+                    @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/rememberCardOrNot")
+    public JSONResult rememberCard(Long userID, String sessionToken, Long cardID, boolean remember){
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+        if(cardID == null){
+            return JSONResult.errorMsg(PARAM_MISSING);
+        }
+        FrCard card = cardService.queryCardByCardID(cardID);
+        card = cardService.nextTime(card, remember);
+        return JSONResult.ok(card);
     }
 }

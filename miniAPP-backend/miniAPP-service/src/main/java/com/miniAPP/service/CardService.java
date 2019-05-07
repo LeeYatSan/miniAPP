@@ -4,6 +4,8 @@ import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 
+import java.util.Date;
+
 public interface CardService {
 
     /**
@@ -24,4 +26,16 @@ public interface CardService {
      * @param label, labelMap
      */
     public void initLabel(FrLabel label, FrLabelMap labelMap);
+
+    /**
+     * @Description 通过cardID查找卡片
+     * @parm cardID
+     */
+    public FrCard queryCardByCardID(Long cardID);
+
+    /**
+     * @Description 设置下一次记忆时间
+     * @parm userID, cardID
+     */
+    public FrCard nextTime(FrCard frCard, boolean forget);
 }
