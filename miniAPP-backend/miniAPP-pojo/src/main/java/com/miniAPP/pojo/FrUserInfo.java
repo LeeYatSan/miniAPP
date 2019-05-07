@@ -23,11 +23,6 @@ public class FrUserInfo {
     @Column(name = "total_cards")
     private Integer totalCards;
 
-    /**
-     * forgeting cards number
-     */
-    @Column(name = "forget_cards")
-    private Integer forgetCards;
 
     /**
      * push frequency
@@ -87,24 +82,6 @@ public class FrUserInfo {
      */
     public void setTotalCards(Integer totalCards) {
         this.totalCards = totalCards;
-    }
-
-    /**
-     * 获取forgeting cards number
-     *
-     * @return forget_cards - forgeting cards number
-     */
-    public Integer getForgetCards() {
-        return forgetCards;
-    }
-
-    /**
-     * 设置forgeting cards number
-     *
-     * @param forgetCards forgeting cards number
-     */
-    public void setForgetCards(Integer forgetCards) {
-        this.forgetCards = forgetCards;
     }
 
     /**

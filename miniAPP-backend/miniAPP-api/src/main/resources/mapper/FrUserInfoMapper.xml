@@ -8,7 +8,6 @@
     <id column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="login_days" property="loginDays" jdbcType="INTEGER" />
     <result column="total_cards" property="totalCards" jdbcType="INTEGER" />
-    <result column="forget_cards" property="forgetCards" jdbcType="INTEGER" />
     <result column="push_frequency" property="pushFrequency" jdbcType="TINYINT" />
   </resultMap>
 </mapper>

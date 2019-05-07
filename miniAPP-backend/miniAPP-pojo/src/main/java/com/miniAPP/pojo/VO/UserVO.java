@@ -34,11 +34,6 @@ public class UserVO {
     /**
      * User Forgetting Cards Number
      */
-    private Integer forgetCards;
-
-    /**
-     * User Forgetting Cards Number
-     */
     private Integer pushingFrequency;
 
 
@@ -74,14 +69,6 @@ public class UserVO {
 
     public void setTotalCards(Integer totalCards) {
         this.totalCards = totalCards;
-    }
-
-    public Integer getForgetCards() {
-        return forgetCards;
-    }
-
-    public void setForgetCards(Integer forgetCards) {
-        this.forgetCards = forgetCards;
     }
 
     public Integer getPushingFrequency() { return pushingFrequency; }

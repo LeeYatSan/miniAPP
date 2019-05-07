@@ -169,4 +169,33 @@ public class CardController extends BasicController {
         card = cardService.nextTime(card, remember);
         return JSONResult.ok(card);
     }
+
+    @ApiOperation(value = "熟记卡片", notes = "获取熟记卡片")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"),
+                    @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/getAllFamiliarCards")
+    public JSONResult getAllFamiliarCards(Long userID, String sessionToken){
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+        List<FrCard> cards = cardMapper.getAllFamiliarCards(userID);
+        return JSONResult.ok(cards);
+    }
+
+    @ApiOperation(value = "熟记卡片数量", notes = "获取熟记卡片数量")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"),
+            @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/getFamiliarCardNum")
+    public JSONResult getFamiliarCardNum(Long userID, String sessionToken){
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+        return JSONResult.ok(cardMapper.queryFamiliarCardNum(userID));
+    }
 }

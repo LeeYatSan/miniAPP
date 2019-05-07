@@ -72,7 +72,10 @@ public class CardServiceImpl implements CardService {
         cal.add(Calendar.DATE, userInfo.getPushFrequency()&0xff);//根据user_info中的pushing_frequency计算下一次推送日期
         c.setNextTime(cal.getTime());
 
+        userInfo.setTotalCards(userInfo.getTotalCards()+1);
+
         cardMapper.insert(c);
+        userInfoMapper.updateByPrimaryKeySelective(userInfo);
 //        return card.getCardId(); //此处无用
         return c.getCardId();
     }
@@ -147,6 +150,8 @@ public class CardServiceImpl implements CardService {
             frCard.setNextTime(new Date((new Date()).getTime() + forgettingCurve[currMemoLevel]));
             cardMapper.updateByPrimaryKeySelective(frCard);
         }
+        frCard.setRememberTimes(frCard.getRememberTimes()+1);
+        frCard.setLastRememberTime(Calendar.getInstance().getTime());
         return frCard;
     }
 }

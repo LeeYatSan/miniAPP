@@ -17,4 +17,13 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="getAllFamiliarCards" resultType="com.miniAPP.pojo.FrCard">
+    SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
+  </select>
+
+  <select id="queryFamiliarCardNum"  resultType="java.lang.Integer">
+        SELECT COUNT(card_id) FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
+  </select>
+
 </mapper>

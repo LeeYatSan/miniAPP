@@ -69,7 +69,6 @@ public class UserServiceImpl implements UserService {
         userVO.setState(userLogin.getUserState());
         userVO.setLoginDays(userInfo.getLoginDays());
         userVO.setTotalCards(userInfo.getTotalCards());
-        userVO.setForgetCards(userInfo.getForgetCards());
         return userVO;
     }
 
@@ -96,7 +95,6 @@ public class UserServiceImpl implements UserService {
         userInfo.setUserId(userID);
         userInfo.setLoginDays(0);
         userInfo.setTotalCards(0);
-        userInfo.setForgetCards(0);
         userInfo.setPushFrequency((byte)0);
 
         userLoginMapper.insert(userLogin);
