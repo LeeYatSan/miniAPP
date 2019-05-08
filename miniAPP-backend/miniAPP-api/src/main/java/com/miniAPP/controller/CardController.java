@@ -115,33 +115,13 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/saveCard")
-    public JSONResult saveCard(Long userID, FrCard card, String labelContent, MultipartFile photoFile, String sessionToken) throws IOException {
+    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken) {
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
         if(StringUtils.isBlank(labelContent)){
             return JSONResult.errorMsg("卡片内容为空");
-        }
-
-        if(photoFile!=null){
-            String type=null; //文件类型
-            String fileName=photoFile.getOriginalFilename(); //文件原名称
-            String realFileName=null; //文件现名称
-            String realDirPath = "/root/Documents/FelisRecall/image/"; //文件存放路径
-
-            //判断文件类型
-            type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
-            if(type!=null) {
-                //支持GIF、PNG、JPG图片格式，可后续添加
-                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
-                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
-                    photoFile.transferTo(new File(realDirPath+realFileName));
-                }else{
-                    return JSONResult.errorMsg("不支持的文件类型");
-                }
-            }
-            card.setPicUrl(realFileName);
         }
 
         card.setUserId(userID);
@@ -203,5 +183,47 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         return JSONResult.ok(cardMapper.queryFamiliarCardNum(userID));
+    }
+
+
+    @ApiOperation(value = "上传图片", notes = "上传图片")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/uploadPhoto")
+    public JSONResult uploadPhoto(Long userID, MultipartFile photoFile, String sessionToken){
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+
+        if(photoFile!=null){
+            String type=null; //文件类型
+            String fileName=photoFile.getOriginalFilename(); //文件原名称
+            String realFileName=null; //文件现名称
+            String realDirPath = "/root/Documents/FelisRecall/image/"; //文件存放路径
+            String realPath=null;
+
+            //判断文件类型
+            type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
+            if(type!=null) {
+                //支持GIF、PNG、JPG图片格式，可后续添加
+                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
+                    realPath=realDirPath+realFileName;
+                    try {
+                        photoFile.transferTo(new File(realPath));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return JSONResult.errorMsg("图片上传失败");
+                    }
+                }else{
+                    return JSONResult.errorMsg("不支持的文件类型");
+                }
+            }
+            return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
+        }
+
+        return JSONResult.errorMsg("PARAM_MISSING");
     }
 }
