@@ -214,14 +214,18 @@ public class CardController extends BasicController {
                     try {
                         photoFile.transferTo(new File(realPath));
                     } catch (IOException e) {
-                        e.printStackTrace();
+                       // e.printStackTrace();
                         return JSONResult.errorMsg("图片上传失败");
                     }
                 }else{
                     return JSONResult.errorMsg("不支持的文件类型");
                 }
+                return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
             }
-            return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
+            else {
+                return JSONResult.errorMsg("不合法文件");
+            }
+
         }
 
         return JSONResult.errorMsg("PARAM_MISSING");
