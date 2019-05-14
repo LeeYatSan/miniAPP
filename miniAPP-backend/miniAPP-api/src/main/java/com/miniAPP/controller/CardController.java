@@ -12,6 +12,7 @@ import io.swagger.annotations.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -192,44 +193,42 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/uploadPhoto")
-    public JSONResult uploadPhoto(Long userID, MultipartFile photoFile, String sessionToken){
+    public JSONResult uploadPhoto(Long userID, @RequestParam("file")MultipartFile photoFile, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        return JSONResult.errorMsg(photoFile.toString());
+        if(photoFile!=null){
+            String type=null; //文件类型
+            String fileName=photoFile.getOriginalFilename(); //文件原名称
+            String realFileName=null; //文件现名称
+            String realDirPath = "/root/Documents/FelisRecall/images/"+ String.valueOf(userID) +"/"; //文件存放路径
+            String realPath=null;
 
-//        if(photoFile!=null){
-//            String type=null; //文件类型
-//            String fileName=photoFile.getOriginalFilename(); //文件原名称
-//            String realFileName=null; //文件现名称
-//            String realDirPath = "/root/Documents/FelisRecall/image/"; //文件存放路径
-//            String realPath=null;
-//
-//            //判断文件类型
-//            type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
-//            if(type!=null) {
-//                //支持GIF、PNG、JPG图片格式，可后续添加
-//                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
-//                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
-//                    realPath=realDirPath+realFileName;
-//                    try {
-//                        photoFile.transferTo(new File(realPath));
-//                    } catch (IOException e) {
-//                       // e.printStackTrace();
-//                        return JSONResult.errorMsg("图片上传失败");
-//                    }
-//                }else{
-//                    return JSONResult.errorMsg("不支持的文件类型");
-//                }
-//                return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
-//            }
-//            else {
-//                return JSONResult.errorMsg("不合法文件");
-//            }
-//
-//        }
-//
-//        return JSONResult.errorMsg("PARAM_MISSING");
+            //判断文件类型
+            type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
+            if(type!=null) {
+                //支持GIF、PNG、JPG图片格式，可后续添加
+                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
+                    realPath=realDirPath+realFileName;
+                    try {
+                        photoFile.transferTo(new File(realPath));
+                    } catch (IOException e) {
+                       // e.printStackTrace();
+                        return JSONResult.errorMsg("图片上传失败");
+                    }
+                }else{
+                    return JSONResult.errorMsg("不支持的文件类型");
+                }
+                return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
+            }
+            else {
+                return JSONResult.errorMsg("不合法文件");
+            }
+
+        }
+
+        return JSONResult.errorMsg("PARAM_MISSING");
     }
 }
