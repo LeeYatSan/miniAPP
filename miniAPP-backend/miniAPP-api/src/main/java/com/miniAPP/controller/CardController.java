@@ -193,7 +193,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/uploadPhoto")
-    public JSONResult uploadPhoto(Long userID, @RequestParam("file")MultipartFile photoFile, String sessionToken){
+    public JSONResult uploadPhoto(Long userID, @RequestParam("photo")MultipartFile photoFile, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
