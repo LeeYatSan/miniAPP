@@ -202,20 +202,23 @@ public class CardController extends BasicController {
             String type=null; //文件类型
             String fileName=photoFile.getOriginalFilename(); //文件原名称
             String realFileName=null; //文件现名称
-            String realDirPath = "/root/Documents/FelisRecall/images/"+ String.valueOf(userID) +"/"; //文件存放路径
+            String realDirPath = "/root/Documents/FelisRecall/images/"+ String.valueOf(userID); //文件存放路径
             String realPath=null;
+
+            if(!new File(realDirPath).exists())
+                new File(realDirPath).mkdirs();
 
             //判断文件类型
             type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
             if(type!=null) {
-                //支持GIF、PNG、JPG图片格式，可后续添加
-                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+                //支持GIF、PNG、JPG、JPEG图片格式，可后续添加
+                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase()) || "JPEG".equals(type.toUpperCase())) {
                     realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
-                    realPath=realDirPath+realFileName;
+                    realPath=realDirPath+"/"+realFileName;
                     try {
                         photoFile.transferTo(new File(realPath));
                     } catch (IOException e) {
-                       // e.printStackTrace();
+                        e.printStackTrace();
                         return JSONResult.errorMsg("图片上传失败");
                     }
                 }else{
@@ -229,6 +232,6 @@ public class CardController extends BasicController {
 
         }
 
-        return JSONResult.errorMsg("PARAM_MISSING");
+        return JSONResult.errorMsg("文件为空");
     }
 }
