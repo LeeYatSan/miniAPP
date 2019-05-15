@@ -70,6 +70,14 @@ public class FrCard {
     @Column(name = "pic_url")
     private String picUrl;
 
+    public FrCard(){ }
+
+    public FrCard(String title, String content, String picUrl){
+        setTitle(title);
+        setContent(content);
+        setPicUrl(picUrl);
+    }
+
     /**
      * 获取card ID
      *
