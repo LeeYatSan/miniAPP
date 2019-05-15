@@ -121,6 +121,14 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
+        if(StringUtils.isBlank(card.getTitle())){
+            return JSONResult.errorMsg("卡片标题为空");
+        }
+
+        if(StringUtils.isBlank(card.getContent())){
+            return JSONResult.errorMsg("卡片标题为空");
+        }
+
         if(StringUtils.isBlank(labelContent)){
             return JSONResult.errorMsg("标签内容为空");
         }
@@ -134,7 +142,6 @@ public class CardController extends BasicController {
         cardService.saveLabel(userID ,cardID, labelContents);
 
         return JSONResult.ok(card);
-//        return JSONResult.ok("保存成功");
     }
 
     @ApiOperation(value = "记住/忘记卡片", notes = "记住/忘记卡片")
