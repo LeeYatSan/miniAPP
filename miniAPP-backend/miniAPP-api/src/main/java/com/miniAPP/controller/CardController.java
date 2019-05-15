@@ -122,7 +122,7 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(labelContent)){
-            return JSONResult.errorMsg("卡片内容为空");
+            return JSONResult.errorMsg("标签内容为空");
         }
 
         card.setUserId(userID);
