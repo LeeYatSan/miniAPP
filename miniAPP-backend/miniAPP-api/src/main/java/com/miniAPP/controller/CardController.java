@@ -133,7 +133,7 @@ public class CardController extends BasicController {
         Long cardID=cardService.saveCard(card); //获取存储的卡片id
         cardService.saveLabel(userID ,cardID, labelContents);
 
-        return JSONResult.ok();
+        return JSONResult.ok("保存成功");
     }
 
     @ApiOperation(value = "记住/忘记卡片", notes = "记住/忘记卡片")
@@ -229,9 +229,7 @@ public class CardController extends BasicController {
             else {
                 return JSONResult.errorMsg("不合法文件");
             }
-
         }
-
         return JSONResult.errorMsg("文件为空");
     }
 }
