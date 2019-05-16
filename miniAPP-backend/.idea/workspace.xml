@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="修复saveCard()中缺失的userInfo更新漏洞（未测试）&#10;修复/rememberCardOrNot 接口中缺失的userInfo更新漏洞（未测试）&#10;增加/getAllFamiliarCards 接口以获取所有熟记卡片（未测试）&#10;增加/getFamiliarCardNum 接口以获取所有熟记卡片的数量（未测试）&#10;更改数据库fr_user_info:删除forgetting_card字段，并将后端代码中对应部分代码进行修改（未测试）">
+    <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="修改了">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/login/login.js" afterDir="false" />
     </list>
@@ -27,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+            <state relative-caret-position="499">
+              <caret line="97" column="21" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,7 +208,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -334,7 +333,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557905929572" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557974151260" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -452,7 +451,7 @@
       <workItem from="1557899134594" duration="61000" />
       <workItem from="1557903136829" duration="74000" />
       <workItem from="1557904455554" duration="796000" />
-      <workItem from="1557968139796" duration="3574000" />
+      <workItem from="1557968139796" duration="4028000" />
     </task>
     <task id="LOCAL-00001" summary="login 有bug">
       <created>1553568655820</created>
@@ -531,11 +530,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557904947707</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="尝试修复由于fr_label表UNIQUE_KEY所带来的问题（未测试）">
+      <created>1557973909571</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557973909571</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107625000" />
+    <option name="totallyTimeSpent" value="108079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,8 +553,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23809524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -602,7 +607,8 @@
     <MESSAGE value="完成艾宾浩斯遗忘曲线功能（未测试）&#10;完成/rememberCardOrNot接口（未测试）&#10;修改CardController接口部分错误实现" />
     <MESSAGE value="修复saveCard()中缺失的userInfo更新漏洞（未测试）&#10;修复/rememberCardOrNot 接口中缺失的userInfo更新漏洞（未测试）&#10;增加/getAllFamiliarCards 接口以获取所有熟记卡片（未测试）&#10;增加/getFamiliarCardNum 接口以获取所有熟记卡片的数量（未测试）&#10;更改数据库fr_user_info:删除forgetting_card字段，并将后端代码中对应部分代码进行修改（未测试）" />
     <MESSAGE value="前端登录方法标注POST" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端登录方法标注POST" />
+    <MESSAGE value="尝试修复由于fr_label表UNIQUE_KEY所带来的问题（未测试）" />
+    <option name="LAST_COMMIT_MESSAGE" value="尝试修复由于fr_label表UNIQUE_KEY所带来的问题（未测试）" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/miniAPP-common/src/main/java/com/miniAPP/utils/SessionTokenUtil.java" />
@@ -981,8 +987,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
+        <state relative-caret-position="499">
+          <caret line="97" column="21" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
