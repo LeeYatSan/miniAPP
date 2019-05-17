@@ -223,8 +223,8 @@ public class CardController extends BasicController {
             //判断文件类型
             type= fileName.indexOf('.')!=-1 ? fileName.substring(fileName.lastIndexOf('.')+1, fileName.length()) : null;
             if(type!=null) {
-                //支持GIF、PNG、JPG、JPEG图片格式，可后续添加
-                if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase()) || "JPEG".equals(type.toUpperCase())) {
+                //PNG、JPG、JPEG图片格式，可后续添加
+                if ("PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase()) || "JPEG".equals(type.toUpperCase())) {
                     realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
                     realPath=realDirPath+"/"+realFileName;
                     try {
@@ -333,5 +333,10 @@ public class CardController extends BasicController {
 //        card = cardService.nextTime(card, remember);
 //        return JSONResult.ok(card);
 //    }
+
+    public JSONResult rememberCard(Long userID, String sessionToken, Long cardID, boolean remember, String formID){
+
+    }
+
 
 }
