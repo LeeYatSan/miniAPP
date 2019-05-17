@@ -13,9 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
+import java.util.*;
 
 
 @Service
@@ -62,7 +61,7 @@ public class CardServiceImpl implements CardService {
         c.setCreateTime(cal.getTime());
         c.setLastRememberTime(cal.getTime());
         cal.add(Calendar.DATE, userInfo.getPushFrequency()&0xff);//根据user_info中的pushing_frequency计算下一次推送日期
-        c.setNextTime(cal.getTime());
+        c.setNextTime((nextTime(c, false)).getNextTime());
 
         userInfo.setTotalCards(userInfo.getTotalCards()+1);
 
@@ -98,8 +97,14 @@ public class CardServiceImpl implements CardService {
     @Override
     public void initLabel(FrLabel label, FrLabelMap labelMap){
 
-        labelMapper.insert(label);
-        label = labelMapper.selectOne(label);
+        FrLabel temp = labelMapper.selectOne(label);
+        if(temp == null){
+            labelMapper.insert(label);
+            label = labelMapper.selectOne(label);
+        }
+        else{
+            label = temp;
+        }
         labelMap.setLabelId(label.getLabelId());
         labelMapMapper.insert(labelMap);
     }
@@ -145,5 +150,21 @@ public class CardServiceImpl implements CardService {
         frCard.setRememberTimes(frCard.getRememberTimes()+1);
         frCard.setLastRememberTime(Calendar.getInstance().getTime());
         return frCard;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<Long> queryUserNeededToBeNoticed(){
+
+        return cardMapper.queryNoticedUserList();
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public int queryUnfamiliarCardNum(Long userID){
+
+        int totalCardNum = userInfoMapper.selectByPrimaryKey(userID).getTotalCards();
+        int unfamiliarCardNum = cardMapper.queryFamiliarCardNum(userID);
+        return totalCardNum-unfamiliarCardNum;
     }
 }

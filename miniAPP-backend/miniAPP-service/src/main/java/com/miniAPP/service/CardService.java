@@ -5,6 +5,7 @@ import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 
 import java.util.Date;
+import java.util.List;
 
 public interface CardService {
 
@@ -38,4 +39,14 @@ public interface CardService {
      * @parm userID, cardID
      */
     public FrCard nextTime(FrCard frCard, boolean forget);
+
+    /**
+     * @Description 获取待推送的用户列表
+     */
+    public List<Long> queryUserNeededToBeNoticed();
+
+    /**
+     * @Description 获取未记住的卡片的数量
+     */
+    public int queryUnfamiliarCardNum(Long userID);
 }

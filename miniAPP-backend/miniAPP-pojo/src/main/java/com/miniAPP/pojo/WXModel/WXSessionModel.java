@@ -1,4 +1,4 @@
-package com.miniAPP.utils;
+package com.miniAPP.pojo.WXModel;
 
 
 public class WXSessionModel {

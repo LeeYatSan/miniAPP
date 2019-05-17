@@ -26,4 +26,8 @@
         SELECT COUNT(card_id) FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
   </select>
 
+  <select id="queryNoticedUserList"  resultType="java.lang.Long">
+        SELECT DISTINCT user_id FROM fr_card WHERE next_time &lt; current_timestamp()
+  </select>
+
 </mapper>

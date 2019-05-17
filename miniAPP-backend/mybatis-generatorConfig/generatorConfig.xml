@@ -29,14 +29,15 @@
                              type="XMLMAPPER"/>
 
 
-		<table tableName="fr_user_login"></table>
-		<table tableName="fr_user_register_info"></table>
-		<table tableName="fr_user_login_logs"></table>
-		<table tableName="fr_user_info"></table>
-		<table tableName="fr_card"></table>
-		<table tableName="fr_label"></table>
-		<table tableName="fr_label_map"></table>
-		<table tableName="fr_id_stub"></table>
+		<!--<table tableName="fr_user_login"></table>-->
+		<!--<table tableName="fr_user_register_info"></table>-->
+		<!--<table tableName="fr_user_login_logs"></table>-->
+		<!--<table tableName="fr_user_info"></table>-->
+		<!--<table tableName="fr_card"></table>-->
+		<!--<table tableName="fr_label"></table>-->
+		<!--<table tableName="fr_label_map"></table>-->
+		<!--<table tableName="fr_id_stub"></table>-->
+		<table tableName="fr_user_formid"></table>
 
     </context>
 </generatorConfiguration>
