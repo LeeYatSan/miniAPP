@@ -112,6 +112,12 @@
             <version>4.3.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <version>3.0.69</version>
+        </dependency>
+
         <!--&lt;!&ndash;Mybatis&ndash;&gt;-->
         <!--<dependency>-->
             <!--<groupId>org.mybatis.spring.boot</groupId>-->
