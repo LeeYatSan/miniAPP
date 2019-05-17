@@ -30,4 +30,8 @@
         SELECT DISTINCT user_id FROM fr_card WHERE next_time &lt; current_timestamp()
   </select>
 
+  <select id="queryUnFamiliarCard"  resultType="com.miniAPP.pojo.FrCard">
+        SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level &lt; 7
+  </select>
+
 </mapper>

@@ -49,4 +49,9 @@ public interface CardService {
      * @Description 获取未记住的卡片的数量
      */
     public int queryUnfamiliarCardNum(Long userID);
+
+    /**
+     * @Description 获取未记住的卡片
+     */
+    public List<FrCard> getUnFamiliarCard(Long userID);
 }

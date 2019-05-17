@@ -165,4 +165,11 @@ public class CardServiceImpl implements CardService {
         int unfamiliarCardNum = cardMapper.queryFamiliarCardNum(userID);
         return totalCardNum-unfamiliarCardNum;
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<FrCard> getUnFamiliarCard(Long userID){
+
+        return cardMapper.queryUnFamiliarCard(userID);
+    }
 }

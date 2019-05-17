@@ -24,9 +24,18 @@ public interface FrCardMapper extends MyMapper<FrCard> {
      */
     int queryFamiliarCardNum(Long userID);
 
+
     /**
      * Get the users who need to be noticed
      *
      */
     List<Long> queryNoticedUserList();
+
+
+    /**
+     * Get unfamiliar cards
+     *
+     * @param userID
+     */
+    List<FrCard> queryUnFamiliarCard(Long userID);
 }
