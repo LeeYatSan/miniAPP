@@ -9,6 +9,15 @@ import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 import com.miniAPP.pojo.FrUserInfo;
 import com.miniAPP.service.CardService;
+import com.miniAPP.utils.JSONResult;
+import com.tencentcloudapi.common.Credential;
+import com.tencentcloudapi.common.exception.TencentCloudSDKException;
+import com.tencentcloudapi.common.profile.ClientProfile;
+import com.tencentcloudapi.common.profile.HttpProfile;
+import com.tencentcloudapi.ocr.v20181119.OcrClient;
+import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRRequest;
+import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRResponse;
+import com.tencentcloudapi.ocr.v20181119.models.TextDetection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -171,5 +180,32 @@ public class CardServiceImpl implements CardService {
     public List<FrCard> getUnFamiliarCard(Long userID){
 
         return cardMapper.queryUnFamiliarCard(userID);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public String Ocr(String picUrl){
+        try{
+            Credential cred = new Credential("AKIDJZOXdbJNfj1vb2uJ8dwGO0Vi5Iy5vlL1", "Shja5LVkneQPnhvwV6xe9RmFa2dfprBo");
+            HttpProfile httpProfile = new HttpProfile();
+            httpProfile.setEndpoint("ocr.tencentcloudapi.com");
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setHttpProfile(httpProfile);
+            OcrClient client = new OcrClient(cred, "ap-guangzhou", clientProfile);
+            String params = "{\"ImageUrl\":\""+picUrl+"\"}";
+            GeneralFastOCRRequest req = GeneralFastOCRRequest.fromJsonString(params, GeneralFastOCRRequest.class);
+            GeneralFastOCRResponse resp = client.GeneralFastOCR(req);
+
+            TextDetection[] textDetections=resp.getTextDetections();
+            String text="";
+            for(int i=0;i<textDetections.length;i++){
+                if(i>0 && textDetections[i].getAdvancedInfo().compareTo(textDetections[i-1].getAdvancedInfo())!=0) text+="\n";
+                text+=textDetections[i].getDetectedText();
+            }
+            return text;
+
+        } catch (TencentCloudSDKException e) {
+            return null;
+        }
     }
 }

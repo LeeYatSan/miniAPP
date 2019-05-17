@@ -4,7 +4,6 @@ import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 
-import java.util.Date;
 import java.util.List;
 
 public interface CardService {
@@ -54,4 +53,10 @@ public interface CardService {
      * @Description 获取未记住的卡片
      */
     public List<FrCard> getUnFamiliarCard(Long userID);
+
+    /**
+     * @Description 图片的OCR功能
+     */
+    public String Ocr(String picUrl);
+
 }

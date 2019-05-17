@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.spring.web.json.Json;
 
 import java.io.File;
 import java.io.IOException;
@@ -202,10 +203,11 @@ public class CardController extends BasicController {
     @ApiOperation(value = "上传图片", notes = "上传图片")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
+            @ApiImplicitParam(name = "ocr", value = "ocr", required = true, dataType = "Boolean", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/uploadPhoto")
-    public JSONResult uploadPhoto(Long userID, @RequestParam("photo")MultipartFile photoFile, String sessionToken){
+    public JSONResult uploadPhoto(Long userID, @RequestParam("photo")MultipartFile photoFile, boolean ocr, String sessionToken){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
@@ -236,7 +238,17 @@ public class CardController extends BasicController {
                 }else{
                     return JSONResult.errorMsg("不支持的文件类型");
                 }
-                return JSONResult.ok(realFileName); //此处直接返回xxxx.jpg，即图片文件名
+
+                //保存成功，接下来处理OCR
+                if(ocr==false)
+                    return JSONResult.ok("\"picUrl\":\""+realFileName+"\""); //此处直接返回xxxx.jpg，即图片文件名
+
+                String text=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+realFileName);
+                String jsonText="picUrl:\""+realFileName+"\"";
+                if(text==null) jsonText+=",\"ocrState\":502";
+                else jsonText+=",\"ocrState\":200,\"ocrText\":\""+jsonText+"\"";
+                return JSONResult.ok(jsonText);
+
             }
             else {
                 return JSONResult.errorMsg("不合法文件");
