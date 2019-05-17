@@ -33,7 +33,7 @@ public class TaskController extends BasicController {
      */
     //@Scheduled(cron = "0/5 * * * * ?") //每5秒执行一次
     //@Scheduled(cron = "0 */1 * * * ?") //每1分钟执行一次
-    @Scheduled(cron = "0 0 15 * * ?") //每天15点执行一次
+    //@Scheduled(cron = "0 0 15 * * ?") //每天15点执行一次
     private void configureTasks() {
         System.err.println("每日15点推送: " + Calendar.getInstance().getTimeInMillis());
 

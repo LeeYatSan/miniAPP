@@ -53,15 +53,13 @@ public class CardServiceImpl implements CardService {
         cardIDstr.append(String.format("%05d", userInfo.getTotalCards()));
         Long cardId = Long.parseLong(cardIDstr.toString());
 
-        Calendar cal = new GregorianCalendar();
-
         c.setCardId(cardId);
         c.setRememberTimes(0);
         c.setMemoLevel((byte)0);
-        c.setCreateTime(cal.getTime());
-        c.setLastRememberTime(cal.getTime());
-        cal.add(Calendar.DATE, userInfo.getPushFrequency()&0xff);//根据user_info中的pushing_frequency计算下一次推送日期
-        c.setNextTime((nextTime(c, false)).getNextTime());
+        Date now = new Date(System.currentTimeMillis());
+        c.setLastRememberTime(now);
+        c.setCreateTime(now);
+        c = nextTime(c, false);
 
         userInfo.setTotalCards(userInfo.getTotalCards()+1);
 
@@ -133,7 +131,7 @@ public class CardServiceImpl implements CardService {
             if(currMemoLevel < 6){
                 currMemoLevel = (byte)(currMemoLevel+1);
                 frCard.setMemoLevel(currMemoLevel);
-                frCard.setNextTime(new Date((new Date()).getTime() + forgettingCurve[currMemoLevel]));
+                frCard.setNextTime(new Date(System.currentTimeMillis() + forgettingCurve[currMemoLevel]));
                 cardMapper.updateByPrimaryKeySelective(frCard);
             }
             else if(currMemoLevel == 6){
@@ -144,11 +142,11 @@ public class CardServiceImpl implements CardService {
         else {
             currMemoLevel = (byte)1;
             frCard.setMemoLevel(currMemoLevel);
-            frCard.setNextTime(new Date((new Date()).getTime() + forgettingCurve[currMemoLevel]));
+            frCard.setNextTime(new Date(System.currentTimeMillis() + forgettingCurve[currMemoLevel]));
             cardMapper.updateByPrimaryKeySelective(frCard);
         }
         frCard.setRememberTimes(frCard.getRememberTimes()+1);
-        frCard.setLastRememberTime(Calendar.getInstance().getTime());
+        frCard.setLastRememberTime(new Date(System.currentTimeMillis()));
         return frCard;
     }
 
