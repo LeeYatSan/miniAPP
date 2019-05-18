@@ -280,7 +280,7 @@ public class CardController extends BasicController {
                     return JSONResult.ok("{\"picUrl\":\""+realFileName+"\"}"); //此处直接返回xxxx.jpg，即图片文件名
 
                 String jsonText="{\"picUrl\":\""+realFileName+"\"";
-                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+realFileName);
+                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+"/"+realFileName);
                 if(ocrResult.getStatus()!=200)
                     jsonText+=",\"ocrState\":"+ocrResult.getStatus()+",\"ocrMessage\":\""+ocrResult.getMsg()+"\"}";
                 else jsonText+=",\"ocrState\":200,\"ocrText\":\""+ocrResult.getData()+"\"}";
