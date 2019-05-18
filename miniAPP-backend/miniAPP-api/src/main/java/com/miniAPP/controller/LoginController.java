@@ -152,8 +152,9 @@ public class LoginController extends BasicController{
         }
         //用户登录信息记录
         userService.userLoginRec(userID);
-        if(userID != null)
+        if(formID != null){
             formIDService.addFormID(userID, formID);
+        }
 
         //5. 建立session token
         String sessionToken = MD5Utils.getMD5Str(model.getSession_key());
