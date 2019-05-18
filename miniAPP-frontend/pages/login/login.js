@@ -6,7 +6,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    formId:0
+    formId:''
   },
 
   /**
