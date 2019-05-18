@@ -6,6 +6,8 @@
   <!-- <view class='header'>
     <image src='/logo.jpeg'></image>
   </view> -->
+  <form bindsubmit="submitInfo" report-submit='true' >
   <button class='bottom' open-type="getUserInfo" lang="zh_CN"       bindgetuserinfo="bindGetUserInfo"> 授权登录</button>
+  </form>
   </view>
 <view wx:else>请升级微信版本</view>

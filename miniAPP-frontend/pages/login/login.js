@@ -6,6 +6,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    formId:0
   },
 
   /**
@@ -63,6 +64,14 @@ Page({
 
   },
 
+  submitInfo:function(res){
+    var that = this
+    that.setData({
+      formId:res.detail.formId
+    })
+    console.log(that.data.formId)
+  },
+  
   bindGetUserInfo: function(res) {
     var that = this;
     let info = res;
@@ -78,7 +87,8 @@ Page({
               method: 'POST',
               //url:'http://localhost:8081/onLogin',
               data: {
-                code: res.code
+                code: res.code,
+                formID:that.data.formId
               },
               header: {
                 "Content-Type": "application/x-www-form-urlencoded"  // 默认值
