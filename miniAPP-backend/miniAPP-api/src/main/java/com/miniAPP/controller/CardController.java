@@ -315,6 +315,34 @@ public class CardController extends BasicController {
         return JSONResult.ok(cards);
     }
 
+    @ApiOperation(value = "分享卡片", notes = "分享卡片")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Parameter Missing"),
+            @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/shareCard")
+    public JSONResult shareCard(Long userID, String sessionToken, String formID, Long cardID){
+
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+
+        if(formID != null){
+            formIDService.addFormID(userID, formID);
+        }
+
+        if(cardID == null){
+            return JSONResult.errorTokenMsg(PARAM_MISSING);
+        }
+
+        FrCard card = cardService.queryCardByCardID(cardID);
+        card.setUserId(userID);
+        cardService.saveCard(card);
+
+        return JSONResult.ok();
+    }
 
     //需要formID
 //    @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
