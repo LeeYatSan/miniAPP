@@ -3,6 +3,7 @@ package com.miniAPP.service;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
+import com.miniAPP.utils.JSONResult;
 
 import java.util.List;
 
@@ -63,6 +64,6 @@ public interface CardService {
     /**
      * @Description 图片的OCR功能
      */
-    public String Ocr(String picUrl);
+    public JSONResult Ocr(String picUrl);
 
 }

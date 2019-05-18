@@ -192,7 +192,7 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public String Ocr(String picUrl){
+    public JSONResult Ocr(String picUrl){
         try{
             Credential cred = new Credential("AKIDJZOXdbJNfj1vb2uJ8dwGO0Vi5Iy5vlL1", "Shja5LVkneQPnhvwV6xe9RmFa2dfprBo");
             HttpProfile httpProfile = new HttpProfile();
@@ -210,10 +210,10 @@ public class CardServiceImpl implements CardService {
                 if(i>0 && textDetections[i].getAdvancedInfo().compareTo(textDetections[i-1].getAdvancedInfo())!=0) text+="\n";
                 text+=textDetections[i].getDetectedText();
             }
-            return text;
+            return JSONResult.ok(text);
 
         } catch (TencentCloudSDKException e) {
-            return null;
+            return JSONResult.errorMsg(e.toString());
         }
     }
 }

@@ -239,7 +239,7 @@ public class CardController extends BasicController {
     @ApiOperation(value = "上传图片", notes = "上传图片")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
-            @ApiImplicitParam(name = "ocr", value = "ocr", required = true, dataType = "Boolean", paramType = "query"),
+            @ApiImplicitParam(name = "ocr", value = "ocr", required = true, dataType = "boolean", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/uploadPhoto")
@@ -276,13 +276,14 @@ public class CardController extends BasicController {
                 }
 
                 //保存成功，接下来处理OCR
-                if(ocr==false)
-                    return JSONResult.ok("\"picUrl\":\""+realFileName+"\""); //此处直接返回xxxx.jpg，即图片文件名
+                if(!ocr)
+                    return JSONResult.ok("{\"picUrl\":\""+realFileName+"\"}"); //此处直接返回xxxx.jpg，即图片文件名
 
-                String text=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+realFileName);
-                String jsonText="picUrl:\""+realFileName+"\"";
-                if(text==null) jsonText+=",\"ocrState\":502";
-                else jsonText+=",\"ocrState\":200,\"ocrText\":\""+jsonText+"\"";
+                String jsonText="{\"picUrl\":\""+realFileName+"\"";
+                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+realFileName);
+                if(ocrResult.getStatus()!=200)
+                    jsonText+=",\"ocrState\":"+ocrResult.getStatus()+",\"ocrMessage\":\""+ocrResult.getMsg()+"\"}";
+                else jsonText+=",\"ocrState\":200,\"ocrText\":\""+ocrResult.getData()+"\"}";
                 return JSONResult.ok(jsonText);
 
             }
