@@ -211,7 +211,7 @@ public class CardServiceImpl implements CardService {
                 if(i>0 && textDetections[i].getAdvancedInfo().compareTo(textDetections[i-1].getAdvancedInfo())!=0) text+="\n";
                 text+=textDetections[i].getDetectedText();
             }
-            text = StringEscapeUtils.unescapeJava(text);
+            text = StringEscapeUtils.escapeJava(text);
             return JSONResult.ok(text);
 
         } catch (TencentCloudSDKException e) {
