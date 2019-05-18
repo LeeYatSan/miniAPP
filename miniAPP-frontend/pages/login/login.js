@@ -95,6 +95,7 @@ Page({
               },
               success: function (res) {
                 console.log("成功");
+                console.log(that.data.formId);
                 var userinfo = {};
                 userinfo['id'] = res.data.id;
                 userinfo['nickName'] = info.detail.userInfo.nickName;

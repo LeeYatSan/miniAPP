@@ -70,6 +70,7 @@ App({
   globalData: {
     userInfo: null,
     urlPath: "http://134.175.11.69:8080/client",
+    //urlPath: "http://localhost:8081",
     userID: null,
     sessionToken: null
   },

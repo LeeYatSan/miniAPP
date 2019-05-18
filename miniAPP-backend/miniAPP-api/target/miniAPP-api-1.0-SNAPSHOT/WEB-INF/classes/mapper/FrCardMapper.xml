@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.miniAPP.mapper.FrCardMapper" >
+  <resultMap id="BaseResultMap" type="com.miniAPP.pojo.FrCard" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="card_id" property="cardId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="last_remember_time" property="lastRememberTime" jdbcType="TIMESTAMP" />
+    <result column="next_time" property="nextTime" jdbcType="TIMESTAMP" />
+    <result column="remember_times" property="rememberTimes" jdbcType="INTEGER" />
+    <result column="memo_level" property="memoLevel" jdbcType="TINYINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="label_num" property="labelNum" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="getAllFamiliarCards" resultType="com.miniAPP.pojo.FrCard">
+    SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
+  </select>
+
+  <select id="queryFamiliarCardNum"  resultType="java.lang.Integer">
+        SELECT COUNT(card_id) FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
+  </select>
+
+  <select id="queryNoticedUserList"  resultType="java.lang.Long">
+        SELECT DISTINCT user_id FROM fr_card WHERE next_time &lt; current_timestamp()
+  </select>
+
+  <select id="queryUnFamiliarCard"  resultType="com.miniAPP.pojo.FrCard">
+        SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level &lt; 7
+  </select>
+
+</mapper>

@@ -1,0 +1,6 @@
+com/miniAPP/service/UserService.class
+com/miniAPP/service/impl/FormIDServiceImpl.class
+com/miniAPP/service/impl/CardServiceImpl.class
+com/miniAPP/service/impl/UserServiceImpl.class
+com/miniAPP/service/CardService.class
+com/miniAPP/service/FormIDService.class
