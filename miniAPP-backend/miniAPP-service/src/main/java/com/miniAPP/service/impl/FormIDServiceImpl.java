@@ -38,7 +38,7 @@ public class FormIDServiceImpl implements FormIDService {
         FrUserFormid newFrUserFormid = new FrUserFormid();
         newFrUserFormid.setFormId(formID);
         newFrUserFormid.setUserId(userID);
-        newFrUserFormid.setUserOpenid(frUserFormidMapper.selectByPrimaryKey(userID).getUserOpenid());
+        newFrUserFormid.setUserOpenid(frUserLoginMapper.selectByPrimaryKey(userID).getUserOpenid());
         newFrUserFormid.setGetTime(Calendar.getInstance().getTime());
         frUserFormidMapper.insert(newFrUserFormid);
         formidlist.add(newFrUserFormid);

@@ -5,11 +5,6 @@ import javax.persistence.*;
 
 @Table(name = "fr_user_formid")
 public class FrUserFormid {
-    /**
-     * id
-     */
-    @Id
-    private Integer id;
 
     /**
      * user ID
@@ -35,23 +30,6 @@ public class FrUserFormid {
     @Column(name = "get_time")
     private Date getTime;
 
-    /**
-     * 获取id
-     *
-     * @return id - id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * 设置id
-     *
-     * @param id id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      * 获取user ID
