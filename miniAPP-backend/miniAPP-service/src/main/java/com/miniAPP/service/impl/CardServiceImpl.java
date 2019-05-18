@@ -54,28 +54,36 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public Long saveCard(FrCard c){
+    public Long saveCard(FrCard card){
 
-        Long userID = c.getUserId();
+        Long userID = card.getUserId();
         FrUserInfo userInfo = userInfoMapper.selectByPrimaryKey(userID);
         StringBuilder cardIDstr = new StringBuilder(userID.toString());
         cardIDstr.append(String.format("%05d", userInfo.getTotalCards()));
         Long cardId = Long.parseLong(cardIDstr.toString());
 
-        c.setCardId(cardId);
-        c.setRememberTimes(0);
-        c.setMemoLevel((byte)0);
+        card.setCardId(cardId);
+        card.setRememberTimes(0);
+        card.setMemoLevel((byte)0);
         Date now = new Date(System.currentTimeMillis());
-        c.setLastRememberTime(now);
-        c.setCreateTime(now);
-        c = nextTime(c, false);
+        card.setLastRememberTime(now);
+        card.setCreateTime(now);
+        card = nextTime(card, false);
 
         userInfo.setTotalCards(userInfo.getTotalCards()+1);
 
-        cardMapper.insert(c);
+        cardMapper.insert(card);
         userInfoMapper.updateByPrimaryKeySelective(userInfo);
 
-        return c.getCardId();
+        return card.getCardId();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void editCard(FrCard card){
+//        FrCard preCard=cardMapper.selectByPrimaryKey(card.getCardId());
+//        card.setPicUrl(preCard.getPicUrl());
+//        cardMapper.updateByPrimaryKeySelective();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

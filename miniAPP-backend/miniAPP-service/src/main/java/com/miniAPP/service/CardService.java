@@ -11,9 +11,15 @@ public interface CardService {
     /**
      * @Description 保存卡片
      * @param card
-     * @return number of saved cards
+     * @return cardID
      */
     public Long saveCard(FrCard card);
+
+    /**
+     * @Description 修改卡片
+     * @param card
+     */
+    public void editCard(FrCard card);
 
     /**
      * @Description 保存卡片的标签

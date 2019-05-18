@@ -131,7 +131,7 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(card.getContent())){
-            return JSONResult.errorMsg("卡片标题为空");
+            return JSONResult.errorMsg("卡片内容为空");
         }
 
         if(StringUtils.isBlank(labelContent)){
@@ -148,6 +148,42 @@ public class CardController extends BasicController {
 
         return JSONResult.ok(card);
     }
+
+
+    public JSONResult editCard(Long userID, FrCard card, String labelContent, String sessionToken){
+        //还没有完成
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+
+        if(card.getCardId()==null || card.getCardId()==0){
+            return JSONResult.errorMsg("卡片ID为空");
+        }
+
+        if(StringUtils.isBlank(card.getTitle())){
+            return JSONResult.errorMsg("卡片标题为空");
+        }
+
+        if(StringUtils.isBlank(card.getContent())){
+            return JSONResult.errorMsg("卡片内容为空");
+        }
+
+        if(StringUtils.isBlank(labelContent)){
+            return JSONResult.errorMsg("标签内容为空");
+        }
+
+        card.setUserId(userID);
+        String[] labelContents=labelContent.split(" ");
+        card.setLabelNum(labelContents.length);
+
+        //存储标签
+        cardService.saveLabel(userID ,card.getCardId(), labelContents);
+
+        return JSONResult.ok(card);
+    }
+
+
+
 
     @ApiOperation(value = "记住/忘记卡片", notes = "记住/忘记卡片")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
