@@ -1,0 +1,5 @@
+pages/addList/addList.wxss
+.img_button{
+  width: 100%; 
+  height: 500rpx; 
+}
