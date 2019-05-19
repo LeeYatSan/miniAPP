@@ -18,6 +18,7 @@ import com.tencentcloudapi.ocr.v20181119.OcrClient;
 import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRRequest;
 import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRResponse;
 import com.tencentcloudapi.ocr.v20181119.models.TextDetection;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -210,6 +211,7 @@ public class CardServiceImpl implements CardService {
                 if(i>0 && textDetections[i].getAdvancedInfo().compareTo(textDetections[i-1].getAdvancedInfo())!=0) text+="\n";
                 text+=textDetections[i].getDetectedText();
             }
+            text = StringEscapeUtils.escapeJava(text);
             return JSONResult.ok(text);
 
         } catch (TencentCloudSDKException e) {
