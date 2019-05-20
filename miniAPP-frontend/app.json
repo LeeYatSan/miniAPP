@@ -3,6 +3,7 @@
     "pages/login/login",
     "pages/list/list",
     "pages/me",
+    "pages/addList/addList",
     "pages/index/index",
     "pages/logs/logs"
   ],
