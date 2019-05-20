@@ -38,15 +38,15 @@ App({
                     },
                     fail:function(res){
                       wx.redirectTo({
-                        url: '/page/login/login'
+                        url: '/pages/login/login'
                       })
                     }
                   })
                 },
                 fail: function (res) {
-                  wx.redirectTo({
-                    url: '/page/login/login'
-                  })
+                  // wx.redirectTo({
+                  //   url: '/pages/login/login'
+                  // })
                   // 登录
                   wx.login({
                     success: res => {
@@ -60,9 +60,10 @@ App({
         }
         else{
           console.log('未授权')
-          wx.redirectTo({
-            url: '/pages/login/login',
-          })
+          // wx.redirectTo({
+          //   url: '/pages/login/login'
+          // })
+          //console.log('未授权')
         }
       }
     })
