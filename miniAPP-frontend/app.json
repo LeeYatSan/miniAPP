@@ -20,10 +20,10 @@
         "text": "列表"
       },
       {
-        "pagePath": "pages/me/me",
+        "pagePath": "pages/me",
         "text": "我的"
       }
     ]
-  }
+  },
   "sitemapLocation": "sitemap.json"
 }
