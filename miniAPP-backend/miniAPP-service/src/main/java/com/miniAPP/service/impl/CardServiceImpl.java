@@ -181,8 +181,8 @@ public class CardServiceImpl implements CardService {
     public int queryUnfamiliarCardNum(Long userID){
 
         int totalCardNum = userInfoMapper.selectByPrimaryKey(userID).getTotalCards();
-        int unfamiliarCardNum = cardMapper.queryFamiliarCardNum(userID);
-        return totalCardNum-unfamiliarCardNum;
+        int familiarCardNum = cardMapper.queryFamiliarCardNum(userID);
+        return totalCardNum-familiarCardNum;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -198,7 +198,7 @@ public class CardServiceImpl implements CardService {
 
         CardVO cardVO = new CardVO();
         cardVO.setCard(card);
-        cardVO.setLabels((String[]) labelMapper.queryCardAllLabel(card.getCardId()).toArray());
+        cardVO.setLabels(labelMapper.queryCardAllLabel(card.getCardId()).toArray());
         return cardVO;
     }
 

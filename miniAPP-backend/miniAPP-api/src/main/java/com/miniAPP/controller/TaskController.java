@@ -32,7 +32,7 @@ public class TaskController extends BasicController {
     /**
      * 定时推送任务
      */
-//    @Scheduled(cron = "0/10 * * * * ?") //每10秒执行一次
+//    @Scheduled(cron = "0/15 * * * * ?") //每10秒执行一次
 //    @Scheduled(cron = "0 */1 * * * ?") //每1分钟执行一次
     @Scheduled(cron = "0 0 9,15,22 * * ?") //每天9、15、22点执行一次
     private void configureTasks() {

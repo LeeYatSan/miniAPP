@@ -1,7 +1,6 @@
 package com.miniAPP.pojo.VO;
 
 import com.miniAPP.pojo.FrCard;
-import com.miniAPP.pojo.FrLabel;
 import io.swagger.annotations.ApiModel;
 
 
@@ -16,7 +15,7 @@ public class CardVO {
     /**
      * 卡片所有标签
      */
-    String[] labels;
+    Object[] labels;
 
     public FrCard getCard() {
         return card;
@@ -26,11 +25,11 @@ public class CardVO {
         this.card = card;
     }
 
-    public String[] getLabels() {
+    public Object[] getLabels() {
         return labels;
     }
 
-    public void setLabels(String[] labels) {
+    public void setLabels(Object[] labels) {
         this.labels = labels;
     }
 }
