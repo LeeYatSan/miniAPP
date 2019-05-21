@@ -368,7 +368,7 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(card.getContent())){
-            return JSONResult.errorMsg("卡片标题为空");
+            return JSONResult.errorMsg("卡片内容为空");
         }
 
         if(StringUtils.isBlank(labelContent)){
