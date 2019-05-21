@@ -149,9 +149,14 @@ public class CardController extends BasicController {
 //        return JSONResult.ok(card);
 //    }
 
-
+    @ApiOperation(value = "修改卡片", notes = "修改卡片：如有多个标签，以空格分割")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
+            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/editCard")
     public JSONResult editCard(Long userID, FrCard card, String labelContent, String sessionToken){
-        //还没有完成
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }

@@ -20,6 +20,7 @@ import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRRequest;
 import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRResponse;
 import com.tencentcloudapi.ocr.v20181119.models.TextDetection;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -83,9 +84,8 @@ public class CardServiceImpl implements CardService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void editCard(FrCard card){
-//        FrCard preCard=cardMapper.selectByPrimaryKey(card.getCardId());
-//        card.setPicUrl(preCard.getPicUrl());
-//        cardMapper.updateByPrimaryKeySelective();
+        cardMapper.updateByPrimaryKeySelective(card);
+        labelMapMapper.deleteByPrimaryKey(card.getCardId());
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
