@@ -1,11 +1,12 @@
 package com.miniAPP.pojo;
 
+import org.springframework.context.annotation.Bean;
+
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "fr_user_formid")
 public class FrUserFormid {
-
     /**
      * user ID
      */
@@ -13,13 +14,13 @@ public class FrUserFormid {
     private Long userId;
 
     /**
-     * user WeChat openid
+     * user WeChar openid
      */
     @Column(name = "user_openid")
     private String userOpenid;
 
     /**
-     * form id
+     * form ID
      */
     @Column(name = "form_id")
     private String formId;
@@ -29,7 +30,6 @@ public class FrUserFormid {
      */
     @Column(name = "get_time")
     private Date getTime;
-
 
     /**
      * 获取user ID
@@ -50,36 +50,36 @@ public class FrUserFormid {
     }
 
     /**
-     * 获取user WeChat openid
+     * 获取user WeChar openid
      *
-     * @return user_openid - user WeChat openid
+     * @return user_openid - user WeChar openid
      */
     public String getUserOpenid() {
         return userOpenid;
     }
 
     /**
-     * 设置user WeChat openid
+     * 设置user WeChar openid
      *
-     * @param userOpenid user WeChat openid
+     * @param userOpenid user WeChar openid
      */
     public void setUserOpenid(String userOpenid) {
         this.userOpenid = userOpenid;
     }
 
     /**
-     * 获取form id
+     * 获取form ID
      *
-     * @return form_id - form id
+     * @return form_id - form ID
      */
     public String getFormId() {
         return formId;
     }
 
     /**
-     * 设置form id
+     * 设置form ID
      *
-     * @param formId form id
+     * @param formId form ID
      */
     public void setFormId(String formId) {
         this.formId = formId;

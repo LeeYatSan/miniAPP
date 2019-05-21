@@ -9,4 +9,10 @@
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="label_content" property="labelContent" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="queryCardAllLabel" resultType="java.lang.String">
+    SELECT fr_label.label_content FROM fr_label_map LEFT JOIN fr_label
+    ON fr_label_map.label_id = fr_label.label_id WHERE fr_label_map.card_id = #{cardID}
+  </select>
+
 </mapper>

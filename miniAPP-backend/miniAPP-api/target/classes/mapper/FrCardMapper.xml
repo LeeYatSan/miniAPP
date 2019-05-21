@@ -18,7 +18,7 @@
     <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
   </resultMap>
 
-  <select id="getAllFamiliarCards" resultType="com.miniAPP.pojo.FrCard">
+  <select id="getAllFamiliarCards" resultMap="BaseResultMap">
     SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level = 7
   </select>
 
@@ -27,10 +27,10 @@
   </select>
 
   <select id="queryNoticedUserList"  resultType="java.lang.Long">
-        SELECT DISTINCT user_id FROM fr_card WHERE next_time &lt; current_timestamp()
+        SELECT DISTINCT user_id FROM fr_card WHERE next_time &gt; current_timestamp()
   </select>
 
-  <select id="queryUnFamiliarCard"  resultType="com.miniAPP.pojo.FrCard">
+  <select id="queryUnFamiliarCard"  resultMap="BaseResultMap">
         SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level &lt; 7
   </select>
 

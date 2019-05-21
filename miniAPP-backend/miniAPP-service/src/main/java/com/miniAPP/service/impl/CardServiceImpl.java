@@ -8,6 +8,7 @@ import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 import com.miniAPP.pojo.FrUserInfo;
+import com.miniAPP.pojo.VO.CardVO;
 import com.miniAPP.service.CardService;
 import com.miniAPP.utils.JSONResult;
 import com.tencentcloudapi.common.Credential;
@@ -189,6 +190,27 @@ public class CardServiceImpl implements CardService {
     public List<FrCard> getUnFamiliarCard(Long userID){
 
         return cardMapper.queryUnFamiliarCard(userID);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public CardVO getCardLabels(FrCard card){
+
+        CardVO cardVO = new CardVO();
+        cardVO.setCard(card);
+        cardVO.setLabels((String[]) labelMapper.queryCardAllLabel(card.getCardId()).toArray());
+        return cardVO;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public CardVO[] getEachCardLabels(List<FrCard> cards){
+
+        ArrayList<CardVO> cardVOs = new ArrayList<>();
+        for(FrCard card : cards){
+            cardVOs.add(getCardLabels(card));
+        }
+        return (CardVO[]) cardVOs.toArray();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

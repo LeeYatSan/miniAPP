@@ -13,19 +13,19 @@
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/felis_recall_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                        userId="developer"
-                        password="developer">
+                        connectionURL="jdbc:mysql://cdb-h5pmn4bl.gz.tencentcdb.com:10121/felis_recall_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
+                        userId="FelisRecall"
+                        password="FelisRecall@2019">
         </jdbcConnection>
 
         <!-- 对应生成的pojo所在包 -->
-        <javaModelGenerator targetPackage="com.miniAPP.pojo" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-pojo/src/main/java/com/miniAPP/pojo"/>
+        <javaModelGenerator targetPackage="com.miniAPP.pojo" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/src/main/java"/>
 
 		<!-- 对应生成的mapper所在目录 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-api/src/main/resources"/>
+        <sqlMapGenerator targetPackage="mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/src/main/java"/>
 
 		<!-- 配置mapper对应的java映射 -->
-        <javaClientGenerator targetPackage="com.miniAPP.mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/miniAPP-mapper/src/main/java/com/miniAPP/mapper"
+        <javaClientGenerator targetPackage="com.miniAPP.mapper" targetProject="/Users/leeyat-san/Documents/WeChat Mini APP/felis-recall/miniAPP/miniAPP-backend/src/main/java"
                              type="XMLMAPPER"/>
 
 

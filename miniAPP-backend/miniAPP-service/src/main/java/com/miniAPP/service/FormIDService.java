@@ -1,9 +1,15 @@
 package com.miniAPP.service;
 
+
+import com.miniAPP.pojo.FrUserFormid;
+
+import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
+
 public interface FormIDService {
 
     /**
-     * @Description: 添加form ID
+     * @Description 添加form ID
      * @param userID
      * @param formID
      */

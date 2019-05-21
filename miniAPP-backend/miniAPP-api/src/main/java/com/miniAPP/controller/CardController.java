@@ -55,7 +55,7 @@ public class CardController extends BasicController {
         FrCard card=new FrCard();
         card.setUserId(userID);
         List<FrCard> cards=cardMapper.select(card);
-        return JSONResult.ok(cards);
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "获取用户的所有标签", notes = "获取用户的所有标签：通过指定用户ID")
@@ -70,7 +70,7 @@ public class CardController extends BasicController {
         FrLabel label=new FrLabel();
         label.setUserId(userID);
         List<FrLabel> labels=labelMapper.select(label);
-        return JSONResult.ok(labels);
+        return JSONResult.ok(labels.toArray());
     }
 
     @ApiOperation(value = "获取用户的所有卡片", notes = "获取用户的所有卡片：通过指定卡片标签")
@@ -110,44 +110,44 @@ public class CardController extends BasicController {
             cards.addAll(cardMapper.select(card));
         }
 
-        return JSONResult.ok(cards);
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
-    @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
-    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
-            @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
-            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
-            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
-    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
-    @PostMapping("/saveCard")
-    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken) {
-        if(!sessionTokenIsValid(userID, sessionToken)){
-            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
-        }
-
-        if(StringUtils.isBlank(card.getTitle())){
-            return JSONResult.errorMsg("卡片标题为空");
-        }
-
-        if(StringUtils.isBlank(card.getContent())){
-            return JSONResult.errorMsg("卡片内容为空");
-        }
-
-        if(StringUtils.isBlank(labelContent)){
-            return JSONResult.errorMsg("标签内容为空");
-        }
-
-        card.setUserId(userID);
-
-        String[] labelContents=labelContent.split(" ");
-        card.setLabelNum(labelContents.length);
-        //存储标签
-        Long cardID=cardService.saveCard(card); //获取存储的卡片id
-        cardService.saveLabel(userID ,cardID, labelContents);
-
-        return JSONResult.ok(card);
-    }
+//    @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
+//    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+//            @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
+//            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
+//            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
+//            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
+//    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
+//    @PostMapping("/saveCard")
+//    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken) {
+//        if(!sessionTokenIsValid(userID, sessionToken)){
+//            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+//        }
+//
+//        if(StringUtils.isBlank(card.getTitle())){
+//            return JSONResult.errorMsg("卡片标题为空");
+//        }
+//
+//        if(StringUtils.isBlank(card.getContent())){
+//            return JSONResult.errorMsg("卡片内容为空");
+//        }
+//
+//        if(StringUtils.isBlank(labelContent)){
+//            return JSONResult.errorMsg("标签内容为空");
+//        }
+//
+//        card.setUserId(userID);
+//
+//        String[] labelContents=labelContent.split(" ");
+//        card.setLabelNum(labelContents.length);
+//        //存储标签
+//        Long cardID=cardService.saveCard(card); //获取存储的卡片id
+//        cardService.saveLabel(userID ,cardID, labelContents);
+//
+//        return JSONResult.ok(card);
+//    }
 
 
     public JSONResult editCard(Long userID, FrCard card, String labelContent, String sessionToken){
@@ -179,7 +179,7 @@ public class CardController extends BasicController {
         //存储标签
         cardService.saveLabel(userID ,card.getCardId(), labelContents);
 
-        return JSONResult.ok(card);
+        return JSONResult.ok(cardService.getCardLabels(card));
     }
 
 
@@ -203,7 +203,7 @@ public class CardController extends BasicController {
         }
         FrCard card = cardService.queryCardByCardID(cardID);
         card = cardService.nextTime(card, remember);
-        return JSONResult.ok(card);
+        return JSONResult.ok(cardService.getCardLabels(card));
     }
 
     @ApiOperation(value = "熟记卡片", notes = "获取熟记卡片")
@@ -218,7 +218,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         List<FrCard> cards = cardMapper.getAllFamiliarCards(userID);
-        return JSONResult.ok(cards);
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "熟记卡片数量", notes = "获取熟记卡片数量")
@@ -312,7 +312,8 @@ public class CardController extends BasicController {
             formIDService.addFormID(userID, formID);
 
         List<FrCard> cards = cardService.getUnFamiliarCard(userID);
-        return JSONResult.ok(cards);
+
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "分享卡片", notes = "分享卡片")
@@ -345,45 +346,45 @@ public class CardController extends BasicController {
     }
 
     //需要formID
-//    @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
-//    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
-//            @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
-//            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
-//            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
-//            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
-//            @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
-//    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
-//    @PostMapping("/saveCard")
-//    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken, String formID) {
-//        if(!sessionTokenIsValid(userID, sessionToken)){
-//            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
-//        }
-//
-//        if(formID != null)
-//            formIDService.addFormID(userID, formID);
-//
-//        if(StringUtils.isBlank(card.getTitle())){
-//            return JSONResult.errorMsg("卡片标题为空");
-//        }
-//
-//        if(StringUtils.isBlank(card.getContent())){
-//            return JSONResult.errorMsg("卡片标题为空");
-//        }
-//
-//        if(StringUtils.isBlank(labelContent)){
-//            return JSONResult.errorMsg("标签内容为空");
-//        }
-//
-//        card.setUserId(userID);
-//
-//        String[] labelContents=labelContent.split(" ");
-//        card.setLabelNum(labelContents.length);
-//        //存储标签
-//        Long cardID=cardService.saveCard(card); //获取存储的卡片id
-//        cardService.saveLabel(userID ,cardID, labelContents);
-//
-//        return JSONResult.ok(card);
-//    }
+    @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
+    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
+            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
+    @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
+    @PostMapping("/saveCard")
+    public JSONResult saveCard(Long userID, FrCard card, String labelContent, String sessionToken, String formID) {
+        if(!sessionTokenIsValid(userID, sessionToken)){
+            return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
+        }
+
+        if(formID != null)
+            formIDService.addFormID(userID, formID);
+
+        if(StringUtils.isBlank(card.getTitle())){
+            return JSONResult.errorMsg("卡片标题为空");
+        }
+
+        if(StringUtils.isBlank(card.getContent())){
+            return JSONResult.errorMsg("卡片标题为空");
+        }
+
+        if(StringUtils.isBlank(labelContent)){
+            return JSONResult.errorMsg("标签内容为空");
+        }
+
+        card.setUserId(userID);
+
+        String[] labelContents=labelContent.split(" ");
+        card.setLabelNum(labelContents.length);
+        //存储标签
+        Long cardID=cardService.saveCard(card); //获取存储的卡片id
+        cardService.saveLabel(userID ,cardID, labelContents);
+
+        return JSONResult.ok(cardService.getCardLabels(card));
+    }
 //
 //    @ApiOperation(value = "记住/忘记卡片", notes = "记住/忘记卡片")
 //    @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
@@ -408,7 +409,7 @@ public class CardController extends BasicController {
 //        }
 //        FrCard card = cardService.queryCardByCardID(cardID);
 //        card = cardService.nextTime(card, remember);
-//        return JSONResult.ok(card);
+//        return JSONResult.ok(cardService.getCardLabels(card));
 //    }
 
 }

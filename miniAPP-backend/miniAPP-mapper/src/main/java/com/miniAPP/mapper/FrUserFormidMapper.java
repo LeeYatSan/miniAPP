@@ -6,13 +6,20 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component(value = "FrUserFormid")
+@Component(value = "FrUserFormidMapper")
 public interface FrUserFormidMapper extends MyMapper<FrUserFormid> {
 
     /**
-     * Get formID by userID
+     * Get formID by userId
      *
-     * @param userID
+     * @param userId
      */
-    List<FrUserFormid> getFormIDListByUserID(Long userID);
+    List<FrUserFormid> getFormIDListByUserID(Long userId);
+
+    /**
+     * Delete a formId
+     *
+     * @param formId
+     */
+    void deleteFormid(String formId);
 }

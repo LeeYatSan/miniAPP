@@ -2,13 +2,13 @@ package com.miniAPP.pojo.WXModel;
 
 public class WXSendTemplateMsgModel {
 
-    int errcode;
-    String errmsg;
+    private int errcode;
+    private String errmsg;
 
-    public WXSendTemplateMsgModel(int errcode, String errmsg) {
-        this.errcode = errcode;
-        this.errmsg = errmsg;
-    }
+//    public WXSendTemplateMsgModel(int errcode, String errmsg) {
+//        this.errcode = errcode;
+//        this.errmsg = errmsg;
+//    }
 
     public int getErrcode() {
         return errcode;

@@ -9,4 +9,5 @@
     <result column="card_id" property="cardId" jdbcType="BIGINT" />
     <result column="label_id" property="labelId" jdbcType="INTEGER" />
   </resultMap>
+
 </mapper>

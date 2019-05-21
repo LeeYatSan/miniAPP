@@ -3,6 +3,7 @@ package com.miniAPP.service;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
+import com.miniAPP.pojo.VO.CardVO;
 import com.miniAPP.utils.JSONResult;
 
 import java.util.List;
@@ -60,6 +61,22 @@ public interface CardService {
      * @Description 获取未记住的卡片
      */
     public List<FrCard> getUnFamiliarCard(Long userID);
+
+
+    /**
+     * @Description 获取卡片信息（FrCard+Frlabel）
+     * @param card
+     * @return
+     */
+    public CardVO getCardLabels(FrCard card);
+
+
+    /**
+     * @Description 获取一组卡片信息（FrCard+Frlabel）
+     * @param cards
+     * @return
+     */
+    public CardVO[] getEachCardLabels(List<FrCard> cards);
 
     /**
      * @Description 图片的OCR功能
