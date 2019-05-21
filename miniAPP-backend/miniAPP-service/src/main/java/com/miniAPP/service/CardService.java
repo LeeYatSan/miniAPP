@@ -24,6 +24,12 @@ public interface CardService {
     public void editCard(FrCard card);
 
     /**
+     * @Description 删除卡片
+     * @param cardID
+     */
+    public void delCard(Long cardID);
+
+    /**
      * @Description 保存卡片的标签
      * @param userID, cardID, labelContents
      */

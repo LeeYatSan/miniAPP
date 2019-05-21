@@ -90,6 +90,12 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
+    public void delCard(Long cardID){
+        cardMapper.deleteByPrimaryKey(cardID);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
     public void saveLabel(Long userID, Long cardID, String[] labelContents){
         FrLabel label=new FrLabel();
         FrLabelMap labelMap=new FrLabelMap();
