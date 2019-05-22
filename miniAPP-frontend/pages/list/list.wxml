@@ -5,3 +5,22 @@
   </picker>
   <button class="button" bindtap='buttonBind'>添加</button>
 </view>
+
+<view class='listInfo'>
+  <block wx:for='{{list}}' wx:key='*this'>
+    <view class='list_item'>
+      <view class='list_item_hd'>
+        <!-- <image src='{{item.img}}'></image> -->
+        <text>title:{{item.card.title}}</text>
+      </view>
+      <view>
+        <text>content:{{item.card.content}}</text>
+      </view>
+      <view>
+        <text>label:{{item.labels}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+
+
