@@ -3,6 +3,7 @@ package com.miniAPP.service;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
+import com.miniAPP.pojo.VO.CardNumDetailVO;
 import com.miniAPP.pojo.VO.CardVO;
 import com.miniAPP.utils.JSONResult;
 
@@ -53,6 +54,11 @@ public interface CardService {
     public List<Long> queryUserNeededToBeNoticed();
 
     /**
+     * @Description 获取用户数量信息
+     */
+    public CardNumDetailVO queryCardNumDetail(Long userID);
+
+    /**
      * @Description 获取未记住的卡片的数量
      */
     public int queryUnfamiliarCardNum(Long userID);
@@ -76,7 +82,7 @@ public interface CardService {
      * @param cards
      * @return
      */
-    public CardVO[] getEachCardLabels(List<FrCard> cards);
+    public Object[] getEachCardLabels(List<FrCard> cards);
 
     /**
      * @Description 图片的OCR功能

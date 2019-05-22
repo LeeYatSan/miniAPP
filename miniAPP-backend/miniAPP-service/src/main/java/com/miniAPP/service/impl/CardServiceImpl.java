@@ -8,6 +8,7 @@ import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.pojo.FrLabelMap;
 import com.miniAPP.pojo.FrUserInfo;
+import com.miniAPP.pojo.VO.CardNumDetailVO;
 import com.miniAPP.pojo.VO.CardVO;
 import com.miniAPP.service.CardService;
 import com.miniAPP.utils.JSONResult;
@@ -178,6 +179,14 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
+    public CardNumDetailVO queryCardNumDetail(Long userID){
+
+        return new CardNumDetailVO(userID, userInfoMapper.selectByPrimaryKey(userID).getTotalCards(),
+                                                            cardMapper.queryFamiliarCardNum(userID));
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
     public int queryUnfamiliarCardNum(Long userID){
 
         int totalCardNum = userInfoMapper.selectByPrimaryKey(userID).getTotalCards();
@@ -204,13 +213,13 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public CardVO[] getEachCardLabels(List<FrCard> cards){
+    public Object[] getEachCardLabels(List<FrCard> cards){
 
         ArrayList<CardVO> cardVOs = new ArrayList<>();
         for(FrCard card : cards){
             cardVOs.add(getCardLabels(card));
         }
-        return (CardVO[]) cardVOs.toArray();
+        return cardVOs.toArray();
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

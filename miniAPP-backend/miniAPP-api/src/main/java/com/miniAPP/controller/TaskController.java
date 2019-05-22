@@ -1,6 +1,8 @@
 package com.miniAPP.controller;
 
+import com.miniAPP.mapper.FrUserInfoMapper;
 import com.miniAPP.mapper.FrUserLoginMapper;
+import com.miniAPP.pojo.VO.CardNumDetailVO;
 import com.miniAPP.pojo.VO.TemplateDataVO;
 import com.miniAPP.pojo.VO.TemplateVO;
 import com.miniAPP.pojo.WXModel.WXAccessTokenModel;
@@ -13,6 +15,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -29,14 +33,27 @@ public class TaskController extends BasicController {
     @Autowired
     FormIDService formIDService;
 
+    private static final String process[] = {
+            "您已记住 ◻◻◻◻◻◻◻◻◻◻ ",
+            "您已记住 ◼◻◻◻◻◻◻◻◻◻ ",
+            "您已记住 ◼◼◻◻◻◻◻◻◻◻ ",
+            "您已记住 ◼◼◼◻◻◻◻◻◻◻ ",
+            "您已记住 ◼◼◼◼◻◻◻◻◻◻ ",
+            "您已记住 ◼◼◼◼◼◻◻◻◻◻ ",
+            "您已记住 ◼◼◼◼◼◼◻◻◻◻ ",
+            "您已记住 ◼◼◼◼◼◼◼◻◻◻ ",
+            "您已记住 ◼◼◼◼◼◼◼◼◻◻ ",
+            "您已记住 ◼◼◼◼◼◼◼◼◼◻ ",
+            "您已记住 ◼◼◼◼◼◼◼◼◼◼ "
+    };
+
     /**
      * 定时推送任务
      */
-//    @Scheduled(cron = "0/15 * * * * ?") //每10秒执行一次
+//    @Scheduled(cron = "0/10 * * * * ?") //每10秒执行一次
 //    @Scheduled(cron = "0 */1 * * * ?") //每1分钟执行一次
-    @Scheduled(cron = "0 0 9,15,22 * * ?") //每天9、15、22点执行一次
+    @Scheduled(cron = "0 0 9,15,21 * * ?") //每天9、15、21点执行一次
     private void configureTasks() {
-
         List<Long> userList = cardService.queryUserNeededToBeNoticed();
         final String TEMPLATE_ID = "YOxMSObL6dkgajB2SpqxRuBTunjBoJwulie0_-LbYRg";
         Calendar cal=java.util.Calendar.getInstance();
@@ -66,9 +83,21 @@ public class TaskController extends BasicController {
 
             //设置模板消息内容
             Map<String, TemplateDataVO> data = new HashMap<>();
-            data.put("keyword1", new TemplateDataVO("您今天还有卡片需要记忆哟～"));
+
+            CardNumDetailVO cardNumDetailVO = cardService.queryCardNumDetail(curr);
+            int total = cardNumDetailVO.getTotal();
+            int familiar = cardNumDetailVO.getFamiliarNum();
+            NumberFormat nt = NumberFormat.getPercentInstance();
+            nt.setMinimumFractionDigits(2);
+            float percentage;
+            if(total != 0)
+                percentage = (float)familiar/total;
+            else
+                percentage = 0;
+
+            data.put("keyword1", new TemplateDataVO(String.format("您还要记住 %d 张卡哦～ ฅ'ω'ฅ", total-familiar)));
             data.put("keyword2", new TemplateDataVO(date));
-            data.put("keyword3", new TemplateDataVO(String.format("今日还要记住 %d 张卡哦！", cardService.queryUnfamiliarCardNum(curr))));
+            data.put("keyword3", new TemplateDataVO(process[(int)percentage]+nt.format(percentage)));
 
             TemplateVO templateVO = new TemplateVO();
             templateVO.setPage("");

@@ -1,6 +1,7 @@
 com/miniAPP/pojo/WXModel/WXAccessTokenModel.class
 com/miniAPP/pojo/VO/TemplateDataVO.class
 com/miniAPP/pojo/FrLabelMap.class
+com/miniAPP/pojo/VO/CardNumDetailVO.class
 com/miniAPP/pojo/FrLabel.class
 com/miniAPP/pojo/VO/TemplateVO.class
 com/miniAPP/pojo/FrCard.class
