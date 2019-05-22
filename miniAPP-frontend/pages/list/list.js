@@ -7,7 +7,11 @@ Page({
    */
   data: {
     index:0,
-    tagArray:[]
+    tagArray:[],
+    listLength:0,
+    labelLength:0,
+    //list:[{title:'',content:'',label:0,img:''}],
+    list:[],
   },
 
   onLoad: function (options) {
@@ -30,35 +34,33 @@ Page({
         console.log(app.globalData.sessionToken)
         console.log(res.data)
         that.setData({
-          
+          tagArray:res.data.data
         })
+        
+        console.log(that.data.tagArray)
       }
      })
 
-    //数据库得到列表标签
-    // wx.request({
-    //   url: app.globalData.urlPath,
-    //   data:  {},
-    //   header:  {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   success:  function  (res)  {
-
-    //     console.log(res.data)
-    //     that.setData({
-    //       Industry:  res.data //设置数据
-    //     })
-    //   },
-    //   fail:  function  (err)  {
-    //     console.log(err)
-    //   }
-    // }),
-
-    // that.setData(
-    //   {
-    //     tagArray: ['python', 'java', 'php']
-    //   }
-    // )
+     wx.request({
+       url: app.globalData.urlPath +  '/getAllCardsByUserID',
+      data: {
+         userID: app.globalData.userID,
+         sessionToken: app.globalData.sessionToken
+       },
+       method: 'POST',
+       header: {
+         "Content-Type": "application/x-www-form-urlencoded"
+       },
+       success: function (res) {
+         console.log('列表')
+         console.log(res)
+         that.setData({
+           list:res.data.data
+         })
+        
+        console.log(that.data.list)
+       }
+     })
   },
 
   bindPickerChange:function(e){
