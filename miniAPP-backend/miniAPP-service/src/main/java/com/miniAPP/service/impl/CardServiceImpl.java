@@ -21,7 +21,6 @@ import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRRequest;
 import com.tencentcloudapi.ocr.v20181119.models.GeneralFastOCRResponse;
 import com.tencentcloudapi.ocr.v20181119.models.TextDetection;
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -91,8 +90,32 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public void delCard(Long cardID){
+    public void delCard(Long userID, Long cardID){
+
+        //删除卡片
         cardMapper.deleteByPrimaryKey(cardID);
+
+        //获取该卡片所有标签映射
+        FrLabelMap frLabelMap = new FrLabelMap();
+        frLabelMap.setCardId(cardID);
+        List<FrLabelMap>frLabelMaps = labelMapMapper.select(frLabelMap);
+
+        //无卡片标签映射则直接结束
+        if(frLabelMaps == null || frLabelMaps.size() == 0){
+            return;
+        }
+        //删除卡片映射前先检查该标签是否仅剩1张即被删除的本张卡片，若是，则顺便删除该标签
+        for(FrLabelMap curr : frLabelMaps){
+            int currLabelID = curr.getLabelId();
+            FrLabelMap temp = new FrLabelMap();
+            temp.setLabelId(currLabelID);
+            List<FrLabelMap>labelMaps = labelMapMapper.select(temp);
+            if(labelMaps != null && labelMaps.size() == 1){
+                labelMapper.deleteByPrimaryKey(currLabelID);
+            }
+        }
+        //删除卡片标签映射
+        labelMapMapper.deleteCardAllLabel(cardID);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -133,6 +156,34 @@ public class CardServiceImpl implements CardService {
         labelMapMapper.insert(labelMap);
     }
 
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public boolean deleteLabel(Long userID, String labelContent){
+
+        FrLabel label = new FrLabel();
+        label.setUserId(userID);
+        label.setLabelContent(labelContent);
+        label = labelMapper.selectOne(label);
+        if(label == null){
+            return false;
+        }
+        Integer labelID = label.getLabelId();
+        FrLabelMap frLabelMap = new FrLabelMap();
+        frLabelMap.setLabelId(labelID);
+
+        //如果该标签下没有卡片了则可以删除该标签
+        List<FrLabelMap>labelMaps = labelMapMapper.select(frLabelMap);
+        if(labelMaps != null && labelMaps.size() == 0){
+            labelMapper.deleteByPrimaryKey(labelID);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public FrCard queryCardByCardID(Long cardID){
@@ -146,7 +197,7 @@ public class CardServiceImpl implements CardService {
      *
      * @param frCard 当前卡片
      * @param forget 是否忘记：false：没忘记 true：忘记
-     * @return
+     * @return FrCard
      */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override

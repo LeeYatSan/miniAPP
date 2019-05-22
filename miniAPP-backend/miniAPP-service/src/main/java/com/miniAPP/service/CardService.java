@@ -26,9 +26,9 @@ public interface CardService {
 
     /**
      * @Description 删除卡片
-     * @param cardID
+     * @param userID, cardID
      */
-    public void delCard(Long cardID);
+    public void delCard(Long userID, Long cardID);
 
     /**
      * @Description 保存卡片的标签
@@ -41,6 +41,14 @@ public interface CardService {
      * @param label, labelMap
      */
     public void initLabel(FrLabel label, FrLabelMap labelMap);
+
+    /**
+     * @Description 根据userID和label_content删除标签
+     * @param userID, label_content
+     * @return true 删除成功
+     * @return false 删除失败
+     */
+    public boolean deleteLabel(Long userID, String labelContent);
 
     /**
      * @Description 通过cardID查找卡片

@@ -176,19 +176,23 @@ public class CardController extends BasicController {
     @ApiOperation(value = "删除卡片", notes = "删除卡片")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query"),
-            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
+            @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/delCard")
-    public JSONResult delCard(Long userID, Long cardID, String sessionToken){
+    public JSONResult delCard(Long userID, Long cardID, String sessionToken, String formID){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
+
+        if(formID != null)
+            formIDService.addFormID(userID, formID);
 
         if(cardID==null || cardID==0){
             return JSONResult.errorMsg("卡片ID为空");
         }
 
-        cardService.delCard(cardID);
+        cardService.delCard(userID, cardID);
         return JSONResult.ok();
     }
 

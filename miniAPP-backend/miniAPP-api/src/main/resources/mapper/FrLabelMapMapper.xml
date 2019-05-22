@@ -10,4 +10,7 @@
     <result column="label_id" property="labelId" jdbcType="INTEGER" />
   </resultMap>
 
+  <delete id="deleteCardAllLabel">
+    DELETE FROM fr_label_map WHERE card_id = #{cardID}
+  </delete>
 </mapper>
