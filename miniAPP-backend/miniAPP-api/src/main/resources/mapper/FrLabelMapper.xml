@@ -15,4 +15,8 @@
     ON fr_label_map.label_id = fr_label.label_id WHERE fr_label_map.card_id = #{cardID}
   </select>
 
+  <select id="queryUserAllLabel" resultType="java.lang.String">
+    SELECT label_content FROM fr_label WHERE user_id = #{userID}
+  </select>
+
 </mapper>

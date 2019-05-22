@@ -15,4 +15,11 @@ public interface FrLabelMapper extends MyMapper<FrLabel> {
      * @param cardID
      */
     List<String> queryCardAllLabel(Long cardID);
+
+    /**
+     * 获取当前用户所有标签
+     *
+     * @param userID
+     */
+    List<String> queryUserAllLabel(Long userID);
 }

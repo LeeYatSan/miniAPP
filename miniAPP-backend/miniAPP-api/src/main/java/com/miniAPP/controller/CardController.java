@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import springfox.documentation.spring.web.json.Json;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,7 +54,7 @@ public class CardController extends BasicController {
         FrCard card=new FrCard();
         card.setUserId(userID);
         List<FrCard> cards=cardMapper.select(card);
-        return JSONResult.ok(cards.toArray());
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "获取用户的所有标签", notes = "获取用户的所有标签：通过指定用户ID")
@@ -69,8 +68,8 @@ public class CardController extends BasicController {
         }
         FrLabel label=new FrLabel();
         label.setUserId(userID);
-        List<FrLabel> labels=labelMapper.select(label);
-        return JSONResult.ok(labels.toArray());
+        List<String> reuslt = labelMapper.queryUserAllLabel(userID);
+        return JSONResult.ok(reuslt.toArray());
     }
 
     @ApiOperation(value = "获取用户的所有卡片", notes = "获取用户的所有卡片：通过指定卡片标签")
