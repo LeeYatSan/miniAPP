@@ -95,29 +95,32 @@ public class CardController extends BasicController {
         if(StringUtils.isBlank(labelContent)){
             labelContent="Genaral";
         }
-        FrLabel label=new FrLabel();
-        label.setUserId(userID);
-        label.setLabelContent(labelContent);
+//        FrLabel label=new FrLabel();
+//        label.setUserId(userID);
+//        label.setLabelContent(labelContent);
+//
+//        //得到符合要求的标签ID。通过用户ID和标签内容。fr_label(label_id, user_id, label_content)
+//        List<FrLabel> labels=labelMapper.select(label); //存放用户所有的标签ID
+//
+//        //得到符合要求的卡片ID。通过标签ID。fr_label_Map(label_map_id, card_id, label_id)
+//        FrLabelMap labelMap=new FrLabelMap();
+//        List<Long> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
+//        for(FrLabel l: labels) {
+//            labelMap.setLabelId(l.getLabelId());
+//            List<FrLabelMap> labelMaps=labelMapMapper.select(labelMap);
+//            cardIDs.add(labelMaps.get(0).getCardId());//注意：一个标签ID对应一张卡片ID
+//        }
+//
+//        //得到符合要求的卡片。通过卡片ID。fr_card(...)
+//        FrCard card=new FrCard();
+//        List<FrCard> cards=new ArrayList<>(); //存放符合要求的用户的所有卡片
+//        for(Long s: cardIDs){
+//            card.setCardId(s);
+//            cards.addAll(cardMapper.select(card));
+//        }
 
-        //得到符合要求的标签ID。通过用户ID和标签内容。fr_label(label_id, user_id, label_content)
-        List<FrLabel> labels=labelMapper.select(label); //存放用户所有的标签ID
-
-        //得到符合要求的卡片ID。通过标签ID。fr_label_Map(label_map_id, card_id, label_id)
-        FrLabelMap labelMap=new FrLabelMap();
-        List<Long> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
-        for(FrLabel l: labels) {
-            labelMap.setLabelId(l.getLabelId());
-            List<FrLabelMap> labelMaps=labelMapMapper.select(labelMap);
-            cardIDs.add(labelMaps.get(0).getCardId());//注意：一个标签ID对应一张卡片ID
-        }
-
-        //得到符合要求的卡片。通过卡片ID。fr_card(...)
-        FrCard card=new FrCard();
-        List<FrCard> cards=new ArrayList<>(); //存放符合要求的用户的所有卡片
-        for(Long s: cardIDs){
-            card.setCardId(s);
-            cards.addAll(cardMapper.select(card));
-        }
+        int labelID=labelMapper.queryLabelID(userID, labelContent);
+        List<FrCard> cards=cardMapper.queryAllCardByLabelID(labelID);
 
         return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
@@ -371,7 +374,7 @@ public class CardController extends BasicController {
     @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
-            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = false, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
@@ -394,7 +397,7 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(labelContent)){
-            return JSONResult.errorMsg("标签内容为空");
+            labelContent="#General";
         }
 
         card.setUserId(userID);
