@@ -83,7 +83,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByLabel")
-    public JSONResult getAllCardsByLabel(Long userID, String labelContent, String sessionToken){
+    public JSONResult getAllCardsByLabel(Long userID, String sessionToken, String labelContent){
         if(userID == null || userID <= 0){
             return JSONResult.errorMsg(PARAM_MISSING+"userID");
         }if(sessionToken == null || sessionToken.equals("")){

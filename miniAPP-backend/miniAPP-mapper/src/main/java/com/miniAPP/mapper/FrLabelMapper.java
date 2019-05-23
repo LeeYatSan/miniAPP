@@ -22,4 +22,11 @@ public interface FrLabelMapper extends MyMapper<FrLabel> {
      * @param userID
      */
     List<String> queryUserAllLabel(Long userID);
+
+    /**
+     * 获取标签ID
+     *
+     * @param userID
+     */
+    Integer queryLabelID(Long userID, String labelContent);
 }
