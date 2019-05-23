@@ -45,5 +45,5 @@ public interface FrCardMapper extends MyMapper<FrCard> {
      *
      * @param labelID
      */
-    List<FrCard> queryAllCardsByLabelID(Long labelID);
+    List<FrCard> queryAllCardByLabelID(Long labelID);
 }
