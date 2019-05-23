@@ -48,6 +48,11 @@ public class CardController extends BasicController {
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByUserID")
     public JSONResult getAllCardsByUserID(Long userID, String sessionToken){
+        if(userID == null || userID <= 0){
+            return JSONResult.errorMsg(PARAM_MISSING+"userID");
+        }if(sessionToken == null || sessionToken.equals("")){
+            return JSONResult.errorMsg(PARAM_MISSING+"sessionToken");
+        }
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
@@ -79,6 +84,11 @@ public class CardController extends BasicController {
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByLabel")
     public JSONResult getAllCardsByLabel(Long userID, String labelContent, String sessionToken){
+        if(userID == null || userID <= 0){
+            return JSONResult.errorMsg(PARAM_MISSING+"userID");
+        }if(sessionToken == null || sessionToken.equals("")){
+            return JSONResult.errorMsg(PARAM_MISSING+"sessionToken");
+        }
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
@@ -109,7 +119,7 @@ public class CardController extends BasicController {
             cards.addAll(cardMapper.select(card));
         }
 
-        return JSONResult.ok(cards.toArray());
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "获取某卡片的所有标签", notes = "获取某卡片的所有标签：通过指定卡片ID")
@@ -124,7 +134,7 @@ public class CardController extends BasicController {
         }
 
         if(cardID==null || cardID==0){
-            return JSONResult.errorMsg("卡片ID为空");
+            return JSONResult.errorMsg(PARAM_MISSING+"cardID");
         }
 
         return JSONResult.ok(cardService.getCardLabels(cardService.queryCardByCardID(cardID)));
@@ -147,19 +157,19 @@ public class CardController extends BasicController {
             formIDService.addFormID(userID, formID);
 
         if(card.getCardId()==null || card.getCardId()==0){
-            return JSONResult.errorMsg("卡片ID为空");
+            return JSONResult.errorMsg(PARAM_MISSING+"cardID");
         }
 
         if(StringUtils.isBlank(card.getTitle())){
-            return JSONResult.errorMsg("卡片标题为空");
+            return JSONResult.errorMsg(PARAM_MISSING+"title");
         }
 
         if(StringUtils.isBlank(card.getContent())){
-            return JSONResult.errorMsg("卡片内容为空");
+            return JSONResult.errorMsg(PARAM_MISSING+"content");
         }
 
         if(StringUtils.isBlank(labelContent)){
-            return JSONResult.errorMsg("标签内容为空");
+            return JSONResult.errorMsg(PARAM_MISSING+"label content");
         }
 
         card.setUserId(userID);
@@ -211,7 +221,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
         if(cardID == null){
-            return JSONResult.errorMsg(PARAM_MISSING);
+            return JSONResult.errorMsg(PARAM_MISSING+"cardID");
         }
         FrCard card = cardService.queryCardByCardID(cardID);
         card = cardService.nextTime(card, remember);
@@ -347,7 +357,7 @@ public class CardController extends BasicController {
         }
 
         if(cardID == null){
-            return JSONResult.errorTokenMsg(PARAM_MISSING);
+            return JSONResult.errorTokenMsg(PARAM_MISSING+"cardID");
         }
 
         FrCard card = cardService.queryCardByCardID(cardID);
@@ -417,7 +427,7 @@ public class CardController extends BasicController {
 //            formIDService.addFormID(userID, formID);
 //
 //        if(cardID == null){
-//            return JSONResult.errorMsg(PARAM_MISSING);
+//            return JSONResult.errorMsg(PARAM_MISSING+"cardID");
 //        }
 //        FrCard card = cardService.queryCardByCardID(cardID);
 //        card = cardService.nextTime(card, remember);
