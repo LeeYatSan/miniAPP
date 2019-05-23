@@ -2,6 +2,7 @@
   "pages": [
     "pages/login/login",
     "pages/list/list",
+    "pages/card/card",
     "pages/me",
     "pages/addList/addList",
     "pages/index/index",
@@ -15,6 +16,10 @@
   },
   "tabBar": {
     "list": [
+      {
+        "pagePath": "pages/card/card",
+        "text": "单词卡片"
+      },
       {
         "pagePath": "pages/list/list",
         "text": "列表"
