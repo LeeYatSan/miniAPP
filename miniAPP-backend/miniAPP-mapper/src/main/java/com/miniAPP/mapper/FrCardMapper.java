@@ -38,4 +38,12 @@ public interface FrCardMapper extends MyMapper<FrCard> {
      * @param userID
      */
     List<FrCard> queryUnFamiliarCard(Long userID);
+
+
+    /**
+     * 根据labelID查询所有卡片
+     *
+     * @param labelID
+     */
+    List<FrCard> queryAllCardByLabelID(Long labelID);
 }
