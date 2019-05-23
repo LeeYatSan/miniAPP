@@ -24,9 +24,10 @@ public interface FrLabelMapper extends MyMapper<FrLabel> {
     List<String> queryUserAllLabel(Long userID);
 
     /**
-     * 获取标签ID
+     * 根据标签内容获取标签ID
      *
      * @param userID
+     * @param labelContent
      */
     Integer queryLabelID(Long userID, String labelContent);
 }
