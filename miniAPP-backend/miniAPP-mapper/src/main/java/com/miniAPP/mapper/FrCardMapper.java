@@ -41,9 +41,7 @@ public interface FrCardMapper extends MyMapper<FrCard> {
 
 
     /**
-     * 根据labelID查询所有卡片
-     *
-     * @param labelID
+     * 根据labelID获取所有卡片
      */
     List<FrCard> queryAllCardByLabelID(Integer labelID);
 }

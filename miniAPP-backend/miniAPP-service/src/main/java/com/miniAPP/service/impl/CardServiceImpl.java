@@ -185,12 +185,13 @@ public class CardServiceImpl implements CardService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public List<FrCard> queryCardByUserID(Long userID){
+    public List<FrCard> queryCardsByUserID(Long userID){
 
-        FrCard card=new FrCard();
-        card.setUserId(userID);
-       return cardMapper.select(card);
+        FrCard card = new FrCard();
+        card.setCardId(userID);
+        return cardMapper.select(card);
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override

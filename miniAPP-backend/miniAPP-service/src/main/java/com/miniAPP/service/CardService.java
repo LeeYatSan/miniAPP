@@ -51,11 +51,10 @@ public interface CardService {
     public boolean deleteLabel(Long userID, String labelContent);
 
     /**
-     * @Description 获取当前用户所有卡片
-     * @param userID
-     * @return List<FrCard>
+     * @Description 通过userID查找卡片
+     * @parm userID
      */
-    public List<FrCard> queryCardByUserID(Long userID);
+    public List<FrCard> queryCardsByUserID(Long userID);
 
     /**
      * @Description 通过cardID查找卡片

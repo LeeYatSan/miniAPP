@@ -55,7 +55,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
+        return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardsByUserID(userID)));
     }
 
     @ApiOperation(value = "获取用户的所有标签", notes = "获取用户的所有标签：通过指定用户ID")
@@ -115,9 +115,9 @@ public class CardController extends BasicController {
 //            cards.addAll(cardMapper.select(card));
 //        }
 
-        //如果是"#All"标签，返回全部卡片
+        //如果是"全部"标签，返回全部卡片
         if(labelContent.equals("全部")){
-            return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
+            return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardsByUserID(userID)));
         }
         //否则返回具体标签下的卡片
         int labelID=labelMapper.queryLabelID(userID, labelContent);

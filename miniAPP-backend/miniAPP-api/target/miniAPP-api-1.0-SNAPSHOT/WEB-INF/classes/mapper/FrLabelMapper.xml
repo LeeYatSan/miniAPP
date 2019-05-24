@@ -19,8 +19,4 @@
     SELECT label_content FROM fr_label WHERE user_id = #{userID}
   </select>
 
-  <select id="queryLabelID" resultType="java.lang.Integer">
-    SELECT label_id FROM fr_label WHERE user_id = #{param1} AND label_content = #{param2}
-  </select>
-
 </mapper>
