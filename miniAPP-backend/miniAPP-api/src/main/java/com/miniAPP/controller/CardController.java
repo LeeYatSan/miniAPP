@@ -116,7 +116,7 @@ public class CardController extends BasicController {
 //        }
 
         //如果是"#All"标签，返回全部卡片
-        if(labelContent.equals("#All")){
+        if(labelContent.equals("全部")){
             return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
         }
         //否则返回具体标签下的卡片
@@ -173,6 +173,9 @@ public class CardController extends BasicController {
 
         if(StringUtils.isBlank(labelContent)){
             return JSONResult.errorMsg(PARAM_MISSING+"label content");
+        }
+        else if(labelContent.equals("全部")){
+            return JSONResult.errorMsg("Existing label name！");
         }
 
         card.setUserId(userID);
@@ -397,7 +400,10 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(labelContent)){
-            labelContent="#General";
+            labelContent="General";
+        }
+        else if(labelContent.equals("全部")){
+            return JSONResult.errorMsg("Existing label name！");
         }
 
         card.setUserId(userID);
