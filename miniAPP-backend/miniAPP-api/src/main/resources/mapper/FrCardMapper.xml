@@ -34,10 +34,4 @@
         SELECT * FROM fr_card WHERE user_id = #{userID} AND memo_level &lt; 7
   </select>
 
-  <select id="queryAllCardByLabelID"  resultMap="BaseResultMap">
-        SELECT fr_card.card_id, fr_card.user_id, fr_card.create_time, fr_card.last_remember_time, fr_card.next_time, fr_card.remember_times,
-        fr_card.memo_level, fr_card.title, fr_card.label_num, fr_card.content, fr_card.pic_url FROM fr_label_map LEFT JOIN fr_card
-        WHERE fr_label_map.label_id = #{labelID}
-  </select>
-
 </mapper>

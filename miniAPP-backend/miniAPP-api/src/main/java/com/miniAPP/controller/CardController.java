@@ -5,6 +5,7 @@ import com.miniAPP.mapper.FrLabelMapMapper;
 import com.miniAPP.mapper.FrLabelMapper;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
+import com.miniAPP.pojo.FrLabelMap;
 import com.miniAPP.service.CardService;
 import com.miniAPP.service.FormIDService;
 import com.miniAPP.utils.JSONResult;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -54,8 +56,10 @@ public class CardController extends BasicController {
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
-
-        return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
+        FrCard card=new FrCard();
+        card.setUserId(userID);
+        List<FrCard> cards=cardMapper.select(card);
+        return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
     @ApiOperation(value = "获取用户的所有标签", notes = "获取用户的所有标签：通过指定用户ID")
@@ -79,7 +83,7 @@ public class CardController extends BasicController {
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/getAllCardsByLabel")
-    public JSONResult getAllCardsByLabel(Long userID, String sessionToken, String labelContent){
+    public JSONResult getAllCardsByLabel(Long userID, String labelContent, String sessionToken){
         if(userID == null || userID <= 0){
             return JSONResult.errorMsg(PARAM_MISSING+"userID");
         }if(sessionToken == null || sessionToken.equals("")){
@@ -91,37 +95,30 @@ public class CardController extends BasicController {
         if(StringUtils.isBlank(labelContent)){
             labelContent="Genaral";
         }
-//        FrLabel label=new FrLabel();
-//        label.setUserId(userID);
-//        label.setLabelContent(labelContent);
-//
-//        //得到符合要求的标签ID。通过用户ID和标签内容。fr_label(label_id, user_id, label_content)
-//        List<FrLabel> labels=labelMapper.select(label); //存放用户所有的标签ID
-//
-//        //得到符合要求的卡片ID。通过标签ID。fr_label_Map(label_map_id, card_id, label_id)
-//        FrLabelMap labelMap=new FrLabelMap();
-//        List<Long> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
-//        for(FrLabel l: labels) {
-//            labelMap.setLabelId(l.getLabelId());
-//            List<FrLabelMap> labelMaps=labelMapMapper.select(labelMap);
-//            cardIDs.add(labelMaps.get(0).getCardId());//注意：一个标签ID对应一张卡片ID
-//        }
-//
-//        //得到符合要求的卡片。通过卡片ID。fr_card(...)
-//        FrCard card=new FrCard();
-//        List<FrCard> cards=new ArrayList<>(); //存放符合要求的用户的所有卡片
-//        for(Long s: cardIDs){
-//            card.setCardId(s);
-//            cards.addAll(cardMapper.select(card));
-//        }
+        FrLabel label=new FrLabel();
+        label.setUserId(userID);
+        label.setLabelContent(labelContent);
 
-        //如果是"#All"标签，返回全部卡片
-        if(labelContent.equals("#All")){
-            return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
+        //得到符合要求的标签ID。通过用户ID和标签内容。fr_label(label_id, user_id, label_content)
+        List<FrLabel> labels=labelMapper.select(label); //存放用户所有的标签ID
+
+        //得到符合要求的卡片ID。通过标签ID。fr_label_Map(label_map_id, card_id, label_id)
+        FrLabelMap labelMap=new FrLabelMap();
+        List<Long> cardIDs=new ArrayList<>(); //存放符合要求的所有卡片ID
+        for(FrLabel l: labels) {
+            labelMap.setLabelId(l.getLabelId());
+            List<FrLabelMap> labelMaps=labelMapMapper.select(labelMap);
+            cardIDs.add(labelMaps.get(0).getCardId());//注意：一个标签ID对应一张卡片ID
         }
-        //否则返回具体标签下的卡片
-        int labelID=labelMapper.queryLabelID(userID, labelContent);
-        List<FrCard> cards=cardMapper.queryAllCardByLabelID(labelID);
+
+        //得到符合要求的卡片。通过卡片ID。fr_card(...)
+        FrCard card=new FrCard();
+        List<FrCard> cards=new ArrayList<>(); //存放符合要求的用户的所有卡片
+        for(Long s: cardIDs){
+            card.setCardId(s);
+            cards.addAll(cardMapper.select(card));
+        }
+
         return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
@@ -274,11 +271,11 @@ public class CardController extends BasicController {
         }
 
         if(photoFile!=null){
-            String type;//文件类型
+            String type=null; //文件类型
             String fileName=photoFile.getOriginalFilename(); //文件原名称
-            String realFileName; //文件现名称
-            String realDirPath = "/root/Documents/FelisRecall/images/"+ userID; //文件存放路径
-            String realPath;
+            String realFileName=null; //文件现名称
+            String realDirPath = "/root/Documents/FelisRecall/images/"+ String.valueOf(userID); //文件存放路径
+            String realPath=null;
 
             if(!new File(realDirPath).exists())
                 new File(realDirPath).mkdirs();
@@ -288,7 +285,7 @@ public class CardController extends BasicController {
             if(type!=null) {
                 //PNG、JPG、JPEG图片格式，可后续添加
                 if ("PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase()) || "JPEG".equals(type.toUpperCase())) {
-                    realFileName = System.currentTimeMillis() + "." + type.toLowerCase();
+                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
                     realPath=realDirPath+"/"+realFileName;
                     try {
                         photoFile.transferTo(new File(realPath));
@@ -305,7 +302,7 @@ public class CardController extends BasicController {
                     return JSONResult.ok("{\"picUrl\":\""+realFileName+"\"}"); //此处直接返回xxxx.jpg，即图片文件名
 
                 String jsonText="{\"picUrl\":\""+realFileName+"\"";
-                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+userID+"/"+realFileName);
+                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+"/"+realFileName);
                 if(ocrResult.getStatus()!=200)
                     jsonText+=",\"ocrState\":"+ocrResult.getStatus()+",\"ocrMessage\":\""+ocrResult.getMsg()+"\"}";
                 else jsonText+=",\"ocrState\":200,\"ocrText\":\""+ocrResult.getData()+"\"}";
@@ -374,7 +371,7 @@ public class CardController extends BasicController {
     @ApiOperation(value = "保存卡片", notes = "保存卡片：如有多个标签，以空格分割")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
-            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = false, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "photoFile", value = "photoFile", required = true, dataType = "MultipartFile", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
@@ -397,7 +394,7 @@ public class CardController extends BasicController {
         }
 
         if(StringUtils.isBlank(labelContent)){
-            labelContent="#General";
+            return JSONResult.errorMsg("标签内容为空");
         }
 
         card.setUserId(userID);
