@@ -2,6 +2,7 @@ package com.miniAPP.mapper;
 
 import com.miniAPP.pojo.FrLabel;
 import com.miniAPP.utils.MyMapper;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -30,4 +31,7 @@ public interface FrLabelMapper extends MyMapper<FrLabel> {
      * @param labelContent
      */
     Integer queryLabelID(Long userID, String labelContent);
+
+
+
 }

@@ -5,7 +5,6 @@ import com.miniAPP.mapper.FrLabelMapMapper;
 import com.miniAPP.mapper.FrLabelMapper;
 import com.miniAPP.pojo.FrCard;
 import com.miniAPP.pojo.FrLabel;
-import com.miniAPP.pojo.FrLabelMap;
 import com.miniAPP.service.CardService;
 import com.miniAPP.service.FormIDService;
 import com.miniAPP.utils.JSONResult;
@@ -19,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -56,10 +54,8 @@ public class CardController extends BasicController {
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
-        FrCard card=new FrCard();
-        card.setUserId(userID);
-        List<FrCard> cards=cardMapper.select(card);
-        return JSONResult.ok(cardService.getEachCardLabels(cards));
+
+        return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
     }
 
     @ApiOperation(value = "获取用户的所有标签", notes = "获取用户的所有标签：通过指定用户ID")
@@ -119,13 +115,11 @@ public class CardController extends BasicController {
 //            cards.addAll(cardMapper.select(card));
 //        }
 
-        if(labelContent.equals("#All")==true){
-            FrCard card=new FrCard();
-            card.setUserId(userID);
-            List<FrCard> cards=cardMapper.select(card);
-            return JSONResult.ok(cardService.getEachCardLabels(cards));
+        //如果是"#All"标签，返回全部卡片
+        if(labelContent.equals("#All")){
+            return JSONResult.ok(cardService.getEachCardLabels(cardService.queryCardByUserID(userID)));
         }
-
+        //否则返回具体标签下的卡片
         int labelID=labelMapper.queryLabelID(userID, labelContent);
         List<FrCard> cards=cardMapper.queryAllCardByLabelID(labelID);
         return JSONResult.ok(cardService.getEachCardLabels(cards));
@@ -280,11 +274,11 @@ public class CardController extends BasicController {
         }
 
         if(photoFile!=null){
-            String type=null; //文件类型
+            String type;//文件类型
             String fileName=photoFile.getOriginalFilename(); //文件原名称
-            String realFileName=null; //文件现名称
-            String realDirPath = "/root/Documents/FelisRecall/images/"+ String.valueOf(userID); //文件存放路径
-            String realPath=null;
+            String realFileName; //文件现名称
+            String realDirPath = "/root/Documents/FelisRecall/images/"+ userID; //文件存放路径
+            String realPath;
 
             if(!new File(realDirPath).exists())
                 new File(realDirPath).mkdirs();
@@ -294,7 +288,7 @@ public class CardController extends BasicController {
             if(type!=null) {
                 //PNG、JPG、JPEG图片格式，可后续添加
                 if ("PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase()) || "JPEG".equals(type.toUpperCase())) {
-                    realFileName = String.valueOf(System.currentTimeMillis()) + "." + type.toLowerCase();
+                    realFileName = System.currentTimeMillis() + "." + type.toLowerCase();
                     realPath=realDirPath+"/"+realFileName;
                     try {
                         photoFile.transferTo(new File(realPath));
@@ -311,7 +305,7 @@ public class CardController extends BasicController {
                     return JSONResult.ok("{\"picUrl\":\""+realFileName+"\"}"); //此处直接返回xxxx.jpg，即图片文件名
 
                 String jsonText="{\"picUrl\":\""+realFileName+"\"";
-                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+String.valueOf(userID)+"/"+realFileName);
+                JSONResult ocrResult=cardService.Ocr("http://134.175.11.69:8080/images/"+userID+"/"+realFileName);
                 if(ocrResult.getStatus()!=200)
                     jsonText+=",\"ocrState\":"+ocrResult.getStatus()+",\"ocrMessage\":\""+ocrResult.getMsg()+"\"}";
                 else jsonText+=",\"ocrState\":200,\"ocrText\":\""+ocrResult.getData()+"\"}";
