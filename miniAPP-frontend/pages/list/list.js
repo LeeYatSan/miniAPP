@@ -7,7 +7,7 @@ Page({
    */
   data: {
     index:0,
-    tagArray:[],
+    tagArray:['全部'],
     listLength:0,
     labelLength:0,
     //list:[{title:'',content:'',label:0,img:''}],
@@ -16,51 +16,65 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    this.getTabelsAndCards()
+  },
 
-    //数据库得到标签数据
-    wx.request({
-      url: app.globalData.urlPath + '/getAllLabelsByUserID',
-      data: {
-      userID : app.globalData.userID,
-      sessionToken : app.globalData.sessionToken
-      },
-      method:'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded" 
-      },
-      success:  function  (res)  {
-        console.log('标签')
-        console.log(app.globalData.userID)
-        console.log(app.globalData.sessionToken)
-        console.log(res.data)
-        that.setData({
-          tagArray:res.data.data
-        })
+  onPullDownRefresh: function () {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    var that = this;
+    this.getTabelsAndCards()
         
-        console.log(that.data.tagArray)
-      }
-     })
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading()
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
+
+  getTabelsAndCards:function(options){
+    var that = this
+  //数据库得到标签数据
+  wx.request({
+    url: app.globalData.urlPath + '/getAllLabelsByUserID',
+    data: {
+      userID: app.globalData.userID,
+      sessionToken: app.globalData.sessionToken
+    },
+    method: 'POST',
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    success: function (res) {
+      console.log('标签')
+      console.log(res.data)
+      that.setData({
+        tagArray: that.data.tagArray.concat(res.data.data)
+      })
+
+      console.log(that.data.tagArray)
+    }
+  })
 
      wx.request({
-       url: app.globalData.urlPath +  '/getAllCardsByUserID',
-      data: {
-         userID: app.globalData.userID,
-         sessionToken: app.globalData.sessionToken
-       },
-       method: 'POST',
-       header: {
-         "Content-Type": "application/x-www-form-urlencoded"
-       },
-       success: function (res) {
-         console.log('列表')
-         console.log(res)
-         that.setData({
-           list:res.data.data
-         })
-        
-        console.log(that.data.list)
-       }
-     })
+    url: app.globalData.urlPath + '/getAllCardsByUserID',
+    data: {
+      userID: app.globalData.userID,
+      sessionToken: app.globalData.sessionToken
+    },
+    method: 'POST',
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    success: function (res) {
+      console.log('列表')
+      console.log(res)
+      that.setData({
+        list: res.data.data
+      })
+
+      console.log(that.data.list)
+    }
+  })
   },
 
   bindPickerChange:function(e){
@@ -71,11 +85,36 @@ Page({
         index: e.detail.value
       }
     )
+    wx.request({
+      url: app.globalData.urlPath+'/getAllCardsByLabel',
+      data:{
+        userID:app.globalData.userID,
+        sessionToken:app.globalData.sessionToken,
+        labelContent:that.data.tagArray[that.data.index]
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log('标签选择')
+        console.log(res)
+        that.setData({
+          list: res.data.data
+        })
+      }
+    })
   },
 
   buttonBind:function(e){
     wx.navigateTo({
       url: '/pages/addList/addList',
+    })
+  },
+
+  cardContent:function(e){
+    wx.navigateTo({
+      url: '/pages/content/content',
     })
   }
 })

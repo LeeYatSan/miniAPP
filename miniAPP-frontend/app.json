@@ -1,19 +1,20 @@
 {
-  "pages": [
+  "pages":[
     "pages/login/login",
     "pages/list/list",
     "pages/card/card",
     "pages/me",
     "pages/addList/addList",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/content/content"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
+
+  "window":{
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "橘喵记忆",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle":"black"
   },
+
   "tabBar": {
     "list": [
       {
@@ -25,10 +26,11 @@
         "text": "列表"
       },
       {
-        "pagePath": "pages/me",
+        "pagePath": "pages/me/me",
         "text": "我的"
       }
     ]
   },
+
   "sitemapLocation": "sitemap.json"
 }
