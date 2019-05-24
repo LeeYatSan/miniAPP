@@ -119,9 +119,15 @@ public class CardController extends BasicController {
 //            cards.addAll(cardMapper.select(card));
 //        }
 
+        if(labelContent.equals("#All")==true){
+            FrCard card=new FrCard();
+            card.setUserId(userID);
+            List<FrCard> cards=cardMapper.select(card);
+            return JSONResult.ok(cardService.getEachCardLabels(cards));
+        }
+
         int labelID=labelMapper.queryLabelID(userID, labelContent);
         List<FrCard> cards=cardMapper.queryAllCardByLabelID(labelID);
-
         return JSONResult.ok(cardService.getEachCardLabels(cards));
     }
 
