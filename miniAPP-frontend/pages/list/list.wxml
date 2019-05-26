@@ -7,10 +7,9 @@
 </view>
 
 <view class='listInfo'>
-  <block wx:for='{{list}}' wx:key='*this'>
-    <view class='list_item'>
+  <block wx:for='{{list}}' wx:key='index'>
+    <view class='list_item' data-id='{{index}}' bindtap='cardContent' >
       <view class='list_item_hd'>
-        <!-- <image src='{{item.img}}'></image> -->
         <text>title:{{item.card.title}}</text>
       </view>
       <view>
@@ -22,5 +21,3 @@
     </view>
   </block>
 </view>
-
-
