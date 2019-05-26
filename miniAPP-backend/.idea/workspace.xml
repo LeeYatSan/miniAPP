@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.wxss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,14 +38,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
+            <state relative-caret-position="121">
               <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/BasicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -171,7 +189,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -182,7 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -293,6 +310,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,7 +322,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558887716451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558887741943" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -481,7 +499,8 @@
       <workItem from="1558678927481" duration="838000" />
       <workItem from="1558695660991" duration="3815000" />
       <workItem from="1558836463643" duration="49000" />
-      <workItem from="1558886335199" duration="1097000" />
+      <workItem from="1558886335199" duration="1420000" />
+      <workItem from="1558888085483" duration="96000" />
     </task>
     <task id="LOCAL-00001" summary="login 有bug">
       <created>1553568655820</created>
@@ -728,11 +747,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558886460969</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="前端list修复">
+      <created>1558887583481</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1558887583481</updated>
+    </task>
+    <task id="LOCAL-00037" summary="前端list修复">
+      <created>1558887719624</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1558887719625</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224951000" />
+    <option name="totallyTimeSpent" value="225370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,9 +777,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21123321" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21367522" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -763,10 +797,10 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50183153" side_tool="true" visible="true" weight="0.35306123" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.502442" side_tool="true" visible="true" weight="0.35306123" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4981685" visible="true" weight="0.35306123" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.497558" visible="true" weight="0.35306123" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.34387755" />
       <window_info anchor="bottom" id="JProfiler" order="15" />
@@ -1047,13 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/BasicController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/FormIDService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1220,7 +1247,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
+        <state relative-caret-position="121">
           <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1235,6 +1262,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/BasicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
         </state>
       </provider>
     </entry>
