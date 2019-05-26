@@ -1,38 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="增加queryLabelID方法">
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/images/cake.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/images/carrot.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/images/foot.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/card/card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/card/card.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/card/card.wxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/card/card.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/controller/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/com/miniAPP/controller/CardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/classes/com/miniAPP/controller/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/classes/com/miniAPP/controller/CardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-mapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/FrCardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/FrCardMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/FrLabelMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/classes/com/miniAPP/mapper/FrLabelMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/CardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/CardService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/impl/CardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/impl/CardServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.wxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.wxss" beforeDir="false" />
+    <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/project.config.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="542">
+              <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,7 +44,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="750">
               <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -107,6 +77,9 @@
       <map>
         <entry key="$PROJECT_DIR$/.." value="login" />
       </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
     </option>
   </component>
   <component name="IdeDocumentHistory">
@@ -198,7 +171,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -209,8 +182,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,7 +304,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558679744886" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558887716451" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -507,6 +480,8 @@
       <workItem from="1558673455142" duration="3373000" />
       <workItem from="1558678927481" duration="838000" />
       <workItem from="1558695660991" duration="3815000" />
+      <workItem from="1558836463643" duration="49000" />
+      <workItem from="1558886335199" duration="1097000" />
     </task>
     <task id="LOCAL-00001" summary="login 有bug">
       <created>1553568655820</created>
@@ -725,11 +700,39 @@
       <option name="project" value="LOCAL" />
       <updated>1558679583318</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="修复部分版本错误代码">
+      <created>1558836498674</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1558836498674</updated>
+    </task>
+    <task id="LOCAL-00033" summary="解决list版本问题">
+      <created>1558884064690</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1558884064690</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Merge branch 'master' of https://github.com/LeeYatSan/miniAPP&#10;&#10;# Conflicts:&#10;#&#9;miniAPP-frontend/pages/content/content.js&#10;#&#9;miniAPP-frontend/pages/content/content.json">
+      <created>1558885154636</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1558885154636</updated>
+    </task>
+    <task id="LOCAL-00035" summary="前端list修复">
+      <created>1558886460969</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1558886460969</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223179000" />
+    <option name="totallyTimeSpent" value="224951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,9 +745,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2039072" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21123321" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -761,10 +763,10 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32959184" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.501221" side_tool="true" weight="0.27142859" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50183153" side_tool="true" visible="true" weight="0.35306123" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.498779" weight="0.19285715" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4981685" visible="true" weight="0.35306123" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.34387755" />
       <window_info anchor="bottom" id="JProfiler" order="15" />
@@ -786,10 +788,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="由于后台MySQL服务器宕机，问题较为严重。本次更新改变后台架构，增设腾讯云MySQL（MySQL 5.7）服务器，实现数据库服务器与主机服务器分离，后台主机服务器不部署MySQL服务器，仅负责Redis服务以及后端业务处理。本次更新项目尚未部署到后台服务器。" />
-    <MESSAGE value="FrCard表增加memo_level字段记录卡片记忆程度" />
-    <MESSAGE value="完成艾宾浩斯遗忘曲线功能（未测试）&#10;完成/rememberCardOrNot接口（未测试）&#10;修改CardController接口部分错误实现" />
-    <MESSAGE value="修复saveCard()中缺失的userInfo更新漏洞（未测试）&#10;修复/rememberCardOrNot 接口中缺失的userInfo更新漏洞（未测试）&#10;增加/getAllFamiliarCards 接口以获取所有熟记卡片（未测试）&#10;增加/getFamiliarCardNum 接口以获取所有熟记卡片的数量（未测试）&#10;更改数据库fr_user_info:删除forgetting_card字段，并将后端代码中对应部分代码进行修改（未测试）" />
     <MESSAGE value="前端登录方法标注POST" />
     <MESSAGE value="尝试修复由于fr_label表UNIQUE_KEY所带来的问题（未测试）" />
     <MESSAGE value="修复了com.miniAPP.service.impl.CardServiceImpl.initLabel的逻辑错误" />
@@ -811,7 +809,11 @@
     <MESSAGE value="修改queryAllCardByLabelID名称" />
     <MESSAGE value="修复queryLabelID方法的实现错误&#10;优化部分代码" />
     <MESSAGE value="修复仓库版本错误问题（未检验）" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复仓库版本错误问题（未检验）" />
+    <MESSAGE value="修复部分版本错误代码" />
+    <MESSAGE value="解决list版本问题" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/LeeYatSan/miniAPP&#10;&#10;# Conflicts:&#10;#&#9;miniAPP-frontend/pages/content/content.js&#10;#&#9;miniAPP-frontend/pages/content/content.json" />
+    <MESSAGE value="前端list修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端list修复" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.16.RELEASE/spring-context-4.3.16.RELEASE.jar!/org/springframework/scheduling/support/ScheduledMethodRunnable.class">
@@ -1216,20 +1218,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        <state relative-caret-position="542">
+          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
+    <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="750">
+          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1290,7 +1292,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>miniAPP-api</last-edited>
+          <last-edited>miniAPP-dev</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
