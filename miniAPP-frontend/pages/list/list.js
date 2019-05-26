@@ -65,7 +65,7 @@ Page({
     })
   },
 
-  getCards:function(options){
+  getCards:function(e){
     var that = this
 
     wx.request({
@@ -87,6 +87,7 @@ Page({
       })
 
       console.log(that.data.list)
+
     }
   })
   },
@@ -127,12 +128,10 @@ Page({
   },
 
   cardContent:function(e){
-    // var that = this
-    // that.setData({
-    //   index: e.currentTarget.dataset.id
-    // })
-    // console.log('index')
-    // console.log(that.data.index)
+    var that = this
+    that.setData({
+      index: e.currentTarget.dataset.id
+    })
     wx.navigateTo({
       url: '/pages/content/content',
     })
