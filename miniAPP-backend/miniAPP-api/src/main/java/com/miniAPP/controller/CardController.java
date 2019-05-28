@@ -145,13 +145,14 @@ public class CardController extends BasicController {
 
     @ApiOperation(value = "修改卡片", notes = "修改卡片：如有多个标签，以空格分割")
     @ApiImplicitParams({@ApiImplicitParam(name = "userID", value = "userID", required = true, dataType = "Long", paramType = "query"),
+            @ApiImplicitParam(name = "cardID", value = "cardID", required = true, dataType = "Long", paramType = "query"),
             @ApiImplicitParam(name = "card", value = "card", required = true, dataType = "FrCard", paramType = "query"),
             @ApiImplicitParam(name = "labelContent", value = "labelContent", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "sessionToken", value = "sessionToken", required = true, dataType = "String", paramType = "query"),
             @ApiImplicitParam(name = "formID", value = "formID", required = true, dataType = "String", paramType = "query")})
     @ApiResponses({ @ApiResponse(code = 502, message = "Invalid Session Token"), @ApiResponse(code = 200, message = "ok") })
     @PostMapping("/editCard")
-    public JSONResult editCard(Long userID, FrCard card, String labelContent, String sessionToken,  String formID){
+    public JSONResult editCard(Long userID, Long cardID, FrCard card, String labelContent, String sessionToken,  String formID){
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
@@ -159,7 +160,7 @@ public class CardController extends BasicController {
         if(formID != null)
             formIDService.addFormID(userID, formID);
 
-        if(card.getCardId()==null || card.getCardId()==0){
+        if(cardID==null || cardID==0){
             return JSONResult.errorMsg(PARAM_MISSING+"cardID");
         }
 
@@ -179,8 +180,10 @@ public class CardController extends BasicController {
         }
 
         card.setUserId(userID);
+        card.setCardId(cardID);
         String[] labelContents=labelContent.split(" ");
         card.setLabelNum(labelContents.length);
+        cardService.editCard(card);
 
         //存储标签
         cardService.saveLabel(userID ,card.getCardId(), labelContents);
