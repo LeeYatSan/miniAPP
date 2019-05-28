@@ -1,7 +1,7 @@
 <view class="list">
   <text class="text1">我的标签</text>
-  <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{tagArray}}">
-    <text class="view1">{{tagArray[index]}}</text>
+  <picker class="picker" bindchange="bindPickerChange" value="{{labelIndex}}" range="{{tagArray}}">
+    <text class="view1">{{tagArray[labelIndex]}}</text>
   </picker>
   <button class="button" bindtap='buttonBind'>添加</button>
 </view>
