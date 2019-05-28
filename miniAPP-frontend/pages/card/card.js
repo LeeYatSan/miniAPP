@@ -3,16 +3,16 @@ let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 Page({
   data: {
-    imgsIndex:0,
+    imgsIndex: 0,
     imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "描述" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "描述" }],
-    imgUrl:[],
-    cardId:'',
+    imgUrl: [],
+    cardId: '',
     formId: '',
     items: [
       { name: '1', value: '记住', checked: 'true' },
       { name: '2', value: '忘记', }
     ],
-    isRemember:false,
+    isRemember: false,
     isFront1: true,
     animationData1: {},
     animationData2: {},
@@ -30,7 +30,7 @@ Page({
   },
   onLoad(options) {
     this.getPhotoUrl();
-   },
+  },
 
   /**
    *  卡片1手势
@@ -210,21 +210,21 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index> that.data.imgs.length-2){
+    if (index > that.data.imgs.length - 2) {
       console.log("true");
       var count = 0;
       that.setData({
         imgsIndex: count
       })
-    }else{
+    } else {
       console.log("fasle");
       index = index + 1;
       that.setData({
         imgsIndex: index
       })
     }
-    console.log("索引："+that.data.imgs.length);
-    console.log("长度："+that.data.imgs.length);
+    console.log("索引：" + that.data.imgs.length);
+    console.log("长度：" + that.data.imgs.length);
     this.rememberOrNot();
     let animation = wx.createAnimation({
       duration: 680,
@@ -271,7 +271,7 @@ Page({
     var index = e.target.dataset.index;
     var arr = e.detail.value;
     var new_itmes = [
-      { name: '1', value: '记住'},
+      { name: '1', value: '记住' },
       { name: '2', value: '忘记', }
     ]
     //判断是否被选中
@@ -279,11 +279,11 @@ Page({
       for (var i = 0; i < new_itmes.length; i++) {
         if (new_itmes[i]['name'] == arr[1]) {
           new_itmes[new_itmes[i]['name'] - 1]['checked'] = 'false'
-          if (new_itmes[i]['name'] == '记住'){
+          if (new_itmes[i]['name'] == '记住') {
             that.setData({
-              isRemember:true
+              isRemember: true
             })
-          }else{
+          } else {
             that.setData({
               isRemember: false
             })
@@ -296,27 +296,27 @@ Page({
       return;
     }
   },
-  rememberOrNot:function(){
+  rememberOrNot: function () {
     wx.request({
       url: app.globalData.urlPath + '/rememberCardOrNot',
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
-        cardID:1,
+        cardID: 1,
         remember: that.data.isRemember,
-        formID:''
+        formID: ''
       },
       method: 'GET',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-          console.log(res.data);
+        console.log(res.data);
       }
     });
   },
 
-  getPhotoUrl:function(){
+  getPhotoUrl: function () {
     var that = this;
     wx.request({
       url: 'http://localhost:8081/getAllCardsByUserID',
@@ -331,12 +331,12 @@ Page({
       success: function (res) {
         console.log(res.data);
         that.setData({
-          imgUrl:res.data
+          imgUrl: res.data
         })
       }
     });
   },
-  sharePhoto:function(){
+  sharePhoto: function () {
     var that = this;
     wx.request({
       url: 'http://localhost:8081/shareCard',
@@ -345,7 +345,7 @@ Page({
         sessionToken: app.globalData.sessionToken,
         cardID: 1,
         remember: true,
-        formID:''
+        formID: ''
       },
       method: 'POST',
       header: {
@@ -359,7 +359,7 @@ Page({
       }
     });
   },
-  refreshPhoto:function(){
+  refreshPhoto: function () {
     var that = this;
     wx.request({
       url: 'http://localhost:8081/getUnFamiliarCard',
@@ -368,7 +368,7 @@ Page({
         sessionToken: app.globalData.sessionToken,
         cardID: 1,
         remember: true,
-        formID:''
+        formID: ''
       },
       method: 'POST',
       header: {
@@ -377,7 +377,7 @@ Page({
       success: function (res) {
         console.log(res.data);
         that.setData({
-          imgUrl:res.data
+          imgUrl: res.data
         })
       }
     });

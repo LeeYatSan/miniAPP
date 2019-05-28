@@ -6,7 +6,7 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    formId:''
+    formId: ''
   },
 
   /**
@@ -64,57 +64,57 @@ Page({
 
   },
 
-  submitInfo:function(res){
+  submitInfo: function (res) {
     var that = this
     that.setData({
-      formId:res.detail.formId
+      formId: res.detail.formId
     })
     console.log(that.data.formId)
   },
-  
-  bindGetUserInfo: function(res) {
+
+  bindGetUserInfo: function (res) {
     var that = this;
     let info = res;
     console.log(info);
-    if(info.detail.userInfo) {
+    if (info.detail.userInfo) {
       console.log("点击了同意授权");
       wx.login({
         success: function (res) {
           if (res.code) {
             console.log("请求"),
-            wx.request({
-              url: app.globalData.urlPath + '/onRegister',
-              method: 'POST',
-              //url:'http://localhost:8081/onLogin',
-              data: {
-                code: res.code,
-                formID:that.data.formId
-              },
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"  // 默认值
-              },
-              success: function (res) {
-                console.log("成功");
-                console.log(that.data.formId);
-                var userinfo = {};
-                userinfo['id'] = res.data.id;
-                userinfo['nickName'] = info.detail.userInfo.nickName;
-                userinfo['avatarUrl'] = info.detail.userInfo.avatarUrl;
-                wx.setStorageSync('userinfo', userinfo);
+              wx.request({
+                url: app.globalData.urlPath + '/onRegister',
+                method: 'POST',
+                //url:'http://localhost:8081/onLogin',
+                data: {
+                  code: res.code,
+                  formID: that.data.formId
+                },
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded"  // 默认值
+                },
+                success: function (res) {
+                  console.log("成功");
+                  console.log(that.data.formId);
+                  var userinfo = {};
+                  userinfo['id'] = res.data.id;
+                  userinfo['nickName'] = info.detail.userInfo.nickName;
+                  userinfo['avatarUrl'] = info.detail.userInfo.avatarUrl;
+                  wx.setStorageSync('userinfo', userinfo);
 
-                console.log(res);
-                app.globalData.userID = res.data.data.id;
-                app.globalData.sessionToken = res.data.data.sessionToken;
-                
-                //跳转
-                console.log("跳转");
-                wx.switchTab({
-                  url: '../list/list',
-                })
+                  console.log(res);
+                  app.globalData.userID = res.data.data.id;
+                  app.globalData.sessionToken = res.data.data.sessionToken;
 
-              }
-            })
-          }else {
+                  //跳转
+                  console.log("跳转");
+                  wx.switchTab({
+                    url: '../list/list',
+                  })
+
+                }
+              })
+          } else {
             console.log("授权失败");
           }
         },
@@ -124,7 +124,7 @@ Page({
       console.log("点击了拒绝授权");
     }
   },
-  
+
   queryUsreInfo: function () {
     wx.request({
       url: app.globalData.urlPath + '/onLogin',

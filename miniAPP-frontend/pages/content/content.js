@@ -62,7 +62,7 @@ Page({
                 wx.showToast({
                   title: '删除成功',
                 })
-                wx.navigateTo({
+                wx.switchTab({
                   url: '/pages/list/list',
                 })
               }

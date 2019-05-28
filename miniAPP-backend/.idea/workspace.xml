@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/addList/addList.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/content/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -333,7 +325,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559015378859" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559015893247" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -513,7 +505,7 @@
       <workItem from="1558886335199" duration="1420000" />
       <workItem from="1558888085483" duration="134000" />
       <workItem from="1558958205930" duration="24000" />
-      <workItem from="1559005239125" duration="7680000" />
+      <workItem from="1559005239125" duration="8041000" />
     </task>
     <task id="LOCAL-00001" summary="login 有bug">
       <created>1553568655820</created>
@@ -841,7 +833,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233112000" />
+    <option name="totallyTimeSpent" value="233473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

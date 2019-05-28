@@ -3,7 +3,7 @@
     "pages/login/login",
     "pages/list/list",
     "pages/card/card",
-    "pages/me",
+    "pages/me/me",
     "pages/addList/addList",
     "pages/index/index",
     "pages/logs/logs"
@@ -25,7 +25,7 @@
         "text": "列表"
       },
       {
-        "pagePath": "pages/me",
+        "pagePath": "pages/me/me",
         "text": "我的"
       }
     ]

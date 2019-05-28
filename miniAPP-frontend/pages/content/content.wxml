@@ -1,4 +1,3 @@
-
 <view class='card'>
   <view class='labels'>labels{{list.labels}}</view>
   <view class='title'>{{list.card.title}}</view>

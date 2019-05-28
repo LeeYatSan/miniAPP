@@ -36,7 +36,7 @@ App({
                         url: '/pages/list/list',
                       })
                     },
-                    fail:function(res){
+                    fail: function (res) {
                       wx.redirectTo({
                         url: '/pages/login/login'
                       })
@@ -58,7 +58,7 @@ App({
             }
           })
         }
-        else{
+        else {
           console.log('未授权')
           // wx.redirectTo({
           //   url: '/pages/login/login'
@@ -71,7 +71,6 @@ App({
   globalData: {
     userInfo: null,
     urlPath: "http://134.175.11.69:8080/client",
-    // urlPath: "http://localhost:8081",
     userID: null,
     sessionToken: null
   },
