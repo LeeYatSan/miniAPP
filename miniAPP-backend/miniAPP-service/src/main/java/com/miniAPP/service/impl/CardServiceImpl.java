@@ -85,7 +85,28 @@ public class CardServiceImpl implements CardService {
     @Override
     public void editCard(FrCard card){
         cardMapper.updateByPrimaryKeySelective(card);
-        labelMapMapper.deleteByPrimaryKey(card.getCardId());
+
+        //获取该卡片所有标签映射
+        FrLabelMap frLabelMap = new FrLabelMap();
+        frLabelMap.setCardId(card.getCardId());
+        List<FrLabelMap>frLabelMaps = labelMapMapper.select(frLabelMap);
+
+        //无卡片标签映射则直接结束
+        if(frLabelMaps == null || frLabelMaps.size() == 0){
+            return;
+        }
+        //删除卡片映射前先检查该标签是否仅剩1张即被删除的本张卡片，若是，则顺便删除该标签
+        for(FrLabelMap curr : frLabelMaps){
+            int currLabelID = curr.getLabelId();
+            FrLabelMap temp = new FrLabelMap();
+            temp.setLabelId(currLabelID);
+            List<FrLabelMap>labelMaps = labelMapMapper.select(temp);
+            if(labelMaps != null && labelMaps.size() == 1){
+                labelMapper.deleteByPrimaryKey(currLabelID);
+            }
+        }
+        //删除卡片标签映射
+        labelMapMapper.deleteCardAllLabel(card.getCardId());
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
