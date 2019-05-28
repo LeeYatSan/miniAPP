@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -50,11 +49,12 @@ public class TaskController extends BasicController {
     /**
      * 定时推送任务
      */
-//    @Scheduled(cron = "0/10 * * * * ?") //每10秒执行一次
+    @Scheduled(cron = "0/5 * * * * ?") //每10秒执行一次
 //    @Scheduled(cron = "0 */1 * * * ?") //每1分钟执行一次
-    @Scheduled(cron = "0 0 9,15,21 * * ?") //每天9、15、21点执行一次
+//    @Scheduled(cron = "0 0 9,15,21 * * ?") //每天9、15、21点执行一次
     private void configureTasks() {
         List<Long> userList = cardService.queryUserNeededToBeNoticed();
+        System.err.println("size: "+ userList.size());
         final String TEMPLATE_ID = "YOxMSObL6dkgajB2SpqxRuBTunjBoJwulie0_-LbYRg";
         Calendar cal=java.util.Calendar.getInstance();
         SimpleDateFormat format=new java.text.SimpleDateFormat("yyyy年MM月dd日");
@@ -76,11 +76,11 @@ public class TaskController extends BasicController {
         url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=" + model.getAccess_token();
         for(int i = 0; i < userList.size(); ++i){
 
+            System.err.println("正在执行：" + Calendar.getInstance().getTimeInMillis());
             Long curr = userList.get(i);
             String formID = formIDService.getFormid(curr);
             if(formID == null)
                 continue;
-
             //设置模板消息内容
             Map<String, TemplateDataVO> data = new HashMap<>();
 
