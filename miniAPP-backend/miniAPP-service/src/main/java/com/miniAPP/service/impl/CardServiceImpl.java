@@ -84,7 +84,7 @@ public class CardServiceImpl implements CardService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void editCard(FrCard card){
-        cardMapper.updateByPrimaryKeySelective(card);
+        cardMapper.updateByPrimaryKey(card);
         labelMapMapper.deleteByPrimaryKey(card.getCardId());
     }
 
