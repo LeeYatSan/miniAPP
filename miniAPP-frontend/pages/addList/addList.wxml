@@ -1,8 +1,8 @@
 <view class='add'>
- <button class='img_button' bindtap='imgChoose' plain='true'>添加照片
- <image src='{{images}}' mode='withFix'></image>
- </button>
- <view class="question-input-area">
+  <!-- 添加图片 -->
+  <button class='img_button' bindtap='imgChoose' wx:if="{{images.length < 1}}">添加照片</button>
+  <image src='{{images}}' style='width:100%; height:60%'></image>
+  <view class="question-input-area">
     <!-- 标签区域 -->
     <view class="table">
       <!-- 标签输入框 -->
@@ -29,8 +29,5 @@
     </view>
   </view>
   <!-- 提交 -->
-  <form bindsubmit="submitInfo" report-submit='true' >
-  <button class='submit_button' form-type="submit"
-  bindtap='submit'>submit</button>
-  </form>
+  <button class='submit_button' bindtap='submit'>submit</button>
 </view>

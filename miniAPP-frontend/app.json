@@ -1,31 +1,34 @@
 {
-  "pages":[
+  "pages": [
     "pages/login/login",
     "pages/list/list",
-    "pages/me/me",
+    "pages/card/card",
+    "pages/me",
     "pages/addList/addList",
-    "pages/content/content"
+    "pages/index/index",
+    "pages/logs/logs"
   ],
-
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "橘喵记忆",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
     "list": [
+      {
+        "pagePath": "pages/card/card",
+        "text": "单词卡片"
+      },
       {
         "pagePath": "pages/list/list",
         "text": "列表"
       },
       {
-        "pagePath": "pages/me/me",
+        "pagePath": "pages/me",
         "text": "我的"
       }
     ]
   },
-
   "sitemapLocation": "sitemap.json"
 }

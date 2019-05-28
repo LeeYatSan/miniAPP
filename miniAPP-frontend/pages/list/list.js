@@ -87,7 +87,6 @@ Page({
       })
 
       console.log(that.data.list)
-
     }
   })
   },
