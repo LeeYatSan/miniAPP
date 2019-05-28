@@ -1,0 +1,11 @@
+
+<view class='card'>
+  <view class='labels'>labels{{list.labels}}</view>
+  <view class='title'>{{list.card.title}}</view>
+  <view class='content'>{{list.card.content}}</view>
+  <image class='image' src='{{url}}'></image>
+</view>
+<view class='card-button'>
+  <button class='edit' bindtap='editCard'>修改</button>
+  <button class='del' bindtap='delCard'>删除</button>
+</view>

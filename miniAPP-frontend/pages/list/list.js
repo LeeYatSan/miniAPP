@@ -7,12 +7,12 @@ Page({
    */
   data: {
     index:0,
+    labelIndex:0,
     tagArray:['全部'],
     listLength:0,
     labelLength:0,
     //list:[{title:'',content:'',label:0,img:''}],
     list:[],
-    index:0
   },
 
   onLoad: function (options) {
@@ -26,7 +26,7 @@ Page({
     wx.showNavigationBarLoading();
     var that = this;
     that.setData({
-      index:0
+      labelIndex:0
     })
     that.getCards()
     that.getLabels()
@@ -96,7 +96,7 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     that.setData(
       {
-        index: e.detail.value
+        labelIndex: e.detail.value
       }
     )
     wx.request({
@@ -104,7 +104,7 @@ Page({
       data:{
         userID:app.globalData.userID,
         sessionToken:app.globalData.sessionToken,
-        labelContent:that.data.tagArray[that.data.index]
+        labelContent:that.data.tagArray[that.data.labelIndex]
       },
       method: 'POST',
       header: {
@@ -122,7 +122,7 @@ Page({
 
   buttonBind:function(e){
     wx.navigateTo({
-      url: '/pages/addList/addList',
+      url: '/pages/addList/addList?num=0',
     })
   },
 

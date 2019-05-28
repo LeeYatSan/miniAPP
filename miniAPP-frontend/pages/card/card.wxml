@@ -1,0 +1,25 @@
+<view class="body-main-box" style="background-color:skyblue;"  >
+<view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1" style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;" animation="{{animationData1}}" >
+    <block>
+      <view class="body-container" style="background-color:#f17925">
+        <text style="text-align:center">{{imgs[imgsIndex].name}}</text>
+        <image class="avatar" src="{{imgs[imgsIndex].pic_url}}"></image>
+      </view>
+    </block>
+    <label>{{imgs[imgsIndex].desc}}</label>
+  </view>
+
+
+<view class='footer'>
+<checkbox-group  bindchange="checkboxChange">
+  <label wx:for="{{items}}">
+    <checkbox value="{{item.name}}" checked="{{item.checked}}">{{item.value}}</checkbox>
+  </label>
+</checkbox-group>
+<view class='buttonsytle'>
+<button class="shareBtn btn-orange" bindtap='sharePhoto' >分享</button>
+<button class="refreshrBtn btn-orange" bindtap='refreshPhoto'>刷新</button>
+</view>
+</view>
+
+</view>
