@@ -188,7 +188,7 @@ public class CardServiceImpl implements CardService {
     public List<FrCard> queryCardsByUserID(Long userID){
 
         FrCard card = new FrCard();
-        card.setCardId(userID);
+        card.setUserId(userID);
         return cardMapper.select(card);
     }
 
