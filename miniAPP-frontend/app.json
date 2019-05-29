@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/login/login",
     "pages/list/list",
     "pages/me/me",
@@ -7,14 +7,12 @@
     "pages/addList/addList",
     "pages/content/content"
   ],
-
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "橘喵记忆",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
     "list": [
       {
@@ -26,6 +24,6 @@
         "text": "我的"
       }
     ]
-  }
-
+  },
+  "sitemapLocation": "sitemap.json"
 }
