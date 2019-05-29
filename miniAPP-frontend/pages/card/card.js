@@ -1,18 +1,23 @@
 var app = getApp();
+var WxAutoImage = require('../../utils/wxAutoImageCal.js');
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 Page({
   data: {
-    imgsIndex: 0,
-    imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "描述" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "描述" }],
-    imgUrl: [],
-    cardId: '',
+    isRefresh:false,
+    isEmpty:true,
+    interval: '',
+    imgsIndex:0,
+    imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }],
+    imgUrl:[],
+    newImgUrl:[],
+    cardId:'',
     formId: '',
     items: [
       { name: '1', value: '记住', checked: 'true' },
       { name: '2', value: '忘记', }
     ],
-    isRemember: false,
+    isRemember:false,
     isFront1: true,
     animationData1: {},
     animationData2: {},
@@ -30,7 +35,8 @@ Page({
   },
   onLoad(options) {
     this.getPhotoUrl();
-  },
+    this.getTime();
+   },
 
   /**
    *  卡片1手势
@@ -41,8 +47,44 @@ Page({
     console.log("起始点的坐标X:" + touchDotX);
     console.log("起始点的坐标Y:" + touchDotY);
   },
+  imgHeight: function (e) {
+    var winWid = wx.getSystemInfoSync().windowWidth; //获取当前屏幕的宽度
+    var imgh = e.detail.height;//图片高度
+    var imgw = e.detail.width;//图片宽度
+    var swiperH = winWid * imgh / imgw + "px" //等比设置swiper的高度。 即 屏幕宽度 / swiper高度= 图片宽度 / 图片高度  ==》swiper高度 = 屏幕宽度 * 图片高度 / 图片宽度
+    this.setData({
+      Height: swiperH//设置高度
+    })
+  },
+  cusImageLoad: function (e) {
+    var that = this;
+    that.setData(WxAutoImage.wxAutoImageCal(e));
+  },
+  getTime: function () {
+    var that = this;
+    that.data.interval = setInterval(function () {
+      wx.request({
+        url: app.globalData.urlPath + '/getUnFamiliarCard',
+        data: {
+          userID: app.globalData.userID,
+          sessionToken: app.globalData.sessionToken,
+          formID: ''
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          that.setData({
+            imgUrl: that.data.imgUrl.concat(res.data.data)
+          })
+        }
+      });
+    }, 600000)
+  },
   // 移动结束处理动画
   touchend1: function (event) {
+    var that = this;
     // 手指离开屏幕时记录的坐标
     let touchMoveX = event.changedTouches[0].pageX;
     let touchMoveY = event.changedTouches[0].pageY;
@@ -210,22 +252,22 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index > that.data.imgs.length - 2) {
+    if (index> that.data.imgs.length-2){
       console.log("true");
       var count = 0;
       that.setData({
         imgsIndex: count
       })
-    } else {
+    }else{
       console.log("fasle");
       index = index + 1;
       that.setData({
         imgsIndex: index
       })
     }
-    console.log("索引：" + that.data.imgs.length);
-    console.log("长度：" + that.data.imgs.length);
-    this.rememberOrNot();
+    console.log("索引："+that.data.imgs.length);
+    console.log("长度："+that.data.imgs.length);
+    this.rememberOrNot(that.data.imgsIndex);
     let animation = wx.createAnimation({
       duration: 680,
       timingFunction: "ease",
@@ -271,7 +313,7 @@ Page({
     var index = e.target.dataset.index;
     var arr = e.detail.value;
     var new_itmes = [
-      { name: '1', value: '记住' },
+      { name: '1', value: '记住'},
       { name: '2', value: '忘记', }
     ]
     //判断是否被选中
@@ -279,14 +321,16 @@ Page({
       for (var i = 0; i < new_itmes.length; i++) {
         if (new_itmes[i]['name'] == arr[1]) {
           new_itmes[new_itmes[i]['name'] - 1]['checked'] = 'false'
-          if (new_itmes[i]['name'] == '记住') {
+          if (new_itmes[i]['name'] == '1'){
             that.setData({
-              isRemember: true
+              isRemember:true
             })
-          } else {
+            console.log("true");
+          }else{
             that.setData({
               isRemember: false
             })
+            console.log("false");
           }
         }
       }
@@ -296,15 +340,44 @@ Page({
       return;
     }
   },
-  rememberOrNot: function () {
+  rememberPhoto:function(){
+    var that = this;
+    var index = that.data.imgsIndex;
+    var cardId = that.data.imgUrl[index].card.cardId
+    console.log(cardId);
+    console.log(app.globalData.formId);
     wx.request({
       url: app.globalData.urlPath + '/rememberCardOrNot',
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
-        cardID: 1,
-        remember: that.data.isRemember,
-        formID: ''
+        cardID: cardId,
+        remember: true,
+        formID: app.globalData.formId
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.Animation1(-500);
+      }
+    });
+  },
+  forgetPhoto:function(){
+    var that = this;
+    var index = that.data.imgsIndex;
+    var cardId = that.data.imgUrl[index].card.cardId
+    console.log(app.globalData.formId);
+    wx.request({
+      url: app.globalData.urlPath + '/rememberCardOrNot',
+      data: {
+        userID: app.globalData.userID,
+        sessionToken: app.globalData.sessionToken,
+        cardID: cardId,
+        remember: true,
+        formID: app.globalData.formId
       },
       method: 'GET',
       header: {
@@ -312,11 +385,65 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
+        that.Animation1(500);
       }
     });
   },
-
-  getPhotoUrl: function () {
+  rememberOrNot:function(index){
+    var that = this;
+    var cardId = that.data.imgUrl[index].card.cardId
+    console.log(app.globalData.formId);
+    wx.request({
+      url: app.globalData.urlPath + '/rememberCardOrNot',
+      data: {
+        userID: app.globalData.userID,
+        sessionToken: app.globalData.sessionToken,
+        cardID: cardId,
+        remember: true,
+        formID: app.globalData.formId 
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+          console.log(res.data);
+      }
+    });
+  },
+  deletePhoto:function(){
+    var that = this;
+    var index = that.data.imgsIndex;
+    var cardId = that.data.imgUrl[index].card.cardId
+    wx.showModal({
+      title: '删除卡片',
+      content: '是否删除卡片',
+      success: function (res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'http://localhost:8081/delCard',
+            data: {
+              userID: app.globalData.userID,
+              sessionToken: app.globalData.sessionToken,
+              cardID: cardId,
+              formID: app.globalData.formId 
+            },
+            method: 'POST',
+            header: {
+              'content-type': 'application/json'
+            },
+            success: function (res) {
+              console.log(res.data);
+            }
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
+  getPhotoUrl:function(){
     var that = this;
     wx.request({
       url: 'http://localhost:8081/getAllCardsByUserID',
@@ -331,54 +458,111 @@ Page({
       success: function (res) {
         console.log(res.data);
         that.setData({
-          imgUrl: res.data
+          imgUrl:res.data.data
         })
+
+        console.log(that.data.imgUrl[0].card.cardId);
       }
     });
   },
-  sharePhoto: function () {
+  sharePhoto:function(){
     var that = this;
+    var index = that.data.imgsIndex;
+    var cardId = that.data.imgUrl[index].card.cardId
+    console.log(cardId);
     wx.request({
       url: 'http://localhost:8081/shareCard',
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
-        cardID: 1,
-        remember: true,
-        formID: ''
+        cardID: cardId
       },
       method: 'POST',
       header: {
         'content-type': 'application/json'
+       // 'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
         console.log(res.data);
-        that.setData({
-          imgUrl: res.data
+        wx.showModal({
+          title: '分享卡片',
+          content: '分享卡片清复制卡片ID\n' + cardId,
+          success: function (res) {
+            if (res.confirm) {
+              wx.setClipboardData({
+                data: cardId.toString(),
+                success: function (res) {
+                  wx.getClipboardData({
+                    success: function (res) {
+                      wx.showToast({
+                        title: '复制成功'
+                      })
+                    }
+                  })
+                }
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
         })
       }
     });
   },
-  refreshPhoto: function () {
+  featchData:function(){
+    var that= this;
+    that.setData({
+      imgUrl: that.data.newImgUrl
+    })
+  },
+ /* onShow() {
+    console.log('onShow监听小程序显示');
     var that = this;
+    setTimeout(function () {
+      if(that.data.isRefresh){
+      that.setData({
+        imgUrl: that.data.newImgUrl
+      })
+      }
+    }, 800)
+  },*/
+  onPullDownRefresh: function () {
+    console.log("下拉刷新")
+    let that = this;
+    that.refreshPhoto()
+  },
+
+  refreshPhoto:function(){
+    var that = this;
+    var index = that.data.imgsIndex;
+    var cardId = that.data.imgUrl[index].card.cardId
+    console.log(cardId);
     wx.request({
-      url: 'http://localhost:8081/getUnFamiliarCard',
+      //url: 'http://localhost:8081/getUnFamiliarCard',
+      url: app.globalData.urlPath +"/getUnFamiliarCard",
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
-        cardID: 1,
-        remember: true,
-        formID: ''
+        cardID: cardId
       },
       method: 'POST',
       header: {
         'content-type': 'application/json'
+       // 'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
         console.log(res.data);
+        console.log(res.data.data);
+        that.data.newImgUrl = res.data.data;
+        that.data.isRefresh = true;
+        console.log("newImg");
+        console.log(that.data.newImgUrl);
         that.setData({
-          imgUrl: res.data
+          imgUrl: that.data.imgUrl.concat(res.data.data)
         })
+        console.log("new data");
+        console.log(that.data.imgUrl);
+        console.log(that.data.imgUrl[0].picUrl);
       }
     });
   }

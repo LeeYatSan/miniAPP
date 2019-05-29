@@ -1,32 +1,16 @@
 <view class="list">
   <text class="text1">我的标签</text>
-  <picker class="picker" bindchange="bindPickerChange" value="{{labelIndex}}" range="{{tagArray}}">
-    <text class="view1">{{tagArray[labelIndex]}}</text>
+  <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{tagArray}}">
+    <text class="view1">{{tagArray[index]}}</text>
   </picker>
   <button class="button" bindtap='buttonBind'>添加</button>
 </view>
 
-<!-- <view class='listInfo'>
-  <block wx:for='{{list}}'  wx:key='*this'>
-    <view class='list_item' bindtap='cardContent' >
+<view class='listInfo'>
+  <block wx:for='{{list}}' wx:key='*this'>
+    <view class='list_item'>
       <view class='list_item_hd'>
         <!-- <image src='{{item.img}}'></image> -->
-        <!-- <text>title:{{item.card.title}}</text>
-      </view>
-      <view>
-        <text>content:{{item.card.content}}</text>
-      </view>
-      <view>
-        <text>label:{{item.labels}}</text>
-      </view>
-    </view>
-  </block>
-</view> -->
-
-<view class='listInfo'>
-  <block wx:for='{{list}}' wx:key='index'>
-    <view class='list_item' data-id='{{index}}' bindtap='cardContent' >
-      <view class='list_item_hd'>
         <text>title:{{item.card.title}}</text>
       </view>
       <view>
@@ -38,3 +22,5 @@
     </view>
   </block>
 </view>
+
+
