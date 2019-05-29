@@ -13,6 +13,9 @@ Page({
     labelLength:0,
     //list:[{title:'',content:'',label:0,img:''}],
     list:[],
+    memo:'',
+    color:'#e2e2e2',
+    url:'/images/WechatIMG7.png'
   },
 
   onLoad: function (options) {
@@ -134,6 +137,31 @@ Page({
     })
     wx.navigateTo({
       url: '/pages/content/content',
+    })
+  },
+
+  isMemo:function(e){
+    var that = this
+    wx.request({
+      url: app.globalData.urlPath+'/getAllFamiliarCards',
+      data:{
+        userID:app.globalData.userID,
+        sessionToken:app.globalData.sessionToken
+      },
+      method:'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log('熟记')
+        console.log(res)
+        that.setData({
+          list: res.data.data,
+          color:'#F6d365',
+          url: '/images/WechatIMG6.png'
+        })
+        console.log(that.data.list)
+      }
     })
   }
 })

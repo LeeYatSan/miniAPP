@@ -2,13 +2,9 @@
  <button class='img_button' bindtap='imgChoose' plain='true'>添加照片
  <image src='{{images}}' mode='withFix'></image>
  </button>
- <button class='ocr' bindtap='imgOCR'>提取照片文字</button>
+ <button class='ocr' bindtap='imgOCR' style="position:fixed;top:55%;left:80%">T</button>
  <view class="question-input-area">
-    <!-- 标签区域 -->
-    <view class="table">
-      <!-- 标签输入框 -->
-      <input class="table-title" value='{{labelContent}}'placeholder="请输入标签(用一个空格隔开)" maxlength="40" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleLabelInput"></input>
-    </view>
+
     <!-- 标题区域  -->
     <view class="question-title-wrap">
       <!-- 标题输入框 -->
@@ -17,14 +13,21 @@
       <view class="title-input-counter">{{titleCount}}/20</view>
     </view>
 
+    <!-- 标签区域 -->
+    <view class="table">
+      <!-- 标签输入框 -->
+      <input class="table-title" value='{{labelContent}}'placeholder="请输入标签(用一个空格隔开)" maxlength="40" placeholder-style="color:#b3b3b3;font-size:14px;" bindinput="handleLabelInput"></input>
+    </view>
+
+
     <!-- 问题正文区域  -->
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
           <!-- 多行输入框 -->
-          <textarea class="weui-textarea"  value='{{content}}'placeholder="请输入正文内容。" maxlength="500" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 12rem" bindinput="handleContentInput" />
+          <textarea class="weui-textarea"  value='{{content}}'placeholder="请输入正文内容" maxlength="500" placeholder-style="color:#b3b3b3;font-size:16px;" width="100%" bindinput="handleContentInput" />
           <!-- 正文输入字数统计 -->
-          <view class="weui-textarea-counter">{{contentCount}}/200</view>
+          <view class="weui-textarea-counter" style='position:fixed;bottom:0%;'>{{contentCount}}/200</view>
         </view>
       </view>
     </view>
@@ -32,6 +35,8 @@
   <!-- 提交 -->
   <form bindsubmit="submitInfo" report-submit='true' >
   <button class='submit_button' form-type="submit"
-  bindtap='submit'>submit</button>
+  bindtap='submit' style="position:fixed;top:85%;left:80%">
+    <image class='img' src='/images/WechatIMG33.png'></image>
+  </button>
   </form>
 </view>

@@ -14,13 +14,11 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.2",
 	"appid": "wx988452b3ef2cc412",
-	"projectname": "miniAPP-frontend",
+	"projectname": "zskp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

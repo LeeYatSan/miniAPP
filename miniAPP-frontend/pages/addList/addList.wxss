@@ -1,7 +1,46 @@
 pages/addList/addList.wxss
 .img_button{
   width: 100%; 
-  height: 500rpx; 
+  height: 40%;
   padding: 0;
-  border: none
+  border-color: white
+}
+.submit_button{
+  /* position:fixed;
+  margin-top:85%;
+  margin-left:80%; */
+  background-color:white;
+  border-radius: 45%;
+  height: 45px;
+  width: 70px;
+  border-color: white
+}
+.submitInfo{
+  background-color:white;
+  border-color: white
+
+}
+.img{
+  height:45px;
+  width:45px;
+  border-left: 80%
+}
+.ocr{
+  background-color: #F6d365;
+  border-radius: 45%;
+  height: 45px;
+  width: 45px;
+  border-color: #F6d365
+}
+.question-title-wrap{
+  margin-left:5%
+}
+.table{
+  margin-top: 4%;
+  margin-left: 5%
+}
+.weui-cell__bd{
+  margin-top: 4%;
+  margin-left: 5%
+
 }

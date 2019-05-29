@@ -16,7 +16,9 @@ Page({
     formId:'',
     num:0,
     cardId:0,
-    img_ocr:''
+    img_ocr:'',
+    sameLabel:0,
+    labels:[] //标签
   },
 
   onLoad:function(res){
@@ -174,65 +176,69 @@ Page({
       return
     }
     else {
-      wx.showToast({
-        title: '正在上传...',
-        icon: 'loading',
-        mask: true,
-        duration: 500
-      })
-      if(that.data.num==0){
-        wx.request({
-          url: app.globalData.urlPath + '/saveCard',
-          data: {
-            userID: app.globalData.userID,
-            sessionToken: app.globalData.sessionToken,
-            title: that.data.title,
-            content: that.data.content,
-            picUrl: that.data.photoData,
-            labelContent: that.data.labelContent,
-            formID:that.data.formId
-          },
-          method: 'POST',
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          success: function (res) {
-            console.log(res)
-            wx.switchTab({
-              url: '../list/list',
-            })
-          }
+      
+
+      
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 500
         })
-      }
-      if(that.data.num==1){
-        console.log(that.data.title)
-        console.log(that.data.content)
-        console.log(that.data.photoData)
-        console.log(that.data.labelContent)
-        console.log(that.data.cardId)
-        wx.request({
-          url: app.globalData.urlPath + '/editCard',
-          data: {
-            userID: app.globalData.userID,
-            sessionToken: app.globalData.sessionToken,
-            cardId:that.data.cardId,
-            title: that.data.title,
-            content: that.data.content,
-            picUrl: that.data.photoData,
-            labelContent: that.data.labelContent,
-            formID: that.data.formId
-          },
-          method: 'POST',
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          success: function (res) {
-            console.log(res)
-            wx.switchTab({
-              url: '../list/list',
-            })
-          }
-        })
+        if(that.data.num==0){
+          wx.request({
+            url: app.globalData.urlPath + '/saveCard',
+            data: {
+              userID: app.globalData.userID,
+              sessionToken: app.globalData.sessionToken,
+              title: that.data.title,
+              content: that.data.content,
+              picUrl: that.data.photoData,
+              labelContent: that.data.labelContent,
+              formID:that.data.formId
+            },
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+              console.log(res)
+              wx.switchTab({
+                url: '../list/list',
+              })
+            }
+          })
+        }
+        if(that.data.num==1){
+          console.log(that.data.title)
+          console.log(that.data.content)
+          console.log(that.data.photoData)
+          console.log(that.data.labelContent)
+          console.log(that.data.cardId)
+          wx.request({
+            url: app.globalData.urlPath + '/editCard',
+            data: {
+              userID: app.globalData.userID,
+              sessionToken: app.globalData.sessionToken,
+              cardID:that.data.cardId,
+              title: that.data.title,
+              content: that.data.content,
+              picUrl: that.data.photoData,
+              labelContent: that.data.labelContent,
+              formID: that.data.formId
+            },
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+              console.log(res)
+              wx.switchTab({
+                url: '../list/list',
+              })
+            }
+          })
+        
       }
     }
   }
