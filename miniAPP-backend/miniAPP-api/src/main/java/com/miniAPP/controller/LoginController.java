@@ -152,7 +152,7 @@ public class LoginController extends BasicController{
         }
         //用户登录信息记录
         userService.userLoginRec(userID);
-        if(formID != null){
+        if(formID != null && !formID.equals("the formId is a mock one")){
             formIDService.addFormID(userID, formID);
         }
 

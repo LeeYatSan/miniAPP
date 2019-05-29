@@ -157,7 +157,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        if(formID != null)
+        if(formID != null && !formID.equals("the formId is a mock one"))
             formIDService.addFormID(userID, formID);
 
         if(cardID==null || cardID==0){
@@ -204,7 +204,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        if(formID != null)
+        if(formID != null && !formID.equals("the formId is a mock one"))
             formIDService.addFormID(userID, formID);
 
         if(cardID==null || cardID==0){
@@ -249,8 +249,7 @@ public class CardController extends BasicController {
         if(!sessionTokenIsValid(userID, sessionToken)){
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
-        List<FrCard> cards = cardMapper.getAllFamiliarCards(userID);
-        return JSONResult.ok(cards.toArray());
+        return JSONResult.ok(cardService.getEachCardLabels(cardMapper.getAllFamiliarCards(userID)));
     }
 
     @ApiOperation(value = "熟记卡片数量", notes = "获取熟记卡片数量")
@@ -340,7 +339,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        if(formID != null)
+        if(formID != null && !formID.equals("the formId is a mock one"))
             formIDService.addFormID(userID, formID);
 
         List<FrCard> cards = cardService.getUnFamiliarCard(userID);
@@ -362,7 +361,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        if(formID != null){
+        if(formID != null && !formID.equals("the formId is a mock one")){
             formIDService.addFormID(userID, formID);
         }
 
@@ -392,7 +391,7 @@ public class CardController extends BasicController {
             return JSONResult.errorTokenMsg(INVALID_SESSION_TOKEN);
         }
 
-        if(formID != null)
+        if(formID != null && !formID.equals("the formId is a mock one"))
             formIDService.addFormID(userID, formID);
 
         if(StringUtils.isBlank(card.getTitle())){
