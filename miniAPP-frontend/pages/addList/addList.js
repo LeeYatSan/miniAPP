@@ -54,8 +54,8 @@ Page({
     var that = this
     that.setData({
       titleCount: t_text,
-      title: e.detail.value
-    })
+      title:e.detail.value
+    }) 
   },
 
   handleContentInput: function (e) {
@@ -63,57 +63,52 @@ Page({
     var that = this
     that.setData({
       contentCount: t_text,
-      content: e.detail.value
+      content:e.detail.value
     })
   },
 
-  handleLabelInput: function (e) {
+  handleLabelInput:function(e){
     var that = this
     that.setData({
-      labelContent: e.detail.value
+      labelContent:e.detail.value
     })
   },
 
-  imgChoose: function (e) {
+  imgChoose:function(e){
     var that = this
     wx.chooseImage({
-      count: 1,
+      count:1,
       sizeType: ['original', 'compressed'],// 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'],// 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        console.log(res)
+      success: function(res) {
+        console.log(res) 
         that.setData({
-          images: res.tempFilePaths[0]
+          images: res.tempFilePaths
         })
-        console.log(that.data.images)
         wx.uploadFile({
-          url: app.globalData.urlPath + '/uploadPhoto',
+          url: app.globalData.urlPath + '/uploadPhoto', 
           filePath: res.tempFilePaths[0],//要上传文件资源的路径 String类型 
           name: 'photo',
           header: {
             "Content-Type": "multipart/form-data"
           },
           formData: {
-            'sessionToken': app.globalData.sessionToken,
-            'userID': app.globalData.userID,
-            'ocr':"true"
+            'sessionToken':app.globalData.sessionToken,
+            'userID':app.globalData.userID
           },
           success: function (res) {
             if (res.statusCode == 200) {
               var data = JSON.parse(res.data)
-              data = JSON.parse(data.data)
               console.log("photo")
               console.log(res)
               console.log(data)
               that.setData({
-                photoData: data.picUrl
+                photoData: data.data
               })
             }
             if (res.statusCode != 200) {
-              wx.showModal({
-                title: '提示',
-                content: '上传失败',
-                confirmText: '确定',
+              wx.showToast({
+                title: '上传失败'
               })
             }
           }
@@ -122,52 +117,9 @@ Page({
     })
   },
 
-  imgOCR:function(e){
+  submit:function(e){
     var that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],// 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'],// 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        console.log(res)
-        wx.uploadFile({
-          url: app.globalData.urlPath + '/uploadPhoto',
-          filePath: res.tempFilePaths[0],//要上传文件资源的路径 String类型 
-          name: 'photo',
-          header: {
-            "Content-Type": "multipart/form-data"
-          },
-          formData: {
-            'sessionToken': app.globalData.sessionToken,
-            'userID': app.globalData.userID,
-            'ocr': "true"
-          },
-          success: function (res) {
-            console.log(res)
-            if (res.statusCode == 200) {
-              var data = JSON.parse(res.data)
-              data = JSON.parse(data.data)
-              console.log(data)
-              that.setData({
-                content: data.ocrText
-              })
-            }
-            if (res.statusCode != 200) {
-              wx.showModal({
-                title: '提示',
-                content: '提取文字失败',
-                confirmText: '确定',
-              })
-            }
-          }
-        })
-      },
-    })
-  },
-
-  submit: function (e) {
-    var that = this
-    if (that.data.titleCount <= 0 || that.data.titleCount > 20 || that.data.contentCount <= 0 || that.data.contentCount > 200) {
+    if (that.data.titleCount <= 0 || that.data.titleCount > 20 || that.data.contentCount <= 0 || that.data.contentCount > 200){
       wx.showModal({
         title: '提示',
         content: '字数不在规定范围内',
@@ -176,9 +128,6 @@ Page({
       return
     }
     else {
-      
-
-      
         wx.showToast({
           title: '正在上传...',
           icon: 'loading',
@@ -238,8 +187,7 @@ Page({
               })
             }
           })
-        
+        }
       }
-    }
   }
 })

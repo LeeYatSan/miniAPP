@@ -69,6 +69,7 @@ Page({
     that.setData({
       formId:res.detail.formId
     })
+    app.globalData.formId = res.detail.formId
     console.log(that.data.formId)
   },
 
@@ -129,7 +130,8 @@ Page({
     wx.request({
       url: app.globalData.urlPath + '/onLogin',
       data: {
-        openid: app.globalData.openid
+        openid: app.globalData.openid,
+        formID: that.data.formId
       },
       header: {
         'content-type': 'application/json'

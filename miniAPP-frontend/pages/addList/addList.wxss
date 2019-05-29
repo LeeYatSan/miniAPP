@@ -41,6 +41,6 @@ pages/addList/addList.wxss
 }
 .weui-cell__bd{
   margin-top: 4%;
-  margin-left: 5%
-
+  margin-left: 5%;
+  height: 500rpx; 
 }
