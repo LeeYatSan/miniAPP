@@ -34,12 +34,12 @@
           <text class='title'>{{item.card.title}}</text>
           <!-- <text class='memo' wx:if='{{item.card.memoLevel==7}}'>已熟记</text> -->
         </view>
-        <view class='list-label' >
+        <!-- <view class='list-label' >
           <text class='label-text'>{{item.labels}}</text>
-        </view>
-        <!-- <view class='list-label' wx:for='{{item.labels}}'>
-          <text class='label-text'>{{item}}</text>
         </view> -->
+        <text class='list-label' wx:for='{{item.labels}}'>
+          <text class='label-text'>{{item}}</text>
+        </text>
         <view class='list-content'>
           <text>{{item.card.content}}</text>
         </view>
