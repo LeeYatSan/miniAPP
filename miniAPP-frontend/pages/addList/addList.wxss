@@ -13,10 +13,7 @@ pages/addList/addList.wxss
   border-radius: 45%;
   height: 45px;
   width: 70px;
-  color: white
-}
-.submit_button:after{
-  border: none
+  border-color: white
 }
 .submitInfo{
   background-color:white;
@@ -29,20 +26,11 @@ pages/addList/addList.wxss
   border-left: 80%
 }
 .ocr{
-  background-color: white;
+  background-color: #F6d365;
   border-radius: 45%;
   height: 45px;
-  width: 70px;
-  /* border-color: #F6d365 */
-  color: white
-}
-.ocr::after{
-  border: none
-}
-.ocr_img{
-  height:45px;
-  width:45px;
-  /* border-left: 80% */
+  width: 45px;
+  border-color: #F6d365
 }
 .question-title-wrap{
   margin-left:5%
