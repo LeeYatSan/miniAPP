@@ -71,7 +71,8 @@ Page({
 
   getCards:function(e){
     var that = this
-
+    console.log("###wingrez");
+    console.log(app.globalData.userID)
     wx.request({
     url: app.globalData.urlPath + '/getAllCardsByUserID',
     data: {

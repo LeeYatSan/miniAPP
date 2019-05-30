@@ -106,6 +106,8 @@ Page({
                 console.log(res);
                 app.globalData.userID = res.data.data.id;
                 app.globalData.sessionToken = res.data.data.sessionToken;
+                wx.setStorageSync('userID', app.globalData.userID);
+                wx.setStorageSync('sessionToken', app.globalData.sessionToken);
                 
                 //跳转
                 console.log("跳转");

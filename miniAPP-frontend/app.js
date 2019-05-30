@@ -12,17 +12,23 @@ App({
         if (data.authSetting["scope.userInfo"]) {
           wx.getUserInfo({
             success: function (data) {
+              
               console.log("用户已经授权")
+              console.log(data);
               wx.checkSession({
 
                 success: function (res) {
+                  var app = getApp();
+                  app.globalData.userID = wx.getStorageSync("userID")
+                  app.globalData.sessionToken = wx.getStorageSync("sessionToken")
                   console.log('session')
                   //未过期
-                  var app = getApp();
+                  
                   console.log(app.globalData.userID);
                   console.log(app.globalData.sessionToken);
                   wx.request({
                     url: app.globalData.urlPath + '/onLogin',
+                    method: 'POST',
                     data: {
                       userID: app.globalData.userID,
                       sessionToken: app.globalData.sessionToken,
@@ -72,7 +78,6 @@ App({
   globalData: {
     userInfo: null,
     urlPath: "http://134.175.11.69:8080/client",
-    //urlPath: "http://localhost:8081",
     userID: null,
     sessionToken: null,
     formId:''
