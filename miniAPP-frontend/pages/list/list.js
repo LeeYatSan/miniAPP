@@ -13,6 +13,7 @@ Page({
     labelLength:0,
     //list:[{title:'',content:'',label:0,img:''}],
     list:[],
+    isList:0,
     memo:'',
     color:'#e2e2e2',
     url:'/images/WechatIMG7.png'
@@ -88,9 +89,14 @@ Page({
         list: res.data.data,
         // index: options.currentTarget .dataset.id
       })
+      if(res.data.data.length != 0){
+        that.setData({
+          isList:1
+        })
+      }
 
       console.log(that.data.list)
-
+      console.log(that.data.isList)
     }
   })
   },
