@@ -64,6 +64,11 @@ input:function(res){
       success:function(res){
         console.log(res)
         console.log(app.globalData.formId)
+        if(res.statusCode == 200){
+          wx.showToast({
+            title: '添加成功',
+          })
+        }
         that.onPullDownRefresh()
       }
     })
