@@ -17,7 +17,11 @@
     <button class="button" bindtap='buttonBind'>+</button>
   </view>
 
-  <view class='listInfo'>
+  <view wx:if='{{isList==0}}' class='null'>
+    <text class='nullText'>您什么都没有留下</text>
+  </view>
+  <view wx:else class='listInfo'>
+  <text>jj</text>
     <block wx:for='{{list}}' wx:key='index'>
       <view class='list_item' data-id='{{index}}' bindtap='cardContent' >
         <view class='list-title'>
