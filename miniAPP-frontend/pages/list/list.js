@@ -22,6 +22,14 @@ Page({
     that.getCards()
   },
 
+  onRefresh: function () {
+    console.log("###wingrez")
+    var that = this;
+    that.getLabels()
+    that.getCards()
+  },
+
+
   onPullDownRefresh: function () {
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
