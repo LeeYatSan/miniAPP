@@ -2,9 +2,6 @@
 var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     titleCount: 0, //标题字数
     contentCount: 0, //正文字数
@@ -14,7 +11,7 @@ Page({
     labelContent: '',//标签
     photoData: '',
     formId:'',
-    num:0,
+    num:0, //0是增加，1是修改
     cardId:0,
     img_ocr:'',
     sameLabel:0,
@@ -152,6 +149,11 @@ Page({
             },
             success: function (res) {
               console.log(res)
+              var pages = getCurrentPages();//当前页面栈
+              if (pages.length > 1) {
+                var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
+                beforePage.onRefresh();//触发父页面中的方法
+              }
               wx.switchTab({
                 url: '../list/list',
               })
@@ -182,9 +184,15 @@ Page({
             },
             success: function (res) {
               console.log(res)
+              var pages = getCurrentPages();//当前页面栈
+              if (pages.length > 1) {
+                var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
+                beforePage.onRefresh();//触发父页面中的方法
+              }
               wx.switchTab({
                 url: '../list/list',
               })
+              
             }
           })
         }
