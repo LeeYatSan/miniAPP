@@ -16,6 +16,7 @@ Page({
     isList:0,
     memo:'',
     color:'#e2e2e2',
+    isMemo:false, //熟记按钮的标志
     url:'/images/WechatIMG7.png'
   },
 
@@ -149,8 +150,13 @@ Page({
 
   isMemo:function(e){
     var that = this
+    var interfaceName ="/getAllFamiliarCards"
+    if(that.data.isMemo==true){
+      interfaceName = "/getAllCardsByUserID";
+    }
+    
     wx.request({
-      url: app.globalData.urlPath+'/getAllFamiliarCards',
+      url: app.globalData.urlPath + interfaceName,
       data:{
         userID:app.globalData.userID,
         sessionToken:app.globalData.sessionToken
@@ -160,13 +166,21 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log('熟记')
-        console.log(res)
-        that.setData({
-          list: res.data.data,
-          color:'#F6d365',
-          url: '/images/WechatIMG6.png'
-        })
+        if(that.data.isMemo==true){
+          that.setData({
+            isMemo: false,
+            list: res.data.data,
+            url: "/images/WechatIMG7.png"
+          })
+        }
+        else{
+          that.setData({
+            isMemo: true,
+            list: res.data.data,
+            url: "/images/WechatIMG6.png"
+          })
+        }
+        
         console.log(that.data.list)
       }
     })
