@@ -62,10 +62,12 @@ input:function(res){
       },
       success:function(res){
         console.log(res)
+        console.log(that.data.formId)
         that.onPullDownRefresh()
       }
     })
   },
+
   onPullDownRefresh: function () {
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
