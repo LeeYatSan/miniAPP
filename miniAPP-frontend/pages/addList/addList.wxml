@@ -1,15 +1,14 @@
 <view class='add'>
-<!-- 赵胜伟在这里加了 style='width:100%; height:60%' -->
-<!-- wx:if="{{images.length < 1}} "-->
- <button class='img_button' bindtap='imgChoose' plain='true' wx:if="{{images.length < 1}}">添加照片
- <image src='{{images}}' mode='withFix' style='width:100%; height:60%'></image>
+ <button class='img_button' bindtap='imgChoose' plain='true'>添加照片
+ <image src='{{images}}' mode='withFix'></image>
  </button>
  <button class='ocr' bindtap='imgOCR' style="position:fixed;top:55%;left:80%">T</button>
  <view class="question-input-area">
+
     <!-- 标题区域  -->
     <view class="question-title-wrap">
       <!-- 标题输入框 -->
-      <input class="question-title" placeholder="请输入标题" maxlength="40" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleTitleInput"></input>
+      <input class="question-title"  value='{{title}}'placeholder="请输入标题" maxlength="40" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleTitleInput"></input>
       <!-- 标题输入字数统计 -->
       <view class="title-input-counter">{{titleCount}}/20</view>
     </view>
@@ -26,8 +25,7 @@
       <view class="weui-cell">
         <view class="weui-cell__bd">
           <!-- 多行输入框 -->
-          <!-- 赵胜伟在这里加了 style="height: 12rem" -->
-          <textarea class="weui-textarea"  value='{{content}}'placeholder="请输入正文内容" maxlength="500" placeholder-style="color:#b3b3b3;font-size:16px;" width="100%" bindinput="handleContentInput" style="height: 12rem" />
+          <textarea class="weui-textarea"  value='{{content}}'placeholder="请输入正文内容" maxlength="500" placeholder-style="color:#b3b3b3;font-size:16px;" width="100%" bindinput="handleContentInput" />
           <!-- 正文输入字数统计 -->
           <view class="weui-textarea-counter" style='position:fixed;bottom:0%;'>{{contentCount}}/200</view>
         </view>
