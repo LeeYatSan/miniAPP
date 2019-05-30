@@ -4,6 +4,7 @@
     "pages/list/list",
     "pages/me/me",
     "pages/card/card",
+    "pages/cardDetail/cardDetail",
     "pages/addList/addList",
     "pages/content/content"
   ],
@@ -15,6 +16,10 @@
   },
   "tabBar": {
     "list": [
+      {
+        "pagePath":"pages/cardDetail/cardDetail",
+        "text":"测试卡片"
+      },
       {
         "pagePath": "pages/list/list",
         "text": "列表"

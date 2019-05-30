@@ -2,6 +2,9 @@
 var app = getApp();
 Page({
 
+  /**
+   * 页面的初始数据
+   */
   data: {
     index:0,
     labelIndex:0,
@@ -12,6 +15,7 @@ Page({
     list:[],
     isList:0,
     memo:'',
+    color:'#e2e2e2',
     isMemo:false, //熟记按钮的标志
     url:'/images/WechatIMG7.png'
   },
@@ -21,14 +25,6 @@ Page({
     that.getLabels()
     that.getCards()
   },
-
-  onRefresh: function () {
-    console.log("###wingrez")
-    var that = this;
-    that.getLabels()
-    that.getCards()
-  },
-
 
   onPullDownRefresh: function () {
     // 显示顶部刷新图标
@@ -76,6 +72,8 @@ Page({
 
   getCards:function(e){
     var that = this
+    console.log("###wingrez");
+    console.log(app.globalData.userID)
     wx.request({
     url: app.globalData.urlPath + '/getAllCardsByUserID',
     data: {

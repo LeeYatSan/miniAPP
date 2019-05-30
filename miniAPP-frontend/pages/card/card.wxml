@@ -28,16 +28,16 @@
 </checkbox-group> -->
 <view>
  <form bindsubmit="rememberPhoto" report-submit='true' >
-<button class="shareBtn" bindtap='rememberPhoto' ><image mode='scaleToFill' plain='true' class='image' src='../../images/right2.png'></image></button>
+<button class="shareBtn" bindtap='rememberPhoto' ><image mode='scaleToFill' plain='true' class='image' src='../../images/forget.png'></image></button>
 </form>
  <form bindsubmit="forgetPhoto" report-submit='true' >
-<button class="shareBtn" bindtap='forgetPhoto' plain='true'><image mode='scaleToFill' plain='true' class='image' src='../../images/fail3.png'></image></button>
+<button class="shareBtn" bindtap='forgetPhoto' plain='true'><image mode='scaleToFill' plain='true' class='image' src='../../images/edit.png'></image></button>
 </form>
  <form bindsubmit="sharePhoto" report-submit='true' >
 <button class="shareBtn" bindtap='sharePhoto' plain='true'><image mode='scaleToFill' plain='true' class='image' src='../../images/share2.png'></image></button>
 </form>
  <form bindsubmit="deletePhoto" report-submit='true' >
-<button class="shareBtn" bindtap='deletePhoto' plain='true'><image mode='scaleToFill' plain='true' class='image' src='../../images/delete.png'></image></button>
+<button class="shareBtn" bindtap='deletePhoto' plain='true'><image mode='scaleToFill' plain='true' class='image' src='../../images/delete2.png'></image></button>
 </form>
 </view>
 
