@@ -109,3 +109,11 @@
   width: 45px;
   border-color: #F6d365
 }
+.null{
+  margin-top: 140px;
+  margin-left: 60px;
+}
+.nullText{
+  font-size: 20pt;
+  color: #CCCCCC
+}
