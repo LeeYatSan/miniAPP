@@ -70,7 +70,7 @@ Page({
           sessionToken: app.globalData.sessionToken,
           formID: ''
         },
-        method: 'GET',
+        method: 'POST',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
@@ -379,7 +379,7 @@ Page({
         remember: true,
         formID: app.globalData.formId
       },
-      method: 'GET',
+      method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
@@ -402,7 +402,7 @@ Page({
         remember: true,
         formID: app.globalData.formId
       },
-      method: 'GET',
+      method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
