@@ -352,7 +352,7 @@ Page({
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
         cardID: cardId,
-        remember: true,
+        remember: false,
         formID: app.globalData.formId
       },
       method: 'POST',
@@ -530,7 +530,9 @@ Page({
     let that = this;
     that.refreshPhoto()
   },
-
+  shuji:function(){
+    console.log("test");
+  },
   refreshPhoto: function () {
     var that = this;
     var index = that.data.imgsIndex;

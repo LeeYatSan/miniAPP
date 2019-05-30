@@ -177,11 +177,17 @@ z-index: 9999;
 }  
 }
 */
-
+.shubtn{
+float:right;
+width:80px;
+height:40px;
+margin-top:15px;
+margin-right:20px;
+}
 .imageshu{
-  margin-right: 68rpx;
+    margin-right: 100px;
    display: flex;
-   width: 200%;
+   width: 250%;
     height: 100%;
     border: none;
 }
@@ -264,5 +270,5 @@ opacity: 0.5;
   text-align: center;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background: yellow ;
+  background: #fff000 ;
 }
