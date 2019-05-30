@@ -121,22 +121,28 @@
   font-size: 20pt;
   color: #CCCCCC
 }
+
 .share{
   margin-top: 3%;
   margin-left: 15%
 }
 .input{
   border-color: #CCCCCC;
-  /* width: 400px; */
+  /* border-style: solid; */
+  width: 150px;
 }
 .submit{
   height: 40px;
-  width:40px;
-  margin-top: -38px;
+  width:45px;
+  margin-top: -30px;
   background-color: white;
   color: white;
   /* margin-left:3% */
 }
 .submit::after{
   border: none;
+}
+.submit-img{
+  height:30px;
+  width:30px;
 }
