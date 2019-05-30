@@ -18,7 +18,6 @@ App({
                   var app = getApp();
                   app.globalData.userID = wx.getStorageSync("userID")
                   app.globalData.sessionToken = wx.getStorageSync("sessionToken")
-                  console.log('session')
                   //未过期
                   wx.request({
                     url: app.globalData.urlPath + '/onLogin',

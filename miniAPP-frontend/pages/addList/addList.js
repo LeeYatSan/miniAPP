@@ -14,7 +14,7 @@ Page({
     labelContent: '',//标签
     photoData: '',
     formId:'',
-    num:0,
+    num:0, //0是增加，1是修改
     cardId:0,
     img_ocr:'',
     sameLabel:0,

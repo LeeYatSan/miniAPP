@@ -2,9 +2,6 @@
 var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     index:0,
     labelIndex:0,
@@ -71,8 +68,6 @@ Page({
 
   getCards:function(e){
     var that = this
-    console.log("###wingrez");
-    console.log(app.globalData.userID)
     wx.request({
     url: app.globalData.urlPath + '/getAllCardsByUserID',
     data: {
