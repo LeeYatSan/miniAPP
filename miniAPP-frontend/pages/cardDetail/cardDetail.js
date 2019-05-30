@@ -453,7 +453,7 @@ Page({
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
