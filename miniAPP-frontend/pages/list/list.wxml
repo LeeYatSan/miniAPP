@@ -17,6 +17,11 @@
     <button class="button" bindtap='buttonBind'>+</button>
   </view>
 
+<view class='share'>
+    <input class='input' bindtap='input'></input>
+    <button class='submit' form-type="submit"bindtap='submit'></button>
+  </view>
+
   <view wx:if='{{isList==0}}' class='null'>
     <text class='nullText'>您什么都没有留下</text>
   </view>
