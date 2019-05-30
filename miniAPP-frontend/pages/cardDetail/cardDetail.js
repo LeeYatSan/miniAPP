@@ -8,7 +8,8 @@ Page({
     isEmpty: true,
     interval: '',
     imgsIndex: 0,
-    imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }],
+    imgs: [],
+    // imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }],
     imgUrl: [],
     newImgUrl: [],
     cardId: '',
@@ -76,7 +77,8 @@ Page({
         },
         success: function (res) {
           that.setData({
-            imgUrl: that.data.imgUrl.concat(res.data.data)
+            imgUrl: that.data.imgUrl.concat(res.data.data),
+            imgs: that.data.imgs
           })
         }
       });
@@ -265,7 +267,7 @@ Page({
         imgsIndex: index
       })
     }
-    console.log("索引：" + that.data.imgs.length);
+    console.log("索引：" + that.data.imgsIndex);
     console.log("长度：" + that.data.imgs.length);
     this.rememberOrNot(that.data.imgsIndex);
     let animation = wx.createAnimation({
