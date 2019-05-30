@@ -13,7 +13,10 @@ pages/addList/addList.wxss
   border-radius: 45%;
   height: 45px;
   width: 70px;
-  border-color: white
+  color: white
+}
+.submit_button:after{
+  border: none
 }
 .submitInfo{
   background-color:white;
