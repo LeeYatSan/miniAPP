@@ -38,7 +38,7 @@
   <form bindsubmit="submitInfo" report-submit='true' >
   <button class='submit_button' form-type="submit"
   bindtap='submit' style="position:fixed;top:85%;left:80%">
-    <image class='img' src='/images/WechatIMG33.png'></image>
+    <image class='img' src='/images/tijiao.png'></image>
   </button>
   </form>
 </view>
