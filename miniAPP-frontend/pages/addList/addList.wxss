@@ -29,11 +29,20 @@ pages/addList/addList.wxss
   border-left: 80%
 }
 .ocr{
-  background-color: #F6d365;
+  background-color: white;
   border-radius: 45%;
   height: 45px;
-  width: 45px;
-  border-color: #F6d365
+  width: 70px;
+  /* border-color: #F6d365 */
+  color: white
+}
+.ocr::after{
+  border: none
+}
+.ocr_img{
+  height:45px;
+  width:45px;
+  /* border-left: 80% */
 }
 .question-title-wrap{
   margin-left:5%
