@@ -252,7 +252,7 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index > that.data.imgs.length - 2) {
+    if (index > that.data.imgs.length - 1) {
       console.log("true");
       var count = 0;
       that.setData({
@@ -268,6 +268,64 @@ Page({
     console.log("索引：" + that.data.imgs.length);
     console.log("长度：" + that.data.imgs.length);
     this.rememberOrNot(that.data.imgsIndex);
+    let animation = wx.createAnimation({
+      duration: 680,
+      timingFunction: "ease",
+    });
+    this.animation = animation;
+
+    if (translateXX > 0) {
+      this.animation.translateY(0).rotate(20).translateX(translateXX).opacity(0).step();
+    } else {
+      this.animation.translateY(0).rotate(-20).translateX(translateXX).opacity(0).step();
+    }
+
+    this.animation.translateY(0).translateX(0).opacity(1).rotate(0).step({
+      duration: 10
+    });
+
+    this.setData({
+      animationData1: this.animation.export(),
+    });
+
+    setTimeout(() => {
+      this.setData({
+        ballTop1: 220,
+        ballLeft1: -302.5,
+        ballWidth1: 605,
+        index1: 1,
+
+        ballTop2: 240,
+        ballLeft2: -340,
+        ballWidth2: 680,
+        index2: 3,
+
+        ballTop3: 230,
+        ballLeft3: -320,
+        ballWidth3: 640,
+        index3: 2,
+      })
+    }, 500);
+  },
+  Animation2: function (translateXX) {
+    var that = this;
+    var index = that.data.imgsIndex;
+    console.log("下标" + index);
+    if (index > that.data.imgs.length - 1) {
+      console.log("true");
+      var count = 0;
+      that.setData({
+        imgsIndex: count
+      })
+    } else {
+      console.log("fasle");
+      index = index + 1;
+      that.setData({
+        imgsIndex: index
+      })
+    }
+    console.log("索引：" + that.data.imgs.length);
+    console.log("长度：" + that.data.imgs.length);
     let animation = wx.createAnimation({
       duration: 680,
       timingFunction: "ease",
@@ -342,6 +400,7 @@ Page({
   },
   rememberPhoto: function () {
     var that = this;
+    console.log(that.data.imgUrl);
     var index = that.data.imgsIndex;
     var cardId = that.data.imgUrl[index].card.cardId
     console.log(cardId);
@@ -361,7 +420,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        that.Animation1(-500);
+        that.Animation2(-500);
       }
     });
   },
@@ -385,7 +444,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        that.Animation1(500);
+        that.Animation2(500);
       }
     });
   },
