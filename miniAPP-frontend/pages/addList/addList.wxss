@@ -18,16 +18,7 @@ pages/addList/addList.wxss
 .submit_button:after{
   border: none
 }
-.submitInfo{
-  background-color:white;
-  border-color: white
 
-}
-.img{
-  height:45px;
-  width:45px;
-  border-left: 80%
-}
 .ocr{
   background-color: white;
   border-radius: 45%;
@@ -42,8 +33,19 @@ pages/addList/addList.wxss
 .ocr_img{
   height:45px;
   width:45px;
+  border-left: 80%
+}
+.submitInfo{
+  background-color:white;
+  border-color: white
+
+}
+.img{
+  height:35px;
+  width:35px;
   /* border-left: 80% */
 }
+
 .question-title-wrap{
   margin-left:5%
 }
