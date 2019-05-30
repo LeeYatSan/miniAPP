@@ -421,7 +421,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           wx.request({
-            url: 'http://localhost:8081/delCard',
+            url: app.globalData.urlPath + '/delCard',
             data: {
               userID: app.globalData.userID,
               sessionToken: app.globalData.sessionToken,
@@ -446,7 +446,7 @@ Page({
   getPhotoUrl: function () {
     var that = this;
     wx.request({
-      url: 'http://localhost:8081/getAllCardsByUserID',
+      url: app.globalData.urlPath + '/getAllCardsByUserID',
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken
@@ -471,7 +471,7 @@ Page({
     var cardId = that.data.imgUrl[index].card.cardId
     console.log(cardId);
     wx.request({
-      url: 'http://localhost:8081/shareCard',
+      url: app.globalData.urlPath + '/shareCard',
       data: {
         userID: app.globalData.userID,
         sessionToken: app.globalData.sessionToken,
