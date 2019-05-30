@@ -13,7 +13,9 @@ Page({
     isList:0,
     memo:'',
     isMemo:false, //熟记按钮的标志
-    url:'/images/WechatIMG7.png'
+    url:'/images/WechatIMG7.png',
+    card:'',
+    formId:''
   },
 
   onLoad: function (options) {
@@ -29,7 +31,41 @@ Page({
     that.getCards()
   },
 
+input:function(res){
+    var that = this
+    that.setData({
+      card:res.detail.value
+    })
+  },
 
+  submitInfo: function (res) {
+    var that = this
+    that.setData({
+      formId: res.detail.formId
+    })
+    console.log(that.data.formId)
+  },
+
+  submit:function(e){
+    var that = this
+    wx.request({
+      url: app.globalData.urlPath+'/shareCard',
+      data:{
+        userID:app.globalData.userID,
+        sessionToken:app.globalData.sessionToken,
+        formID:that.data.formId,
+        cardID:that.data.card
+      },
+      method:'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success:function(res){
+        console.log(res)
+        that.onPullDownRefresh()
+      }
+    })
+  },
   onPullDownRefresh: function () {
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
