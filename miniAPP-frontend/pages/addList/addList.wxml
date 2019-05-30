@@ -2,7 +2,9 @@
  <button class='img_button' bindtap='imgChoose' plain='true'>添加照片
  <image src='{{images}}' mode='withFix'></image>
  </button>
- <button class='ocr' bindtap='imgOCR' style="position:fixed;top:55%;left:80%">T</button>
+ <button class='ocr' bindtap='imgOCR' style="position:fixed;top:55%;left:80%">
+ <image class='ocr_img' src='/images/WechatIMG127.png'></image>
+ </button>
  <view class="question-input-area">
 
     <!-- 标题区域  -->
