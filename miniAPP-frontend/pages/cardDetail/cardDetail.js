@@ -70,9 +70,9 @@ Page({
           sessionToken: app.globalData.sessionToken,
           formID: ''
         },
-        method: 'GET',
+        method: 'POST',
         header: {
-          'content-type': 'application/json'
+          "Content-Type": "application/x-www-form-urlencoded"
         },
         success: function (res) {
           that.setData({
@@ -357,7 +357,7 @@ Page({
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
@@ -379,9 +379,9 @@ Page({
         remember: true,
         formID: app.globalData.formId
       },
-      method: 'GET',
+      method: 'POST',
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
@@ -402,9 +402,9 @@ Page({
         remember: true,
         formID: app.globalData.formId
       },
-      method: 'GET',
+      method: 'POST',
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
@@ -430,7 +430,7 @@ Page({
             },
             method: 'POST',
             header: {
-              'content-type': 'application/json'
+              "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function (res) {
               console.log(res.data);
@@ -453,7 +453,7 @@ Page({
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
@@ -479,8 +479,7 @@ Page({
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
-        // 'content-type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
@@ -547,8 +546,7 @@ Page({
       },
       method: 'POST',
       header: {
-        'content-type': 'application/json'
-        // 'content-type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
         console.log(res.data);
