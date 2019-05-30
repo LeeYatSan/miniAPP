@@ -18,8 +18,10 @@
   </view>
 
 <view class='share'>
-    <input class='input' bindtap='input' placeholder="请输入要搜索的卡片ID" maxlength="40" placeholder-style="color:#b3b3b3;font-size:14px;"></input>
-    <button class='submit' form-type="submit"bindtap='submit'>🔍</button>
+    <input class='input' bindinput='input' placeholder="请输入要搜索的卡片ID" maxlength="40" placeholder-style="color:#b3b3b3;font-size:14px;"></input>
+    <button class='submit' form-type="submit" bindtap='submit'>
+      <image class='submit-img' src='/images/ok.png'></image>
+    </button>
   </view>
 
   <view wx:if='{{isList==0}}' class='null'>
