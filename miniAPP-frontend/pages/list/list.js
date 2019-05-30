@@ -53,7 +53,8 @@ input:function(res){
       data:{
         userID:app.globalData.userID,
         sessionToken:app.globalData.sessionToken,
-        formID:that.data.formId,
+        //formID:that.data.formId,
+        formId:app.globalData.formId,
         cardID:that.data.card
       },
       method:'POST',
@@ -62,7 +63,7 @@ input:function(res){
       },
       success:function(res){
         console.log(res)
-        console.log(that.data.formId)
+        console.log(app.globalData.formId)
         that.onPullDownRefresh()
       }
     })
