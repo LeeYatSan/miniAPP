@@ -75,12 +75,13 @@
   /* border-top: 1px solid #CCCCCC; */
   /* margin-left: 10%;
   margin-right: 10%; */
+    margin-top: 3%;
   font-size:14pt;
   color: #353535e5;
 }
 .list-label{
-  /* margin-left: 10%;
-  margin-right: 10%; */
+  /* margin-left: 10%;*/
+  margin-right: 3%; 
   font-size: 12pt;
   margin-top: 5%;
   color:#888888; 
