@@ -15,7 +15,6 @@ Page({
     list:[],
     isList:0,
     memo:'',
-    color:'#e2e2e2',
     isMemo:false, //熟记按钮的标志
     url:'/images/WechatIMG7.png'
   },
