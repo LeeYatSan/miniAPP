@@ -3,23 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-mapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-pojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-pojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-api/target/miniAPP-api-1.0-SNAPSHOT/WEB-INF/lib/miniAPP-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-common/target/miniAPP-common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-common/target/miniAPP-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-mapper/target/miniAPP-mapper-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-pojo/target/miniAPP-pojo-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-pojo/target/miniAPP-pojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/impl/CardServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/classes/com/miniAPP/service/impl/CardServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/miniAPP-service/target/miniAPP-service-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
@@ -77,13 +60,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="236" column="52" selection-start-line="236" selection-start-column="52" selection-end-line="236" selection-end-column="52" />
+            <state relative-caret-position="820">
+              <caret line="359" column="44" selection-start-line="359" selection-start-column="44" selection-end-line="359" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-329">
+              <caret line="241" column="63" selection-start-line="241" selection-start-column="63" selection-end-line="241" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/FrCardMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="77" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="77" />
+              <folding>
+                <element signature="e#1589#1593#0" expanded="true" />
+                <element signature="e#1761#1765#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -200,9 +208,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -273,6 +280,15 @@
             <path>
               <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="miniAPP-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="miniAPP-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="miniAPP-backend" type="462c0819:PsiDirectoryNode" />
               <item name="miniAPP-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -332,7 +348,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559217576269" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559235091185" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -516,14 +532,7 @@
       <workItem from="1559047822051" duration="363000" />
       <workItem from="1559051595519" duration="3075000" />
       <workItem from="1559118909965" duration="3853000" />
-      <workItem from="1559209398487" duration="3876000" />
-    </task>
-    <task id="LOCAL-00002" summary="/onLogin ✅">
-      <created>1553960568668</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1553960568668</updated>
+      <workItem from="1559209398487" duration="7267000" />
     </task>
     <task id="LOCAL-00003" summary="update user id">
       <created>1555306708544</created>
@@ -861,11 +870,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559213344573</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="检测后端">
+      <created>1559217754754</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1559217754754</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244640000" />
+    <option name="totallyTimeSpent" value="248031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -878,6 +894,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22588523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -889,7 +906,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.4489796" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.06428572" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993895" weight="0.4622449" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -899,7 +916,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50061053" side_tool="true" weight="0.23265307" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.496337" weight="0.19795918" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.496337" visible="true" weight="0.19795918" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.34387755" />
       <window_info anchor="bottom" id="JProfiler" order="15" />
@@ -921,7 +938,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加分享功能接口 /shareCard" />
     <MESSAGE value="启用formID版/onRegister 接口" />
     <MESSAGE value="修改配置文件，以支持本地非部署开发" />
     <MESSAGE value="修复了formID模块后端相关bug" />
@@ -946,7 +962,8 @@
     <MESSAGE value="恢复支持PC端预览" />
     <MESSAGE value="修复前端URL" />
     <MESSAGE value="远程前端更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="远程前端更新" />
+    <MESSAGE value="检测后端" />
+    <option name="LAST_COMMIT_MESSAGE" value="检测后端" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/WXModel/WXAccessTokenModel.java">
@@ -1289,17 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/FrCardMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="85" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
-          <folding>
-            <element signature="e#1589#1593#0" expanded="true" />
-            <element signature="e#1761#1765#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/TaskController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1354,9 +1360,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="359" column="44" selection-start-line="359" selection-start-column="44" selection-end-line="359" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-service/src/main/java/com/miniAPP/service/impl/CardServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
+        <state relative-caret-position="-329">
           <caret line="241" column="63" selection-start-line="241" selection-start-column="63" selection-end-line="241" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1364,12 +1380,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/java/com/miniAPP/controller/CardController.java">
+    <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/mapper/FrCardMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="236" column="52" selection-start-line="236" selection-start-column="52" selection-end-line="236" selection-end-column="52" />
+        <state relative-caret-position="495">
+          <caret line="33" column="77" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="77" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1589#1593#0" expanded="true" />
+            <element signature="e#1761#1765#0" expanded="true" />
           </folding>
         </state>
       </provider>
