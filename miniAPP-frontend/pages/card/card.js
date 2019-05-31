@@ -1,6 +1,5 @@
 var app = getApp();
 var WxAutoImage = require('../../utils/wxAutoImageCal.js');
-var time = require('../../utils/utils.js');
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 Page({
@@ -252,9 +251,11 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index > that.data.imgUrl.length - 1) {
+    console.log("长度：");
+    console.log(that.data.imgUrl.length);
+    if (index == that.data.imgUrl.length-1) {
       console.log("true");
-      var count = 0;
+      var count = index;
       that.setData({
         imgsIndex: count
       })
@@ -396,9 +397,26 @@ Page({
   },
   rememberPhoto: function () {
     var that = this;
-    console.log(that.data.imgUrl);
-    var index = that.data.imgsIndex;
+	var index = that.data.imgsIndex;
     var cardId = that.data.imgUrl[index].card.cardId
+    if (that.data.imgsIndex == that.data.imgUrl.length-1) {
+      wx.request({
+        url: app.globalData.urlPath + '/rememberCardOrNot',
+        data: {
+          userID: app.globalData.userID,
+          sessionToken: app.globalData.sessionToken,
+          cardID: cardId,
+          remember: false,
+          formID: app.globalData.formId
+        },
+        method: 'POST',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+        }
+      });
+    }else{
     console.log(cardId);
     console.log(app.globalData.formId);
     wx.request({
@@ -419,11 +437,30 @@ Page({
         that.Animation2(-500);
       }
     });
+	}
   },
   forgetPhoto: function () {
-    var that = this;
-    var index = that.data.imgsIndex;
+   var that = this;
+	var index = that.data.imgsIndex;
     var cardId = that.data.imgUrl[index].card.cardId
+    if (that.data.imgsIndex == that.data.imgUrl.length-1) {
+      wx.request({
+        url: app.globalData.urlPath + '/rememberCardOrNot',
+        data: {
+          userID: app.globalData.userID,
+          sessionToken: app.globalData.sessionToken,
+          cardID: cardId,
+          remember: false,
+          formID: app.globalData.formId
+        },
+        method: 'POST',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+        }
+      });
+    }else{
     console.log(app.globalData.formId);
     wx.request({
       url: app.globalData.urlPath + '/rememberCardOrNot',
@@ -443,6 +480,7 @@ Page({
         that.Animation2(500);
       }
     });
+	}
   },
   rememberOrNot: function (index) {
     var that = this;
@@ -512,14 +550,11 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        for (var i = 0; i < res.data.data.length; i++) {
-          res.data.data[i].card.createTime = time.formatTime(res.data.data[i].card.createTime, 'Y/M/D h:m:s')
-          res.data.data[i].card.nextTime = time.formatTime(res.data.data[i].card.nextTime, 'Y/M/D h:m:s')
-
-        }
         that.setData({
           imgUrl: res.data.data
         })
+        console.log(res.data.data)
+        console.log(that.data.imgUrl[0].card.cardId);
       }
     });
   },
@@ -590,6 +625,14 @@ Page({
   },
   shuji: function () {
     console.log("test");
+  },
+  editPhoto:function(){
+    wx.navigateTo({
+      url: '../../pages/addList/addList?num=1',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   refreshPhoto: function () {
     var that = this;
