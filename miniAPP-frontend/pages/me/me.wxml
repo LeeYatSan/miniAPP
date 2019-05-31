@@ -2,27 +2,36 @@
     关于我
 </view>
 <view class="view_UserInf" data-c_e_id="wx_view_841eae11">
-    <image class="image_HeadImg" data-c_e_id="wx_image_083b350a" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/797fcdab430e030e0c8e941711dbecef_origin.jpg" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/797fcdab430e030e0c8e941711dbecef_origin.jpg); "/>
-    <text class="text_Name1" data-c_e_id="wx_text_0de1d20f">DOOKIE</text>
-    <text class="text_CheckInf" data-c_e_id="wx_text_8aac89ef">查看资料</text>
+    <image class="image_HeadImg" data-c_e_id="wx_image_083b350a" mode="scaleToFill" src="{{userInfo.avatarUrl}}" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; "/>
+  <text class="text_Name1" data-c_e_id="wx_text_0de1d20f">{{userInfo.nickName}}</text>
+  <text style="margin-left:7%;margin-top:3%; color:#FF0000;" bindtap='quit'>退出登录</text>
 </view>
-<image class="CardImg" data-c_e_id="wx_image_19316e6d" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/f4f19f5556515cb5dbffc03c1c55c16a_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/f4f19f5556515cb5dbffc03c1c55c16a_origin.png); "/>
-<text class="CardNum" data-c_e_id="wx_text_7418a433">13</text>
-<view class="CardNum-View" data-c_e_id="wx_view_4f1ce468">
+<view style='margin-left:15%;margin-top:70px;'>
+<view>
+<view style="margin-top:5%; margin-left:3%;float:left;">
+<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;"  data-c_e_id="wx_text_7418a433">13</text>
+<view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
     卡片数量
 </view>
-<image class="DayImg" data-c_e_id="wx_image_b4faf6c6" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/4f1f9153092c0ca27cafefbe33025625_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/4f1f9153092c0ca27cafefbe33025625_origin.png); "/>
-<text class="DayNum" data-c_e_id="wx_text_b649bfe9">35</text>
-<view class="DayNum-view" data-c_e_id="wx_view_7f497b0a">
+</view>
+<view style="margin-top:5%;margin-left:3%;float:left;">
+<text  style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_7418a433">16</text>
+<view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
+    未熟记数
+</view>
+</view>
+<view style="margin-top:5%;margin-left:3%;float:left;">
+<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_b649bfe9">35</text>
+<view style="color:#ffc000"  data-c_e_id="wx_view_7f497b0a">
     记录天数
 </view>
-<image class="image_Line3" data-c_e_id="wx_image_50df4933" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/2f2647a12c9dae60b6951ce15f6598b1_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/2f2647a12c9dae60b6951ce15f6598b1_origin.png); "/>
-<image class="SumImg" data-c_e_id="wx_image_f0adca3e" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/ed1517dc44c55ed4cdfc9ab04e595013_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/ed1517dc44c55ed4cdfc9ab04e595013_origin.png); "/>
-<image class="ArrowImg1" data-c_e_id="wx_image_062e15b7" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/f33499f7740e39cec14979b167cbb19e_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/f33499f7740e39cec14979b167cbb19e_origin.png); "/>
-<text class="Sum-view" data-c_e_id="wx_text_1dbeed28">统计</text>
-<image class="Line2" data-c_e_id="wx_image_bb0c6c5e" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/2f2647a12c9dae60b6951ce15f6598b1_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/2f2647a12c9dae60b6951ce15f6598b1_origin.png); "/>
-<view catchtap="tap_9f585369" class="wx-view_nFic8P" data-c_act_id="M_e08545c3b6b7e819" data-c_e_id="wx_view_2c627862">
-    <image class="SettingImg" data-c_e_id="wx_image_1173fa42" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/07c3b3e37da32d0f01bf99245b0540be_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/07c3b3e37da32d0f01bf99245b0540be_origin.png); "/>
-    <text class="Setting-view" data-c_e_id="wx_text_3a322e1d">设置</text>
-    <image class="ArrowImg2" data-c_e_id="wx_image_b7beb409" mode="scaleToFill" src="http://qty83k.creatby.com/materials/142368/origin/f33499f7740e39cec14979b167cbb19e_origin.png" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; background-image: url(http://qty83k.creatby.com/materials/142368/origin/f33499f7740e39cec14979b167cbb19e_origin.png); "/>
+</view>
+</view>
+</view>
+<view style='margin-left:100px;margin-top:300px;'>
+<view style="text-align:center;margin-left:-40%;margin-top:20%;"><text style='color:gray;'>橘猫记忆</text></view>
+<view style='text-align:center;margin-left:-40%;'><text style="color:gray;">不忘记任何知识点(=^x^=)</text></view>
+<view style='margin-top:2%;margin-left:20%'>
+<image class="loading" style='height:100px;width:50px;' src="/images/me_loading.gif" mode="aspectFill"></image>
+</view>
 </view>
