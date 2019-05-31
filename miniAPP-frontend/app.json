@@ -5,8 +5,7 @@
     "pages/me/me",
     "pages/card/card",
     "pages/cardDetail/cardDetail",
-    "pages/addList/addList",
-    "pages/content/content"
+    "pages/addList/addList"
   ],
   "window": {
     "backgroundTextStyle": "dark",
