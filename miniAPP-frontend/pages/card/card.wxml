@@ -6,8 +6,8 @@
         <view class='blank'></view>
          <view><label wx:for="{{imgUrl[imgsIndex].labels}}" key="index" class='labelcss'>{{imgUrl[imgsIndex].labels[index]}}</label></view>
          <view class='blank'></view>
-         <view><label style="float:left;">创建于：{{imgUrl[imgsIndex].card.createTime}}</label>
-         <label style="float:right;">下次记忆于：{{imgUrl[imgsIndex].card.nextTime}}</label></view>
+         <view><label class="time" style="float:left;">创建于：{{imgUrl[imgsIndex].card.createTime}}</label>
+         <label class="time" style="float:right;">下次记忆于：{{imgUrl[imgsIndex].card.nextTime}}</label></view>
          <view class='blank'></view>
          <label class='content'>{{imgUrl[imgsIndex].card.content}}</label>
          <view class='blank'></view>
