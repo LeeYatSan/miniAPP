@@ -1,5 +1,6 @@
 var app = getApp();
 var WxAutoImage = require('../../utils/wxAutoImageCal.js');
+var time = require('../../utils/utils.js');
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 Page({
@@ -510,6 +511,7 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
+        console.log(res.data);
         for (var i = 0; i < res.data.data.length; i++) {
           res.data.data[i].card.createTime = time.formatTime(res.data.data[i].card.createTime, 'Y/M/D h:m:s')
           res.data.data[i].card.nextTime = time.formatTime(res.data.data[i].card.nextTime, 'Y/M/D h:m:s')
