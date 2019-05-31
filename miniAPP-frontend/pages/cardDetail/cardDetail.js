@@ -515,7 +515,8 @@ Page({
           imgUrl: res.data.data
         })
         console.log(res.data.data)
-        console.log(that.data.imgUrl[0].card.cardId);
+        console.log("!!!wingrez")
+        console.log(that.data.imgUrl[0].labels);
       }
     });
   },

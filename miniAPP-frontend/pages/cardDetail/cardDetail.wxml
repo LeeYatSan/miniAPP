@@ -6,7 +6,7 @@
        <!-- <button class='shubtn'><image mode='scaleToFill' plain='true' class='imageshu'     src='../../images/shu2.png'></image></button>-->
        <text wx:if="{{imgUrl[imgsIndex].card.memoLevel > 6}}" style='float:right' class='title1' bindtap='shuji'>熟记</text></view>
         <view class='blank'></view>
-         <view><label class='labelcss'>test  </label><label class='labelcss'>test2</label></view>
+         <view><label wx:for="{{imgUrl[imgsIndex].labels}}" key="index" class='labelcss'>{{imgUrl[imgsIndex].labels[index]}}</label></view>
          <view class='blank'></view>
          <view><label class='time'>创建于：{{imgUrl[imgsIndex].card.createTime}}</label>
          <label class='time'>下次记忆于：{{imgUrl[imgsIndex].card.lastRememberTime}}</label></view>
