@@ -1,5 +1,6 @@
 var app = getApp();
 var WxAutoImage = require('../../utils/wxAutoImageCal.js');
+var time = require('../../utils/utils.js');
 let touchDotX = 0; //X按下时坐标
 let touchDotY = 0; //y按下时坐标
 Page({
