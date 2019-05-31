@@ -96,11 +96,9 @@ Page({
           success: function (res) {
             if (res.statusCode == 200) {
               var data = JSON.parse(res.data)
-              console.log("photo")
-              console.log(res)
-              console.log(data)
+              data = JSON.parse(data.data)
               that.setData({
-                photoData: data.data
+                photoData: data.picUrl
               })
             }
             if (res.statusCode != 200) {
