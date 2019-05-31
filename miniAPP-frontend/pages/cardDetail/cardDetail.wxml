@@ -9,7 +9,7 @@
          <view><label wx:for="{{imgUrl[imgsIndex].labels}}" key="index" class='labelcss'>{{imgUrl[imgsIndex].labels[index]}}</label></view>
          <view class='blank'></view>
          <view><label class='time'>创建于：{{imgUrl[imgsIndex].card.createTime}}</label>
-         <label class='time'>下次记忆于：{{imgUrl[imgsIndex].card.lastRememberTime}}</label></view>
+         <label class='time'>下次记忆于：{{imgUrl[imgsIndex].card.nextTime}}</label></view>
          <view class='blank'></view>
          <label class='content'>{{imgUrl[imgsIndex].card.content}}</label>
          <view class='blank'></view>

@@ -14,7 +14,7 @@ function formatTime(number, format) {
   var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
   var returnArr = [];
 
-  var date = new Date(number * 1000);
+  var date = new Date(number);
   returnArr.push(date.getFullYear());
   returnArr.push(formatNumber(date.getMonth() + 1));
   returnArr.push(formatNumber(date.getDate()));
@@ -28,6 +28,7 @@ function formatTime(number, format) {
   }
   return format;
 }
+
 
 module.exports = {
   formatTime: formatTime

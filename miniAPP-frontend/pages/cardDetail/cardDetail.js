@@ -512,12 +512,14 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
+        for(var i=0;i<res.data.data.length;i++){
+          res.data.data[i].card.createTime = time.formatTime(res.data.data[i].card.createTime, 'Y/M/D h:m:s')
+          res.data.data[i].card.nextTime=time.formatTime(res.data.data[i].card.nextTime, 'Y/M/D h:m:s')
+          
+        }
         that.setData({
-          imgUrl: res.data.data
+          imgUrl:res.data.data
         })
-        console.log(res.data.data)
-        console.log("!!!wingrez")
-        console.log(that.data.imgUrl[0].labels);
       }
     });
   },
@@ -525,7 +527,6 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     var cardId = that.data.imgUrl[index].card.cardId
-    console.log(cardId);
     wx.request({
       url: app.globalData.urlPath + '/shareCard',
       data: {
@@ -538,7 +539,6 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data);
         wx.showModal({
           title: '分享卡片',
           content: '分享卡片清复制卡片ID\n' + cardId,
@@ -593,7 +593,6 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     var cardId = that.data.imgUrl[index].card.cardId
-    console.log(cardId);
     wx.request({
       //url: 'http://localhost:8081/getUnFamiliarCard',
       url: app.globalData.urlPath + "/getUnFamiliarCard",
@@ -607,18 +606,11 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data);
-        console.log(res.data.data);
         that.data.newImgUrl = res.data.data;
         that.data.isRefresh = true;
-        console.log("newImg");
-        console.log(that.data.newImgUrl);
         that.setData({
           imgUrl: that.data.imgUrl.concat(res.data.data)
         })
-        console.log("new data");
-        console.log(that.data.imgUrl);
-        console.log(that.data.imgUrl[0].picUrl);
       }
     });
   }
