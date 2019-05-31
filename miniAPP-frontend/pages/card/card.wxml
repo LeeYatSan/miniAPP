@@ -2,14 +2,14 @@
 <view class="body-swiper" bindtouchstart="touchstart1" bindtouchend="touchend1" style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;" animation="{{animationData1}}"  >
     <block wx:if="{{isEmpty}}">
       <view class="body-container" style="background-color:#ffffff">
-        <view><text style="float:left;">{{imgUrl[imgsIndex].card.title}}</text><text></text><text style='float:right' class='title1'>熟记</text></view>
+        <view><text class='title'>{{imgUrl[imgsIndex].card.title}}</text><text></text><text style='float:right' class='title1'>熟记</text></view>
         <view class='blank'></view>
          <view><label class='labelcss'>test  </label><label class='labelcss'>test2</label></view>
          <view class='blank'></view>
          <view><label style="float:left;">创建于：{{imgUrl[imgsIndex].card.createTime}}</label>
          <label style="float:right;">下次记忆于：{{imgUrl[imgsIndex].card.nextTime}}</label></view>
          <view class='blank'></view>
-         <label>{{imgUrl[imgsIndex].card.content}}</label>
+         <label class='content'>{{imgUrl[imgsIndex].card.content}}</label>
          <view class='blank'></view>
         <image class="imgshadow" bindload="cusImageLoad" class="avatar" src="{{imgUrl[imgsIndex].card.picUrl}}" style="height: {{imageHeight}}"></image>
          
