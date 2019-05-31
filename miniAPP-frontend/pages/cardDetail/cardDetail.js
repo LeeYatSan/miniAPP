@@ -8,8 +8,6 @@ Page({
     isEmpty: true,
     interval: '',
     imgsIndex: 0,
-    imgs: [],
-    // imgs: [{ "name": "cake", "pic_url": "/images/cake.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }, { "name": "carrot", "pic_url": "/images/carrot.jpg", "desc": "这是一个简单的初级英文单词，让我们进行重复学习" }],
     imgUrl: [],
     newImgUrl: [],
     cardId: '',
@@ -77,8 +75,7 @@ Page({
         },
         success: function (res) {
           that.setData({
-            imgUrl: that.data.imgUrl.concat(res.data.data),
-            imgs: that.data.imgs
+            imgUrl: that.data.imgUrl.concat(res.data.data)
           })
         }
       });
@@ -254,7 +251,7 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index > that.data.imgs.length - 1) {
+    if (index > that.data.imgUrl.length - 1) {
       console.log("true");
       var count = 0;
       that.setData({
@@ -267,8 +264,6 @@ Page({
         imgsIndex: index
       })
     }
-    console.log("索引：" + that.data.imgsIndex);
-    console.log("长度：" + that.data.imgs.length);
     this.rememberOrNot(that.data.imgsIndex);
     let animation = wx.createAnimation({
       duration: 680,
@@ -313,21 +308,19 @@ Page({
     var that = this;
     var index = that.data.imgsIndex;
     console.log("下标" + index);
-    if (index > that.data.imgs.length - 1) {
+    if (index > that.data.imgUrl.length - 1) {
       console.log("true");
       var count = 0;
       that.setData({
         imgsIndex: count
       })
     } else {
-      console.log("false");
+      console.log("fasle");
       index = index + 1;
       that.setData({
         imgsIndex: index
       })
     }
-    console.log("索引：" + that.data.imgs.length);
-    console.log("长度：" + that.data.imgs.length);
     let animation = wx.createAnimation({
       duration: 680,
       timingFunction: "ease",
