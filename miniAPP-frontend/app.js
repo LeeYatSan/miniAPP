@@ -74,6 +74,7 @@ App({
     // urlPath: "http://localhost:8081",
     userID: null,
     sessionToken: null,
-    formId:''
+    formId:'',
+    loginDays:1
   },
 })
