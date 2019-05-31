@@ -6,12 +6,13 @@
 .input{
   border-color: #EEEEEE;
   /* border-style: solid; */
-  width: 150px;
+  width: 500rpx;
 }
 .submit{
-  height: 40px;
-  width:45px;
-  margin-top: -30px;
+  height: 80rpx;
+  width:90rpx;
+  margin-top: -70rpx;
+  margin-right: 30%;
   background-color: white;
   color: white;
   /* margin-left:3% */
@@ -20,8 +21,8 @@
   border: none;
 }
 .submit-img{
-  height:30px;
-  width:30px;
+  height:40rpx;
+  width:40rpx;
 }
 
 .list{
@@ -41,7 +42,7 @@
   font-size: 12pt;
 }
 .picker-view{
-  margin-top: -60px;
+  margin-top: -120rpx;
   margin-left: 3%;
   width:60%;
   display: flex;
@@ -55,8 +56,8 @@
   margin-left: 60%;
   /* background-color: #F6d365; */
   /* border-radius: 45%; */
-  width: 70px;
-  height:30px;
+  width: 140rpx;
+  height:60rpx;
   border: none;
   border-color: white;
   background-color: white
@@ -86,8 +87,8 @@
 }
 .list_item{
 
-  border-top: 1px solid #EBEBEB;
-  /* border: 1px solid #e2e2e2; */
+  border-top: 2rpx solid #EBEBEB;
+  /* border: 2rpx solid #e2e2e2; */
   /* box-shadow: 6rpx 0; */
   margin-left: 10%;
   margin-right: 10%;
@@ -125,7 +126,7 @@
   margin-bottom: 5%
 }
 .label-text{
-  border: 1px solid #EEEEEE;
+  border: 2rpx solid #EEEEEE;
   border-radius: 20%;
   padding-right: 2%;
   padding-left: 2%
@@ -133,17 +134,17 @@
 .button{
   background-color: #F6d365;
   border-radius: 45%;
-  height: 45px;
-  width: 45px;
-  line-height: 40px; 
+  height: 90rpx;
+  width: 90rpx;
+  line-height: 80rpx; 
   font-size: 30pt;
   padding: 0;
   border-color: #F6d365
 
 }
 .null{
-  margin-top: 140px;
-  margin-left: 60px;
+  margin-top: 280rpx;
+  margin-left: 120rpx;
 }
 .nullText{
   font-size: 20pt;
