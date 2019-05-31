@@ -510,12 +510,14 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data);
+        for (var i = 0; i < res.data.data.length; i++) {
+          res.data.data[i].card.createTime = time.formatTime(res.data.data[i].card.createTime, 'Y/M/D h:m:s')
+          res.data.data[i].card.nextTime = time.formatTime(res.data.data[i].card.nextTime, 'Y/M/D h:m:s')
+
+        }
         that.setData({
           imgUrl: res.data.data
         })
-        console.log(res.data.data)
-        console.log(that.data.imgUrl[0].card.cardId);
       }
     });
   },
