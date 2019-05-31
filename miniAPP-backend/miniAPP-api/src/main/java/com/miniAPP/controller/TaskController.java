@@ -100,7 +100,7 @@ public class TaskController extends BasicController {
             data.put("keyword3", new TemplateDataVO(process[(int)percentage]+nt.format(percentage)));
 
             TemplateVO templateVO = new TemplateVO();
-            templateVO.setPage("");
+            templateVO.setPage("pages/cardDetail/cardDetail");
             templateVO.setTemplate_id(TEMPLATE_ID);
             templateVO.setTouser(frUserLoginMapper.selectByPrimaryKey(curr).getUserOpenid());
             templateVO.setForm_id(formID);
