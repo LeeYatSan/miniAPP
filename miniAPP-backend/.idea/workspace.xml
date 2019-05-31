@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d779e954-3b56-433c-a6e8-e5e2525c810c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/cardDetail/cardDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/cardDetail/cardDetail.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/cardDetail/cardDetail.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/cardDetail/cardDetail.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../miniAPP-frontend/pages/list/list.wxss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/miniAPP-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+            <state relative-caret-position="600">
+              <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -290,7 +291,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559283487408" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559292705824" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/miniAPP-mapper/src/main/java/com/miniAPP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -476,14 +477,7 @@
       <workItem from="1559118909965" duration="3853000" />
       <workItem from="1559209398487" duration="7267000" />
       <workItem from="1559236720342" duration="1736000" />
-      <workItem from="1559272752725" duration="1573000" />
-    </task>
-    <task id="LOCAL-00009" summary="完成艾宾浩斯遗忘曲线功能（未测试）&#10;完成/rememberCardOrNot接口（未测试）&#10;修改CardController接口部分错误实现">
-      <created>1557201414600</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1557201414600</updated>
+      <workItem from="1559272752725" duration="2508000" />
     </task>
     <task id="LOCAL-00010" summary="修复saveCard()中缺失的userInfo更新漏洞（未测试）&#10;修复/rememberCardOrNot 接口中缺失的userInfo更新漏洞（未测试）&#10;增加/getAllFamiliarCards 接口以获取所有熟记卡片（未测试）&#10;增加/getFamiliarCardNum 接口以获取所有熟记卡片的数量（未测试）&#10;更改数据库fr_user_info:删除forgetting_card字段，并将后端代码中对应部分代码进行修改（未测试）">
       <created>1557208766447</created>
@@ -821,11 +815,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559274383282</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="样式更新">
+      <created>1559283510080</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1559283510080</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251340000" />
+    <option name="totallyTimeSpent" value="252275000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -839,7 +840,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22832723" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22832723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -859,7 +860,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50061053" side_tool="true" weight="0.23265307" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.496337" visible="true" weight="0.19795918" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.496337" visible="true" weight="0.19795918" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.34387755" />
       <window_info anchor="bottom" id="JProfiler" order="15" />
@@ -881,7 +882,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修复了返回标签的问题" />
     <MESSAGE value="修复/getAllCardsByUserID返回数值问题&#10;提升推送消息" />
     <MESSAGE value="/getAllLabelsByUserID 改为只返回label_content&#10;/getAllCardsByUserID 修复返回值问题" />
     <MESSAGE value="修改/delCard接口底层逻辑，若删除的是某标签的最后一张卡片，该标签会自动删除&#10;CardService支持根据userID和labelContent删除某一标签（该功能还未使用）" />
@@ -906,7 +906,8 @@
     <MESSAGE value="前端更新" />
     <MESSAGE value="后端更新" />
     <MESSAGE value="list 样式更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="list 样式更新" />
+    <MESSAGE value="样式更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="样式更新" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/miniAPP-pojo/src/main/java/com/miniAPP/pojo/FrUserFormid.java">
@@ -1323,8 +1324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/miniAPP-api/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+        <state relative-caret-position="600">
+          <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
         </state>
       </provider>
     </entry>
