@@ -318,7 +318,7 @@ Page({
         imgsIndex: count
       })
     } else {
-      console.log("fasle");
+      console.log("false");
       index = index + 1;
       that.setData({
         imgsIndex: index
