@@ -13,7 +13,7 @@
          <view class='blank'></view>
          <label>{{imgUrl[imgsIndex].card.content}}</label>
          <view class='blank'></view>
-        <image class="imgshadow" bindload="cusImageLoad" class="avatar" src="{{imgUrl[imgsIndex].card.picUrl}}" style="height: {{imageHeight}}"></image>
+        <image class="imgshadow" bindload="cusImageLoad" class="avatar" src="http://134.175.11.69:8080/images/{{imgUrl[imgsIndex].card.userId}}/{{imgUrl[imgsIndex].card.picUrl}}" style="height: {{imageHeight}}"></image>
          
       </view>
      

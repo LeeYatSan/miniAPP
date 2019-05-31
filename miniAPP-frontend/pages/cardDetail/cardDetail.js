@@ -514,7 +514,7 @@ Page({
         that.setData({
           imgUrl: res.data.data
         })
-
+        console.log(res.data.data)
         console.log(that.data.imgUrl[0].card.cardId);
       }
     });
