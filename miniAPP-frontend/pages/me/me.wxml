@@ -9,19 +9,19 @@
 <view style='margin-left:8%;margin-top:70px;'>
 <view>
 <view style="margin-top:5%; margin-left:7%;float:left;">
-<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;"  data-c_e_id="wx_text_7418a433">13</text>
+<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;"  data-c_e_id="wx_text_7418a433">{{num}}</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
     卡片数量
 </view>
 </view>
 <view style="margin-top:5%;margin-left:7%;float:left;">
-<text  style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_7418a433">16</text>
+<text  style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_7418a433">{{unNum}}</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
     未熟记数
 </view>
 </view>
 <view style="margin-top:5%;margin-left:7%;float:left;">
-<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_b649bfe9">35</text>
+<text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_b649bfe9">{{day}}</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_7f497b0a">
     记录天数
 </view>

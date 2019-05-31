@@ -1,13 +1,75 @@
 // pages/me.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    num:app.globalData.totalCards,
+    unNum:0,
+    day:app.globalData.loginDays
   },
+  getNum:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.urlPath + '/getFamiliarCardNum',
+      data: {
+        userID: app.globalData.userID,
+        sessionToken: app.globalData.sessionToken
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        that.setData({
+          num:0
+        })
+      }
+    });
 
+  },
+  getDay:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.urlPath + '/getFamiliarCardNum',
+      data: {
+        userID: app.globalData.userID,
+        sessionToken: app.globalData.sessionToken
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        that.setData({
+          day:0
+        });
+      }
+    });
+  },
+  getUn:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.urlPath + '/getFamiliarCardNum',
+      data: {
+        userID: app.globalData.userID,
+        sessionToken: app.globalData.sessionToken
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          unNum:res.data
+        });
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,6 +87,9 @@ Page({
         })
       }
     });
+  //  this.getDay();
+    this.getNum();
+    //this.getUn();
   },
 
   /**
