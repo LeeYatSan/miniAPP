@@ -143,9 +143,9 @@ page {
   align-items:  flex-start; 
   min-height:  130rpx; }
 .text_Name1{
-  margin-left: 80rpx; 
+  margin-left: 56rpx; 
   display: block;
-  font-size: 40px;
+  font-size: 60rpx;
   }
 .image_HeadImg{
   width:  100rpx; 

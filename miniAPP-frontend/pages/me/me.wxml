@@ -4,23 +4,23 @@
 <view class="view_UserInf" data-c_e_id="wx_view_841eae11">
     <image class="image_HeadImg" data-c_e_id="wx_image_083b350a" mode="scaleToFill" src="{{userInfo.avatarUrl}}" style="background-size:  100% 100%; background-position:  0% 0%; background-repeat:  no-repeat; "/>
   <text class="text_Name1" data-c_e_id="wx_text_0de1d20f">{{userInfo.nickName}}</text>
-  <text style="margin-left:7%;margin-top:3%; color:#FF0000;" bindtap='quit'>退出登录</text>
+  <text style="margin-left:7%;margin-top:3%; color:#FF0000;" open-type="exit" >退出登录</text>
 </view>
-<view style='margin-left:15%;margin-top:70px;'>
+<view style='margin-left:8%;margin-top:70px;'>
 <view>
-<view style="margin-top:5%; margin-left:3%;float:left;">
+<view style="margin-top:5%; margin-left:7%;float:left;">
 <text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;"  data-c_e_id="wx_text_7418a433">13</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
     卡片数量
 </view>
 </view>
-<view style="margin-top:5%;margin-left:3%;float:left;">
+<view style="margin-top:5%;margin-left:7%;float:left;">
 <text  style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_7418a433">16</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_4f1ce468">
     未熟记数
 </view>
 </view>
-<view style="margin-top:5%;margin-left:3%;float:left;">
+<view style="margin-top:5%;margin-left:7%;float:left;">
 <text style="color:black; font-size:45px; margin-left:20%; font-weight:bold; text-align:center;" data-c_e_id="wx_text_b649bfe9">35</text>
 <view style="color:#ffc000"  data-c_e_id="wx_view_7f497b0a">
     记录天数
@@ -28,7 +28,7 @@
 </view>
 </view>
 </view>
-<view style='margin-left:100px;margin-top:300px;'>
+<view style='margin-left:100px;margin-top:55%;'>
 <view style="text-align:center;margin-left:-40%;margin-top:20%;"><text style='color:gray;'>橘猫记忆</text></view>
 <view style='text-align:center;margin-left:-40%;'><text style="color:gray;">不忘记任何知识点(=^x^=)</text></view>
 <view style='margin-top:2%;margin-left:20%'>
