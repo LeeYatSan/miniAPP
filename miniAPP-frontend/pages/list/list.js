@@ -190,7 +190,7 @@ input:function(res){
       index: e.currentTarget.dataset.id
     })
     wx.navigateTo({
-      url: '/pages/content/content',
+      url: '/pages/card/card',
     })
   },
 
